@@ -3,16 +3,17 @@ import "../assets/css/login.css"
 import LayoutType1 from '../components/LayoutType1';
 import Logo from "../assets/img/Logo_Fondo_Blanco.png";
 import Image from "../components/Image";
+import Login from "../containers/Login"
 
-const Login = () => {
+const LoginPage = () => {
     return (
         <div className="login">
             <LayoutType1 
                 boxOne={ <Image src={Logo} /> } 
-                boxTwo={"xd"} 
+                boxTwo={<Login/>} 
             />
         </div>
     );
 }
 
-export default Login;
+export default LoginPage;

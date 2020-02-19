@@ -6,8 +6,8 @@ import {
     Route
 } from "react-router-dom";
 import "./assets/css/index.css"
-import Login from "./pages/Login"
-import Register from "./pages/Register"
+import Login from "./pages/LoginPage"
+import Register from "./pages/RegisterPage"
 
 ReactDOM.render(
     <HashRouter>
