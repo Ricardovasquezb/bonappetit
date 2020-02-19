@@ -1,0 +1,14 @@
+.text-button{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: inherit;
+    height: 37px;
+    width: 120px;
+    cursor: pointer;
+    display: inline-block;
+    color: black;
+}
+.text-button:hover {
+    text-decoration:underline;
+}
