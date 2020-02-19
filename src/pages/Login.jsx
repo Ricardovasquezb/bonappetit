@@ -8,7 +8,7 @@ const Login = () => {
     return (
         <div className="login">
             <LayoutType1 
-                boxOne={ () => <Image src={Logo} />} 
+                boxOne={ <Image src={Logo} /> } 
                 boxTwo={"xd"} 
             />
         </div>
