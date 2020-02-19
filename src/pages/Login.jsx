@@ -5,9 +5,10 @@ import LayoutType1 from '../components/LayoutType1';
 const Login = () => {
     return (
         <div className="login">
-            <LayoutType1>
-
-            </LayoutType1>
+            <LayoutType1 
+                boxOne={"xd"} 
+                boxTwo={"xd"} 
+            />
         </div>
     );
 }
