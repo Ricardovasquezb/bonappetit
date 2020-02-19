@@ -1,15 +1,22 @@
 .layout-type-1 {
     display: flex;
-    height: 50%;
-    width: 60%;
-    border: 1px solid red;
-    align-items: center;
-    align-content: center;
+    height: 60%;
+    width: 70%;
     flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }
 
 .Box-1{
     height: 100%;
     width: 50%;
-    border:1px solid blue;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.vertical-line{
+    border-right: 2px solid gray;
+    
 }
