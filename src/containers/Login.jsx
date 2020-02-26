@@ -5,7 +5,8 @@ import '../assets/css/login.css'
 import TextInput from "../components/TextInput"
 import Card from "../components/Card"
 import { useHistory } from "react-router-dom"
-
+import useFirebase from "../hooks/firebase"
+import sweetalert from 'sweetalert';
 
 
 const Login = props => {
@@ -13,7 +14,6 @@ const Login = props => {
     const [password, setPassword] = useState("");
     const history = useHistory();
 
-    
 
     const handleUsername = e => {
         setUsername(e.target.value);
@@ -21,12 +21,14 @@ const Login = props => {
     const handlePassword = e => {
         setPassword(e.target.value);
     }
-
+    const firebase = useFirebase()();
+    
     //console.log(username,password)
-
+   
     return(
         <Card >
             <TextInput 
+                email
                 label="Usuario"
                 value={username}
                 change={handleUsername}
@@ -38,7 +40,7 @@ const Login = props => {
                 change={handlePassword}
             />            
             <Button darkmode click={ () => {
-                
+                history.push("/home")
             } }>
                Iniciar Sesión
             </Button>
@@ -56,9 +58,9 @@ const Login = props => {
                 </TextButton>
             </div>
            <div className='row'>
-           <Button  click={ () => {
-                
-            } }>
+           <Button  click={ ()=>{
+
+           } }>
                Iniciar con Google
             </Button>
             <Button darkmode click={ () => {
@@ -72,5 +74,6 @@ const Login = props => {
         </Card>
     )
 }
+
 
 export default Login

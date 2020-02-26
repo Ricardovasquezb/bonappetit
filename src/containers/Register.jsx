@@ -4,6 +4,8 @@ import '../assets/css/register.css'
 import TextInput from "../components/TextInput"
 import Card from '../components/Card'
 import { useHistory } from "react-router-dom"
+import useFirebase from "../hooks/firebase"
+import sweetalert from 'sweetalert';
 
 const Register = props => {
     const [name, setName] = useState("");
@@ -12,7 +14,8 @@ const Register = props => {
     const [password, setPassword] = useState("");
     const [repeatpass, setRepeatpass] = useState("");
     const history = useHistory();
-    
+    const firebase = useFirebase()();
+
     const handleName = e => {
         setName(e.target.value);
     }
@@ -59,7 +62,28 @@ const Register = props => {
                 change={handleRepeatpass}
             />            
             <Button darkmode click={ () => {
-                history.push("/login")
+                if(password===repeatpass){
+
+                }
+                firebase.signUp(email,password)
+                    .then((result) => {
+                        console.log(result)
+                        sweetalert("Registro Exitoso!", "Se ha registrado exitosamente!", "success")
+                        history.push("/login")
+                    })
+                    .catch((e) => {
+                        console.error(e)
+                        if(e.code === "auth/email-already-in-use"){
+                            sweetalert("Oops!", e.message , "error");    
+                                            }
+                        if(e.code === "auth/invalid-email"){
+                            sweetalert("Hey!", e.message , "error");    
+                                            }
+                        if(e.code === "auth/weak-password"){
+                            sweetalert("C'mon!", e.message , "warning");    
+                                            }
+                    });
+
             } }>
                Crear Cuenta
             </Button>

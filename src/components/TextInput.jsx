@@ -3,11 +3,13 @@ import "../assets/css/TextInput.css"
 
 const TextInput = props => {
 
-    const password =  props.password? "password":"text"
+    let type="text";  
+    if (props.password) type = "password"
+    if  (props.email) type = "email"
     return(
         <div className="text-input" >
             <span>{props.label}</span>
-            <input type={password} value={props.value} onChange={props.change} />
+            <input  required type={type} value={props.value} onChange={props.change} />
         </div>
     )
 }
