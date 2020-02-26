@@ -1,12 +1,16 @@
 import React from 'react'
 import "../assets/css/register.css"
+import LayoutType2 from '../components/LayoutType2'
+import Register from '../containers/Register'
 
-const Register = props => {
+const RegisterPage = props => {
     return(
         <div className="register">
-            registro
+            <LayoutType2
+            Box={<Register/>}
+            /> 
         </div>
     )
 }
 
-export default Register
+export default RegisterPage

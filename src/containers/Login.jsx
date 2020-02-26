@@ -4,12 +4,16 @@ import TextButton from '../components/textButton'
 import '../assets/css/login.css'
 import TextInput from "../components/TextInput"
 import Card from "../components/Card"
+import { useHistory } from "react-router-dom"
 
 
 
 const Login = props => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const history = useHistory();
+
+    
 
     const handleUsername = e => {
         setUsername(e.target.value);
@@ -46,7 +50,7 @@ const Login = props => {
                 </TextButton>
                 <div className="below-line" />
                 <TextButton click={ () => {
-                
+                history.push("/register")
             } }>
                     ¿No tienes una cuenta?
                 </TextButton>
@@ -58,7 +62,7 @@ const Login = props => {
                Iniciar con Google
             </Button>
             <Button darkmode click={ () => {
-                
+                history.push("/register")
             } }>
                Crear cuenta
             </Button>
