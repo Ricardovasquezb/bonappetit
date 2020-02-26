@@ -1,0 +1,23 @@
+.navigation-bar{
+    background-color: #F7F8F9;
+    overflow: hidden;
+}
+
+.navigation-bar a {
+    justify-content: space-between;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.navigation-bar:hover {
+    background-color: #ddd;
+    color:black
+}
+
+.navigation-bar a:active{
+    background-color: #f27980;
+    color: white
+}
