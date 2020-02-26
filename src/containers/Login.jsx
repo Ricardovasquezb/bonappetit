@@ -44,7 +44,7 @@ const Login = props => {
             </Button>
             <div className='column'>
                 <TextButton click={ () => {
-                
+                history.push("/forgot-password")
             } }>
                     Olvidé mi contraseña
                 </TextButton>

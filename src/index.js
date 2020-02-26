@@ -8,6 +8,7 @@ import {
 import "./assets/css/index.css"
 import Login from "./pages/LoginPage"
 import Register from "./pages/RegisterPage"
+import ForgotPassword from './pages/ForgotPasswordPage';
 
 ReactDOM.render(
     <HashRouter>
@@ -17,6 +18,9 @@ ReactDOM.render(
             </Route>
             <Route exact path="/register">
                 <Register />
+            </Route>
+            <Route exact path="/forgot-password">
+                <ForgotPassword />
             </Route>
         </Switch>
     </HashRouter>,
