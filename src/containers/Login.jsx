@@ -13,6 +13,7 @@ const Login = props => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const history = useHistory();
+    const firebase = useFirebase()();
 
 
     const handleUsername = e => {
@@ -21,7 +22,6 @@ const Login = props => {
     const handlePassword = e => {
         setPassword(e.target.value);
     }
-    const firebase = useFirebase()();
     
     //console.log(username,password)
    
@@ -40,7 +40,16 @@ const Login = props => {
                 change={handlePassword}
             />            
             <Button darkmode click={ () => {
-                history.push("/home")
+                firebase.signIn(username,password)
+                    .then((result)=> {
+                        console.log(result)
+                        sweetalert("Estas dentro!","","success")
+                        history.push("/home")
+                    })
+                    .catch((e)=>{
+
+                    })
+                
             } }>
                Iniciar Sesión
             </Button>

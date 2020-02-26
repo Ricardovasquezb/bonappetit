@@ -15,7 +15,7 @@ const providers = {
 const Firebase = props => {
     return () => ({
         signUp: (email, password) => firebase.auth().createUserWithEmailAndPassword(email, password),
-        signIn: (email, password)=> Firebase.auth().signInWithEmailAndPassword(email, password),
+        signIn: (email, password)=> firebase.auth().signInWithEmailAndPassword(email, password),
     })
 }
 
