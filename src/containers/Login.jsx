@@ -25,7 +25,6 @@ const Login = props => {
         setPassword(e.target.value);
     }
     
-    //console.log(username,password)
    
    return(
        <Consumer>
