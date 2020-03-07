@@ -1,6 +1,7 @@
 import React from "react";
 import "../assets/css/homepg.css";
-//import "../assets/img/Logo_Fondo_Blanco.png";
+import Logo from "../assets/img/Logo_Fondo_Blanco.png";
+import Image from "../components/Image";
 
 const Homepg = props => {
   return (
@@ -521,10 +522,7 @@ const Homepg = props => {
           <div id="ANUNCIOS">
             <span>ANUNCIOS</span>
           </div>
-          <img
-            id="Logo_Fondo_Blanco"
-            src="/assets/img/Logo_Fondo_Blanco.png"
-          ></img>
+          <Image id="Logo_Fondo_Blanco" src={Logo} />
         </div>
         <div id="subscribe">
           <svg class="field">
@@ -704,9 +702,9 @@ const Homepg = props => {
         <div onclick="application.goToTargetView(event)" id="MIS_RESERVACIONES">
           <span>MIS RESERVACIONES</span>
         </div>
-        <img id="UserPhoto" src="account.png"></img>
+        <img id="UserPhoto" src="../assets/img/account.png"></img>
+        <Image id="Logo_Fondo_Blanco_fd" src={Logo} />
       </div>
-      <img id="Logo_Fondo_Blanco_fd" src="/assets/img/Logo_Fondo_Blanco.png" />
       <img
         id="Image_fe"
         src="Image_fe.png"
