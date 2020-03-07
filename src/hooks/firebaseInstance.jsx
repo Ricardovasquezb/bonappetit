@@ -1,26 +1,26 @@
 import React from 'react'
 import withFirebaseAuth from 'react-with-firebase-auth'
 import * as firebase from 'firebase/app';
-import 'firebase/auth';
+import 'firebase/auth'
+import 'firebase/database'
 import firebaseConfig from '../firebaseConfig';
-
 
 const firebaseApp = firebase.initializeApp(firebaseConfig);
 
 const firebaseAppAuth = firebaseApp.auth();
+const firebaseDatabase = firebaseApp.database();
 const providers = {
   googleProvider: new firebase.auth.GoogleAuthProvider(),
 };
 
-const Firebase = props => {
-    return () => ({
-        signUp: (email, password) => firebase.auth().createUserWithEmailAndPassword(email, password),
-        signIn: (email, password)=> firebase.auth().signInWithEmailAndPassword(email, password),
-    })
+
+const firebaseInstance = () => { 
+    return {
+        firebaseApp,
+        firebaseAppAuth,
+        providers,
+        firebaseDatabase
+    }
 }
 
-
-export default Firebase
-
-
-
+export default firebaseInstance

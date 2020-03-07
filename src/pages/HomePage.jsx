@@ -4,7 +4,7 @@ import Home from '../containers/Home'
 const HomePage = props => {
     return(
         <div>
-            <text>temporary home page</text>
+            <h1>temporary home page</h1>
         </div>
     )
 }
