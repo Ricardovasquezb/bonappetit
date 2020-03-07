@@ -25,7 +25,7 @@ const Register = props => {
                 contextResult => {
                     const firebase = {
                         signUp: (email, password) => contextResult.firebaseAppAuth.createUserWithEmailAndPassword(email, password),
-                        write: (user,uid) =>contextResult.firebaseDatabase.ref(`users/${uid}`).push(user)
+                        write: (user,uid) =>contextResult.firebaseDatabase.ref(`users/${uid}`).set(user)
                     }
 
                     const handleName = e => {
@@ -83,7 +83,7 @@ const Register = props => {
                                         firebase.write({
                                             name,
                                             lastname,
-                                            role: 'user',
+                                            role: 'client',
                                             imgUrl
                                         },uid)
                                             .then(value => {
