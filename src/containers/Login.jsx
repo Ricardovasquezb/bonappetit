@@ -8,7 +8,7 @@ import { useHistory } from "react-router-dom"
 import sweetalert from 'sweetalert'
 import firebaseContext from "../hooks/firebaseContext"
 
-const Consumer = firebaseContext
+const Consumer = firebaseContext.Consumer
 
 
 
@@ -54,9 +54,10 @@ const Login = props => {
                         <Button darkmode click={ () => {
                             firebase.signIn(username,password)
                                 .then((result)=> {
-                                    console.log(result, result.user.uid)
+                                    console.log(result)
                                     const uid = result.user.uid
-                                    sweetalert("Estas dentro!","","success")
+                                    localStorage.setItem("user",uid)
+                                    // sweetalert("Estas dentro!","","success")
                                     history.push("/home")
                                 })
                                 .catch((e)=>{
