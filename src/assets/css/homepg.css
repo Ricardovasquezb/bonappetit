@@ -1,0 +1,1915 @@
+.mediaViewInfo {
+  --web-view-name: HomePage;
+  --web-view-id: HomePage;
+  --web-scale-on-resize: true;
+  --web-enable-deep-linking: true;
+}
+:root {
+  --web-view-ids: HomePage;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border: none;
+}
+#HomePage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 1);
+  --web-view-name: HomePage;
+  --web-view-id: HomePage;
+  --web-scale-on-resize: true;
+  --web-enable-deep-linking: true;
+}
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+#OFERTAS {
+  position: absolute;
+  left: 187px;
+  top: 1170px;
+  overflow: hidden;
+  width: 1028px;
+  height: 20px;
+  text-align: left;
+  font-family: Helvetica;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  color: rgba(32, 33, 36, 1);
+}
+#trending {
+  position: absolute;
+  width: 1546.333px;
+  height: 410px;
+  left: 187px;
+  top: 762px;
+  overflow: hidden;
+}
+#trending_o {
+  position: absolute;
+  width: 1546.333px;
+  height: 410px;
+  left: 0px;
+  top: 0px;
+  overflow: visible;
+}
+#Repeat_Grid_5 {
+  position: absolute;
+  width: 1546px;
+  height: 350px;
+  left: 0px;
+  top: 60px;
+  overflow: hidden;
+}
+#Group_2 {
+  position: absolute;
+  width: 360px;
+  height: 350px;
+  left: 0px;
+  top: 0px;
+  overflow: visible;
+}
+#Base {
+  position: absolute;
+  width: 360px;
+  height: 350px;
+  left: 0px;
+  top: 0px;
+  overflow: visible;
+  --web-animation: fadein 0.3s ease-out;
+  --web-action-type: page;
+  --web-action-target: ReservatonPage.html;
+  cursor: pointer;
+}
+.Base_s {
+  position: absolute;
+  overflow: visible;
+  width: 360px;
+  height: 180px;
+  left: 0px;
+  top: 170px;
+}
+#Image {
+  position: absolute;
+  width: 360px;
+  height: 180px;
+  left: 0px;
+  top: 0px;
+  overflow: visible;
+}
+#Mes_n_de_la_Cava {
+  position: absolute;
+  left: 40px;
+  top: 220px;
+  overflow: visible;
+  width: 281px;
+  height: 16px;
+  line-height: 20px;
+  margin-top: -2px;
+  text-align: left;
+  font-family: Helvetica;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  color: rgba(32, 33, 36, 1);
+}
+#Lorem_ipsum_dolor_sit_amet__ip {
+  position: absolute;
+  left: 40px;
+  top: 246px;
+  overflow: visible;
+  width: 281px;
+  height: 38px;
+  line-height: 23px;
+  margin-top: -5px;
+  text-align: left;
+  font-family: Acumin Pro;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  color: rgba(166, 173, 180, 1);
+}
+#time {
+  position: absolute;
+  width: 70px;
+  height: 16px;
+  left: 40px;
+  top: 294px;
+  overflow: visible;
+}
+#ID2m_ago {
+  position: absolute;
+  left: 26px;
+  top: 3px;
+  overflow: visible;
+  width: 45px;
+  white-space: nowrap;
+  line-height: 26px;
+  margin-top: -6.5px;
+  text-align: left;
+  font-family: Helvetica;
+  font-style: italic;
+  font-weight: normal;
+  font-size: 13px;
+  color: rgba(166, 173, 180, 1);
+}
+#time_y {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  left: 0px;
+  top: 0px;
+  overflow: visible;
+}
+.Path_5 {
+  overflow: visible;
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  left: 0px;
+  top: 0px;
+  transform: matrix(1, 0, 0, 1, 0, 0);
+}
+#Group_2_ {
+  position: absolute;
+  width: 360px;
+  height: 350px;
+  left: 400px;
+  top: 0px;
+  overflow: visible;
+}
+#Base_ {
+  position: absolute;
+  width: 360px;
+  height: 350px;
+  left: 0px;
+  top: 0px;
+  overflow: visible;
+}
+.Base_ba {
+  position: absolute;
+  overflow: visible;
+  width: 360px;
+  height: 180px;
+  left: 0px;
+  top: 170px;
+}
+#o {
+  position: absolute;
+  width: 360px;
+  height: 180px;
+  left: 0px;
+  top: 0px;
+  overflow: visible;
+}
+#Mes_n_de_la_Iberia {
+  position: absolute;
+  left: 40px;
+  top: 220px;
+  overflow: visible;
+  width: 281px;
+  height: 16px;
+  line-height: 20px;
+  margin-top: -2px;
+  text-align: left;
+  font-family: Helvetica;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  color: rgba(32, 33, 36, 1);
+}
+#Lorem_ipsum_dolor_sit_amet__ip_ {
+  position: absolute;
+  left: 40px;
+  top: 246px;
+  overflow: visible;
+  width: 281px;
+  height: 38px;
+  line-height: 23px;
+  margin-top: -5px;
+  text-align: left;
+  font-family: Acumin Pro;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  color: rgba(166, 173, 180, 1);
+}
+#time_ {
+  position: absolute;
+  width: 66px;
+  height: 16px;
+  left: 40px;
+  top: 294px;
+  overflow: visible;
+}
+#ID1h_ago {
+  position: absolute;
+  left: 26px;
+  top: 3px;
+  overflow: visible;
+  width: 41px;
+  white-space: nowrap;
+  line-height: 26px;
+  margin-top: -6.5px;
+  text-align: left;
+  font-family: Helvetica;
+  font-style: italic;
+  font-weight: normal;
+  font-size: 13px;
+  color: rgba(166, 173, 180, 1);
+}
+#time_ba {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  left: 0px;
+  top: 0px;
+  overflow: visible;
+}
+.Path_5_ {
+  overflow: visible;
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  left: 0px;
+  top: 0px;
+  transform: matrix(1, 0, 0, 1, 0, 0);
+}
+#Group_2_ba {
+  position: absolute;
+  width: 360px;
+  height: 350px;
+  left: 800px;
+  top: 0px;
+  overflow: visible;
+}
+#Base_bb {
+  position: absolute;
+  width: 360px;
+  height: 350px;
+  left: 0px;
+  top: 0px;
+  overflow: visible;
+}
+.Base_bc {
+  position: absolute;
+  overflow: visible;
+  width: 360px;
+  height: 180px;
+  left: 0px;
+  top: 170px;
+}
+#scherezade_santo_domingo_02 {
+  position: absolute;
+  width: 360px;
+  height: 180px;
+  left: 0px;
+  top: 0px;
+  overflow: visible;
+}
+#Scherezade_Restaurante {
+  position: absolute;
+  left: 40px;
+  top: 220px;
+  overflow: visible;
+  width: 281px;
+  height: 16px;
+  line-height: 20px;
+  margin-top: -2px;
+  text-align: left;
+  font-family: Helvetica;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  color: rgba(32, 33, 36, 1);
+}
+#Lorem_ipsum_dolor_sit_amet__ip_bf {
+  position: absolute;
+  left: 40px;
+  top: 246px;
+  overflow: visible;
+  width: 281px;
+  height: 38px;
+  line-height: 23px;
+  margin-top: -5px;
+  text-align: left;
+  font-family: Acumin Pro;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  color: rgba(166, 173, 180, 1);
+}
+#time_bg {
+  position: absolute;
+  width: 66px;
+  height: 16px;
+  left: 40px;
+  top: 294px;
+  overflow: visible;
+}
+#ID3h_ago {
+  position: absolute;
+  left: 26px;
+  top: 3px;
+  overflow: visible;
+  width: 41px;
+  white-space: nowrap;
+  line-height: 26px;
+  margin-top: -6.5px;
+  text-align: left;
+  font-family: Helvetica;
+  font-style: italic;
+  font-weight: normal;
+  font-size: 13px;
+  color: rgba(166, 173, 180, 1);
+}
+#time_bi {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  left: 0px;
+  top: 0px;
+  overflow: visible;
+}
+.Path_5_bj {
+  overflow: visible;
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  left: 0px;
+  top: 0px;
+  transform: matrix(1, 0, 0, 1, 0, 0);
+}
+#Group_2_bk {
+  position: absolute;
+  width: 360px;
+  height: 350px;
+  left: 1200px;
+  top: 0px;
+  overflow: visible;
+}
+#Base_bl {
+  position: absolute;
+  width: 360px;
+  height: 350px;
+  left: 0px;
+  top: 0px;
+  overflow: visible;
+}
+.Base_bm {
+  position: absolute;
+  overflow: visible;
+  width: 360px;
+  height: 180px;
+  left: 0px;
+  top: 170px;
+}
+#img07_03_2019_765081566 {
+  position: absolute;
+  width: 360px;
+  height: 180px;
+  left: 0px;
+  top: 0px;
+  overflow: visible;
+}
+#Peperoni_Santo_Domingo {
+  position: absolute;
+  left: 40px;
+  top: 220px;
+  overflow: visible;
+  width: 281px;
+  height: 16px;
+  line-height: 20px;
+  margin-top: -2px;
+  text-align: left;
+  font-family: Helvetica;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  color: rgba(32, 33, 36, 1);
+}
+#Lorem_ipsum_dolor_sit_amet__ip_bp {
+  position: absolute;
+  left: 40px;
+  top: 246px;
+  overflow: visible;
+  width: 281px;
+  height: 38px;
+  line-height: 23px;
+  margin-top: -5px;
+  text-align: left;
+  font-family: Acumin Pro;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  color: rgba(166, 173, 180, 1);
+}
+#time_bq {
+  position: absolute;
+  width: 66px;
+  height: 16px;
+  left: 40px;
+  top: 294px;
+  overflow: visible;
+}
+#ID3h_ago_br {
+  position: absolute;
+  left: 26px;
+  top: 3px;
+  overflow: visible;
+  width: 41px;
+  white-space: nowrap;
+  line-height: 26px;
+  margin-top: -6.5px;
+  text-align: left;
+  font-family: Helvetica;
+  font-style: italic;
+  font-weight: normal;
+  font-size: 13px;
+  color: rgba(166, 173, 180, 1);
+}
+#time_bs {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  left: 0px;
+  top: 0px;
+  overflow: visible;
+}
+.Path_5_bt {
+  overflow: visible;
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  left: 0px;
+  top: 0px;
+  transform: matrix(1, 0, 0, 1, 0, 0);
+}
+#title {
+  position: absolute;
+  width: 1546.333px;
+  height: 20px;
+  left: 0px;
+  top: 0px;
+  overflow: visible;
+}
+#RESTAURANTES {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  overflow: hidden;
+  width: 1413px;
+  height: 20px;
+  text-align: left;
+  font-family: Helvetica;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  color: rgba(32, 33, 36, 1);
+}
+#next___previous {
+  position: absolute;
+  width: 52.333px;
+  height: 10px;
+  left: 1494px;
+  top: 5px;
+  overflow: visible;
+}
+#arrow {
+  position: absolute;
+  width: 6px;
+  height: 10px;
+  left: 46.333px;
+  top: 0px;
+  overflow: visible;
+}
+.arrow_by {
+  overflow: visible;
+  position: absolute;
+  width: 10px;
+  height: 6px;
+  transform: translate(0px, 0px) matrix(1, 0, 0, 1, -2, 2) rotate(-90deg);
+  transform-origin: center;
+  left: 0px;
+  top: 0px;
+}
+#arrow_back {
+  opacity: 0.3;
+  position: absolute;
+  width: 6px;
+  height: 10px;
+  left: 0px;
+  top: 0px;
+  overflow: visible;
+}
+.arrow_back_b {
+  overflow: visible;
+  position: absolute;
+  width: 10px;
+  height: 6px;
+  transform: translate(0px, 0px) matrix(1, 0, 0, 1, -2, 2) rotate(90deg);
+  transform-origin: center;
+  left: 0px;
+  top: 0px;
+}
+#more_news {
+  position: absolute;
+  width: 800px;
+  height: 521px;
+  left: 1120px;
+  top: 227px;
+  overflow: visible;
+  --web-animation: fadein 0.3s linear;
+  --web-action-type: page;
+  --web-action-target: Web_1920___2.html;
+  cursor: pointer;
+}
+.Base_b {
+  position: absolute;
+  overflow: visible;
+  width: 800px;
+  height: 521px;
+  left: 0px;
+  top: 0px;
+}
+#title_b {
+  position: absolute;
+  width: 389.092px;
+  height: 60.044px;
+  left: 190.908px;
+  top: 82px;
+  overflow: visible;
+}
+#PROXIMAS_RESERVACIONES {
+  position: absolute;
+  left: 0.092px;
+  top: 0px;
+  overflow: visible;
+  width: 390px;
+  height: 27px;
+  text-align: left;
+  font-family: Helvetica;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  color: rgba(32, 33, 36, 1);
+}
+#arrow_b {
+  position: absolute;
+  width: 6px;
+  height: 10px;
+  left: 374px;
+  top: 8.044px;
+  overflow: visible;
+}
+.arrow_ca {
+  overflow: visible;
+  position: absolute;
+  width: 10px;
+  height: 6px;
+  transform: translate(0px, 0px) matrix(1, 0, 0, 1, -2, 2) rotate(-90deg);
+  transform-origin: center;
+  left: 0px;
+  top: 0px;
+}
+#arrow_back_ca {
+  opacity: 0.3;
+  position: absolute;
+  width: 6px;
+  height: 10px;
+  left: 328.092px;
+  top: 5px;
+  overflow: visible;
+}
+.arrow_back_cb {
+  overflow: visible;
+  position: absolute;
+  width: 10px;
+  height: 6px;
+  transform: translate(0px, 0px) matrix(1, 0, 0, 1, -2, 2) rotate(90deg);
+  transform-origin: center;
+  left: 0px;
+  top: 0px;
+}
+.divider {
+  overflow: visible;
+  position: absolute;
+  width: 382px;
+  height: 2px;
+  left: 0px;
+  top: 60.044px;
+  transform: matrix(1, 0, 0, 1, 0, 0);
+}
+#new {
+  position: absolute;
+  width: 380px;
+  height: 316px;
+  left: 191px;
+  top: 134px;
+  overflow: hidden;
+}
+#new_cb {
+  position: absolute;
+  width: 420px;
+  height: 129px;
+  left: 0px;
+  top: 1px;
+  overflow: visible;
+}
+#Restaurant-Title-next-up {
+  position: absolute;
+  left: 0px;
+  top: 10px;
+  overflow: hidden;
+  width: 421px;
+  height: 17px;
+  line-height: 20px;
+  margin-top: -2px;
+  text-align: left;
+  font-family: Helvetica;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  color: rgba(250, 105, 128, 1);
+}
+#Junta_ejecutiva {
+  position: absolute;
+  left: 0px;
+  top: 34px;
+  overflow: visible;
+  width: 421px;
+  height: 16px;
+  line-height: 20px;
+  margin-top: -2px;
+  text-align: left;
+  font-family: Helvetica;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  color: rgba(32, 33, 36, 1);
+}
+#Lorem_ipsum_dolor_sit_amet__ip_ce {
+  position: absolute;
+  left: 0px;
+  top: 60px;
+  overflow: visible;
+  width: 381px;
+  height: 43px;
+  line-height: 26px;
+  margin-top: -5px;
+  text-align: left;
+  font-family: Acumin Pro;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  color: rgba(166, 173, 180, 1);
+}
+#time_cf {
+  position: absolute;
+  width: 208px;
+  height: 16px;
+  left: 0px;
+  top: 113px;
+  overflow: visible;
+}
+#DateStyle {
+  position: absolute;
+  left: 26px;
+  top: 2px;
+  overflow: visible;
+  width: 183px;
+  height: 13px;
+  line-height: 26px;
+  margin-top: -6.5px;
+  text-align: left;
+  font-family: Helvetica;
+  font-style: italic;
+  font-weight: normal;
+  font-size: 13px;
+  color: rgba(166, 173, 180, 1);
+}
+#time_ch {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  left: 0px;
+  top: 0px;
+  overflow: visible;
+}
+.Path_5_ci {
+  overflow: visible;
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  left: 0px;
+  top: 0px;
+  transform: matrix(1, 0, 0, 1, 0, 0);
+}
+#new_cj {
+  position: absolute;
+  width: 420px;
+  height: 129px;
+  left: 0px;
+  top: 170px;
+  overflow: visible;
+}
+#Junta_ejecutiva_cl {
+  position: absolute;
+  left: 0px;
+  top: 34px;
+  overflow: visible;
+  width: 421px;
+  height: 16px;
+  line-height: 20px;
+  margin-top: -2px;
+  text-align: left;
+  font-family: Helvetica;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  color: rgba(32, 33, 36, 1);
+}
+#Lorem_ipsum_dolor_sit_amet__ip_cm {
+  position: absolute;
+  left: 0px;
+  top: 60px;
+  overflow: visible;
+  width: 381px;
+  height: 43px;
+  line-height: 26px;
+  margin-top: -5px;
+  text-align: left;
+  font-family: Acumin Pro;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  color: rgba(166, 173, 180, 1);
+}
+#time_cn {
+  position: absolute;
+  width: 208px;
+  height: 16px;
+  left: 0px;
+  top: 113px;
+  overflow: visible;
+}
+#Sabado__11_de_enero_2020 {
+  position: absolute;
+  left: 26px;
+  top: 2px;
+  overflow: visible;
+  width: 183px;
+  height: 13px;
+  line-height: 26px;
+  margin-top: -6.5px;
+  text-align: left;
+  font-family: Helvetica;
+  font-style: italic;
+  font-weight: normal;
+  font-size: 13px;
+  color: rgba(166, 173, 180, 1);
+}
+#time_cp {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  left: 0px;
+  top: 0px;
+  overflow: visible;
+}
+.Path_5_cq {
+  overflow: visible;
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  left: 0px;
+  top: 0px;
+  transform: matrix(1, 0, 0, 1, 0, 0);
+}
+#right_column {
+  position: absolute;
+  width: 421px;
+  height: 951px;
+  left: 1312px;
+  top: 1177px;
+  overflow: visible;
+}
+#next___previous_cs {
+  position: absolute;
+  width: 52.78px;
+  height: 10px;
+  left: 368px;
+  top: 0px;
+  overflow: visible;
+}
+#arrow_ct {
+  position: absolute;
+  width: 6px;
+  height: 10px;
+  left: 46.78px;
+  top: 0px;
+  overflow: visible;
+}
+.arrow_cu {
+  overflow: visible;
+  position: absolute;
+  width: 10px;
+  height: 6px;
+  transform: translate(0px, 0px) matrix(1, 0, 0, 1, -2, 2) rotate(-90deg);
+  transform-origin: center;
+  left: 0px;
+  top: 0px;
+}
+#arrow_back_cv {
+  opacity: 0.3;
+  position: absolute;
+  width: 6px;
+  height: 10px;
+  left: 0px;
+  top: 0px;
+  overflow: visible;
+}
+.arrow_back_cw {
+  overflow: visible;
+  position: absolute;
+  width: 10px;
+  height: 6px;
+  transform: translate(0px, 0px) matrix(1, 0, 0, 1, -2, 2) rotate(90deg);
+  transform-origin: center;
+  left: 0px;
+  top: 0px;
+}
+#new_cx {
+  position: absolute;
+  width: 421px;
+  height: 272px;
+  left: 0px;
+  top: 55px;
+  overflow: visible;
+}
+#RESTAURANTE_TRATTORIA_BOCCELLI {
+  position: absolute;
+  left: 0px;
+  top: 230px;
+  overflow: visible;
+  width: 422px;
+  height: 16px;
+  line-height: 26px;
+  margin-top: -5px;
+  text-align: left;
+  font-family: Acumin Pro;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  color: rgba(32, 33, 36, 1);
+}
+#img22_09_2017_1135648597 {
+  position: absolute;
+  width: 421px;
+  height: 210px;
+  left: 0px;
+  top: 0px;
+  overflow: visible;
+}
+#time_c {
+  position: absolute;
+  width: 151px;
+  height: 16px;
+  left: 0px;
+  top: 256px;
+  overflow: visible;
+}
+#ID3h_ago_by_Worldnews {
+  position: absolute;
+  left: 26px;
+  top: 3px;
+  overflow: visible;
+  width: 126px;
+  white-space: nowrap;
+  line-height: 26px;
+  margin-top: -6.5px;
+  text-align: left;
+  font-family: Helvetica;
+  font-style: italic;
+  font-weight: normal;
+  font-size: 13px;
+  color: rgba(166, 173, 180, 1);
+}
+#time_da {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  left: 0px;
+  top: 0px;
+  overflow: visible;
+}
+.Path_5_c {
+  overflow: visible;
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  left: 0px;
+  top: 0px;
+  transform: matrix(1, 0, 0, 1, 0, 0);
+}
+#new_c {
+  position: absolute;
+  width: 421px;
+  height: 272px;
+  left: 0px;
+  top: 367px;
+  overflow: visible;
+}
+#RESTAURANTE_DON_PEPE {
+  position: absolute;
+  left: 0px;
+  top: 230px;
+  overflow: visible;
+  width: 422px;
+  height: 16px;
+  line-height: 26px;
+  margin-top: -5px;
+  text-align: left;
+  font-family: Acumin Pro;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  color: rgba(32, 33, 36, 1);
+}
+#filename_img_2456_jpg {
+  position: absolute;
+  width: 421px;
+  height: 210px;
+  left: 0px;
+  top: 0px;
+  overflow: visible;
+}
+#time_db {
+  position: absolute;
+  width: 117px;
+  height: 16px;
+  left: 0px;
+  top: 256px;
+  overflow: visible;
+}
+#ID4h_ago_by_Days {
+  position: absolute;
+  left: 26px;
+  top: 3px;
+  overflow: visible;
+  width: 92px;
+  white-space: nowrap;
+  line-height: 26px;
+  margin-top: -6.5px;
+  text-align: left;
+  font-family: Helvetica;
+  font-style: italic;
+  font-weight: normal;
+  font-size: 13px;
+  color: rgba(166, 173, 180, 1);
+}
+#time_dc {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  left: 0px;
+  top: 0px;
+  overflow: visible;
+}
+.Path_5_da {
+  overflow: visible;
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  left: 0px;
+  top: 0px;
+  transform: matrix(1, 0, 0, 1, 0, 0);
+}
+#new_db {
+  position: absolute;
+  width: 421px;
+  height: 272px;
+  left: 0px;
+  top: 679px;
+  overflow: visible;
+}
+#MUELLE_47___SEAFOOD_CULTURE {
+  position: absolute;
+  left: 0px;
+  top: 230px;
+  overflow: visible;
+  width: 422px;
+  height: 16px;
+  line-height: 26px;
+  margin-top: -5px;
+  text-align: left;
+  font-family: Acumin Pro;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  color: rgba(32, 33, 36, 1);
+}
+#photo0jpg {
+  position: absolute;
+  width: 421px;
+  height: 210px;
+  left: 0px;
+  top: 0px;
+  overflow: visible;
+}
+#time_de {
+  position: absolute;
+  width: 129px;
+  height: 16px;
+  left: 0px;
+  top: 256px;
+  overflow: visible;
+}
+#ID3h_ago_by_Monica {
+  position: absolute;
+  left: 26px;
+  top: 3px;
+  overflow: visible;
+  width: 104px;
+  white-space: nowrap;
+  line-height: 26px;
+  margin-top: -6.5px;
+  text-align: left;
+  font-family: Helvetica;
+  font-style: italic;
+  font-weight: normal;
+  font-size: 13px;
+  color: rgba(166, 173, 180, 1);
+}
+#time_dg {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  left: 0px;
+  top: 0px;
+  overflow: visible;
+}
+.Path_5_dh {
+  overflow: visible;
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  left: 0px;
+  top: 0px;
+  transform: matrix(1, 0, 0, 1, 0, 0);
+}
+#big_new {
+  position: absolute;
+  width: 1061px;
+  height: 430px;
+  left: 187px;
+  top: 1231px;
+  overflow: visible;
+}
+#Image_dj {
+  position: absolute;
+  width: 1061px;
+  height: 430px;
+  left: 0px;
+  top: 0px;
+  overflow: visible;
+}
+#info {
+  position: absolute;
+  width: 981px;
+  height: 102px;
+  left: 40px;
+  top: 288px;
+  overflow: visible;
+}
+#Lorem_ipsum_dolor_sit_amet__in {
+  position: absolute;
+  left: 0px;
+  top: 34px;
+  overflow: visible;
+  width: 982px;
+  height: 42px;
+  line-height: 26px;
+  margin-top: -5px;
+  text-align: left;
+  font-family: Helvetica;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 1);
+}
+#MILA_RESTAURANTE {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  overflow: visible;
+  width: 982px;
+  height: 24px;
+  line-height: 34px;
+  margin-top: -5px;
+  text-align: left;
+  font-family: Helvetica;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  color: rgba(255, 255, 255, 1);
+}
+#time_dn {
+  position: absolute;
+  width: 68px;
+  height: 16px;
+  left: 0px;
+  top: 86px;
+  overflow: visible;
+}
+#ID2m_ago_do {
+  position: absolute;
+  left: 24px;
+  top: 3px;
+  overflow: visible;
+  width: 45px;
+  white-space: nowrap;
+  line-height: 26px;
+  margin-top: -6.5px;
+  text-align: left;
+  font-family: Helvetica;
+  font-style: italic;
+  font-weight: normal;
+  font-size: 13px;
+  color: rgba(203, 208, 211, 1);
+}
+#time_dp {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  left: 0px;
+  top: 0px;
+  overflow: visible;
+}
+.Path_5_dq {
+  overflow: visible;
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  left: 0px;
+  top: 0px;
+  transform: matrix(1, 0, 0, 1, 0, 0);
+}
+#Santo_Domingo {
+  position: absolute;
+  left: 40px;
+  top: 40px;
+  overflow: visible;
+  width: 992px;
+  height: 16px;
+  line-height: 20px;
+  margin-top: -2px;
+  text-align: left;
+  font-family: Helvetica;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 1);
+}
+#big_new_ds {
+  position: absolute;
+  width: 1061px;
+  height: 430px;
+  left: 187px;
+  top: 1702px;
+  overflow: visible;
+}
+#Image_dt {
+  position: absolute;
+  width: 1061px;
+  height: 430px;
+  left: 0px;
+  top: 0px;
+  overflow: visible;
+}
+#info_du {
+  position: absolute;
+  width: 981px;
+  height: 102px;
+  left: 40px;
+  top: 288px;
+  overflow: visible;
+}
+#Lorem_ipsum_dolor_sit_amet__in_dv {
+  position: absolute;
+  left: 0px;
+  top: 34px;
+  overflow: visible;
+  width: 982px;
+  height: 42px;
+  line-height: 26px;
+  margin-top: -5px;
+  text-align: left;
+  font-family: Helvetica;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 1);
+}
+#LA_LOCANDA_BELLA_VISTA {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  overflow: visible;
+  width: 982px;
+  height: 24px;
+  line-height: 34px;
+  margin-top: -5px;
+  text-align: left;
+  font-family: Helvetica;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  color: rgba(255, 255, 255, 1);
+}
+#time_dx {
+  position: absolute;
+  width: 68px;
+  height: 16px;
+  left: 0px;
+  top: 86px;
+  overflow: visible;
+}
+#ID2m_ago_dy {
+  position: absolute;
+  left: 24px;
+  top: 3px;
+  overflow: visible;
+  width: 45px;
+  white-space: nowrap;
+  line-height: 26px;
+  margin-top: -6.5px;
+  text-align: left;
+  font-family: Helvetica;
+  font-style: italic;
+  font-weight: normal;
+  font-size: 13px;
+  color: rgba(203, 208, 211, 1);
+}
+#time_dz {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  left: 0px;
+  top: 0px;
+  overflow: visible;
+}
+.Path_5_d {
+  overflow: visible;
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  left: 0px;
+  top: 0px;
+  transform: matrix(1, 0, 0, 1, 0, 0);
+}
+#TRAVEL {
+  position: absolute;
+  left: 40px;
+  top: 40px;
+  overflow: visible;
+  width: 992px;
+  height: 16px;
+  line-height: 20px;
+  margin-top: -2px;
+  text-align: left;
+  font-family: Helvetica;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 1);
+}
+#Footer {
+  position: absolute;
+  width: 1920px;
+  height: 155px;
+  left: 0px;
+  top: 2245px;
+  overflow: visible;
+}
+.base {
+  position: absolute;
+  overflow: visible;
+  width: 1920px;
+  height: 155px;
+  left: 0px;
+  top: 0px;
+}
+#main {
+  position: absolute;
+  width: 578px;
+  height: 84px;
+  left: 186px;
+  top: 34px;
+  overflow: visible;
+}
+#INICIO {
+  position: absolute;
+  left: 228px;
+  top: 2px;
+  overflow: visible;
+  width: 41px;
+  white-space: nowrap;
+  line-height: 20px;
+  margin-top: -3.5px;
+  text-align: left;
+  font-family: Helvetica;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 13px;
+  color: rgba(203, 208, 211, 1);
+}
+#LINEAMIENTOS {
+  position: absolute;
+  left: 480px;
+  top: 2px;
+  overflow: visible;
+  width: 99px;
+  white-space: nowrap;
+  line-height: 20px;
+  margin-top: -3.5px;
+  text-align: left;
+  font-family: Helvetica;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 13px;
+  color: rgba(203, 208, 211, 1);
+}
+#AYUDA {
+  position: absolute;
+  left: 228px;
+  top: 48px;
+  overflow: visible;
+  width: 46px;
+  white-space: nowrap;
+  line-height: 20px;
+  margin-top: -3.5px;
+  text-align: left;
+  font-family: Helvetica;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 13px;
+  color: rgba(203, 208, 211, 1);
+}
+#CONTACTO {
+  position: absolute;
+  left: 228px;
+  top: 71px;
+  overflow: visible;
+  width: 73px;
+  white-space: nowrap;
+  line-height: 20px;
+  margin-top: -3.5px;
+  text-align: left;
+  font-family: Helvetica;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 13px;
+  color: rgba(203, 208, 211, 1);
+}
+#SOBRE_NOSOTROS {
+  position: absolute;
+  left: 228px;
+  top: 25px;
+  overflow: visible;
+  width: 125px;
+  white-space: nowrap;
+  line-height: 20px;
+  margin-top: -3.5px;
+  text-align: left;
+  font-family: Helvetica;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 13px;
+  color: rgba(203, 208, 211, 1);
+}
+#ANUNCIOS {
+  position: absolute;
+  left: 480px;
+  top: 25px;
+  overflow: visible;
+  width: 70px;
+  white-space: nowrap;
+  line-height: 20px;
+  margin-top: -3.5px;
+  text-align: left;
+  font-family: Helvetica;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 13px;
+  color: rgba(203, 208, 211, 1);
+}
+#Logo_Fondo_Blanco {
+  position: absolute;
+  width: auto;
+  height: auto;
+  left: 0px;
+  top: 0px;
+  overflow: visible;
+}
+#subscribe {
+  position: absolute;
+  width: 349px;
+  height: 65px;
+  left: 987px;
+  top: 39px;
+  overflow: visible;
+}
+#field {
+  opacity: 0.1;
+}
+.field {
+  position: absolute;
+  overflow: visible;
+  width: 349px;
+  height: 40px;
+  left: 0px;
+  top: 0px;
+}
+#send {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  left: 314px;
+  top: 11.667px;
+  overflow: visible;
+}
+.send_ef {
+  overflow: visible;
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  left: 0px;
+  top: 0px;
+  transform: matrix(1, 0, 0, 1, 0, 0);
+}
+#Email {
+  opacity: 0.5;
+  position: absolute;
+  left: 20px;
+  top: 14px;
+  overflow: hidden;
+  width: 36px;
+  height: 10px;
+  line-height: 20px;
+  margin-top: -3.5px;
+  text-align: left;
+  font-family: Helvetica;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  color: rgba(203, 208, 211, 1);
+}
+#Mantente_en_contacto_con_nosot {
+  position: absolute;
+  left: 0px;
+  top: 56px;
+  overflow: hidden;
+  width: 331px;
+  height: 9px;
+  line-height: 20px;
+  margin-top: -4.5px;
+  text-align: left;
+  font-family: Helvetica;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 11px;
+  color: rgba(203, 208, 211, 1);
+}
+#Social {
+  position: absolute;
+  width: 160px;
+  height: 16.001px;
+  left: 1569.21px;
+  top: 42.304px;
+  overflow: visible;
+}
+#web {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  left: 144px;
+  top: 0px;
+  overflow: visible;
+}
+.Path_4 {
+  overflow: visible;
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  left: 0px;
+  top: 0px;
+  transform: matrix(1, 0, 0, 1, 0, 0);
+}
+#instagram {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  left: 0px;
+  top: 0px;
+  overflow: visible;
+}
+.Path_3 {
+  overflow: visible;
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  left: 0px;
+  top: 0px;
+  transform: matrix(1, 0, 0, 1, 0, 0);
+}
+#twitter {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  left: 48px;
+  top: 0px;
+  overflow: visible;
+}
+.Rectangle_393 {
+  position: absolute;
+  overflow: visible;
+  width: 16px;
+  height: 16px;
+  left: 0px;
+  top: 0px;
+}
+.Path_2 {
+  overflow: visible;
+  position: absolute;
+  width: 16px;
+  height: 12.978px;
+  left: 0px;
+  top: 1.999px;
+  transform: matrix(1, 0, 0, 1, 0, 0);
+}
+#facebook {
+  position: absolute;
+  width: 16px;
+  height: 16.001px;
+  left: 96px;
+  top: 0px;
+  overflow: visible;
+}
+.Rectangle_392 {
+  position: absolute;
+  overflow: visible;
+  width: 16px;
+  height: 16px;
+  left: 0px;
+  top: 0px;
+}
+.Path_1 {
+  overflow: visible;
+  position: absolute;
+  width: 8.356px;
+  height: 16px;
+  left: 4px;
+  top: 0.001px;
+  transform: matrix(1, 0, 0, 1, 0, 0);
+}
+#Hero {
+  position: absolute;
+  width: 933px;
+  height: 521px;
+  left: 187px;
+  top: 227px;
+  overflow: visible;
+}
+#Main_eu {
+  position: absolute;
+  width: 933px;
+  height: 521px;
+  left: 0px;
+  top: 0px;
+  overflow: visible;
+}
+#Image_ev {
+  position: absolute;
+  width: 933px;
+  height: 521px;
+  left: 0px;
+  top: 0px;
+  overflow: visible;
+}
+#Title_ew {
+  position: absolute;
+  width: 666.5px;
+  height: 251px;
+  left: 155.5px;
+  top: 137px;
+  overflow: visible;
+}
+#Que_siempre_estes_comodo_es_nu {
+  position: absolute;
+  left: 0.5px;
+  top: 134px;
+  overflow: visible;
+  width: 627px;
+  height: 43px;
+  line-height: 26px;
+  margin-top: -5px;
+  text-align: left;
+  font-family: Helvetica;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 1);
+}
+#Selecciona_el_restaurante_y_tu {
+  position: absolute;
+  left: 0.5px;
+  top: 100px;
+  overflow: visible;
+  width: 667px;
+  height: 24px;
+  line-height: 34px;
+  margin-top: -5px;
+  text-align: left;
+  font-family: Helvetica;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  color: rgba(255, 255, 255, 1);
+}
+#Primary_Button {
+  position: absolute;
+  width: 134px;
+  height: 44px;
+  left: 0.5px;
+  top: 207px;
+  overflow: visible;
+}
+.base_e {
+  position: absolute;
+  overflow: visible;
+  width: 134px;
+  height: 40px;
+  left: 0px;
+  top: 0px;
+}
+#REALIZAR_RESERVAR {
+  position: absolute;
+  left: 30px;
+  top: 7px;
+  overflow: visible;
+  width: 75px;
+  height: 37px;
+  line-height: 14px;
+  margin-top: -1.5px;
+  text-align: center;
+  font-family: Helvetica;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 11px;
+  color: rgba(255, 255, 255, 1);
+}
+#Header {
+  position: absolute;
+  width: 666.5px;
+  height: 59.969px;
+  left: 0px;
+  top: 0px;
+  overflow: visible;
+}
+#BIENVENIDA {
+  position: absolute;
+  left: 0.5px;
+  top: 0px;
+  overflow: hidden;
+  width: 667px;
+  height: 20px;
+  line-height: 42px;
+  margin-top: -9px;
+  text-align: left;
+  font-family: Helvetica;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  color: rgba(255, 255, 255, 1);
+}
+.divider_e {
+  overflow: visible;
+  position: absolute;
+  width: 628.373px;
+  height: 2px;
+  left: 0px;
+  top: 59.969px;
+  transform: matrix(1, 0, 0, 1, 0, 0);
+}
+#Header___Desktop {
+  position: absolute;
+  width: 100%;
+  height: 76px;
+  left: 0px;
+  top: 0px;
+  overflow: visible;
+}
+.base_fa {
+  position: absolute;
+  overflow: visible;
+  width: 100%;
+  height: 76px;
+  left: 0px;
+  top: 0px;
+}
+#INICIO_e {
+  position: absolute;
+  left: 1351px;
+  top: 36px;
+  overflow: visible;
+  width: 40px;
+  white-space: nowrap;
+  line-height: 20px;
+  margin-top: -4.5px;
+  text-align: left;
+  font-family: Helvetica;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 15px;
+  color: rgba(52, 54, 56, 1);
+}
+#RESTAURANTES_e {
+  opacity: 0.5;
+  position: absolute;
+  left: 1608px;
+  top: 36px;
+  overflow: visible;
+  width: 91px;
+  white-space: nowrap;
+  line-height: 20px;
+  margin-top: -4.5px;
+  text-align: left;
+  font-family: Helvetica;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 15px;
+  color: rgba(52, 54, 56, 1);
+}
+#PERFIL {
+  opacity: 0.5;
+  position: absolute;
+  left: 1754px;
+  top: 34px;
+  overflow: visible;
+  width: 40px;
+  white-space: nowrap;
+  line-height: 20px;
+  margin-top: -4.5px;
+  text-align: left;
+  font-family: Helvetica;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 15px;
+  color: rgba(52, 54, 56, 1);
+}
+#Salir {
+  position: absolute;
+  left: 1880px;
+  top: 57px;
+  overflow: visible;
+  width: 14px;
+  white-space: nowrap;
+  --web-animation: fadein 0.3s ease-out;
+  --web-action-type: page;
+  --web-action-target: LoginPage.html;
+  cursor: pointer;
+  line-height: 20px;
+  margin-top: -7px;
+  text-align: left;
+  font-family: Helvetica;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 9px;
+  color: rgba(52, 54, 56, 1);
+}
+#MIS_RESERVACIONES {
+  opacity: 0.5;
+  position: absolute;
+  left: 1441px;
+  top: 36px;
+  overflow: visible;
+  width: 118px;
+  white-space: nowrap;
+  --web-animation: fadein 0.3s ease-out;
+  --web-action-type: page;
+  --web-action-target: Web_1920___2.html;
+  cursor: pointer;
+  line-height: 20px;
+  margin-top: -4.5px;
+  text-align: left;
+  font-family: Helvetica;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 15px;
+  color: rgba(52, 54, 56, 1);
+}
+#UserPhoto {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  left: 1871px;
+  top: 23px;
+  overflow: visible;
+}
+#Logo_Fondo_Blanco_fd {
+  position: absolute;
+  width: 256px;
+  height: 76px;
+  left: 106px;
+  top: 7px;
+  overflow: visible;
+}
+#Image_fe {
+  position: absolute;
+  width: 360px;
+  height: 180px;
+  left: 187px;
+  top: 822px;
+  overflow: visible;
+}
+#Default_2 {
+  position: absolute;
+  width: 933px;
+  height: 40px;
+  left: 187px;
+  top: 122px;
+  overflow: visible;
+}
+.Field_fg {
+  position: absolute;
+  overflow: visible;
+  width: 933px;
+  height: 40px;
+  left: 0px;
+  top: 0px;
+}
+#Restaurante {
+  position: absolute;
+  left: 16px;
+  top: 14px;
+  overflow: visible;
+  width: 72px;
+  white-space: nowrap;
+  line-height: 20px;
+  margin-top: -3.5px;
+  text-align: left;
+  font-family: Helvetica;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  color: rgba(166, 173, 180, 1);
+}

@@ -9,7 +9,7 @@ const LoginPage = () => {
     return (
         <div className="login">
             <LayoutType1 
-                boxOne={ <Image src={Logo} /> } 
+                boxOne={ <Image className="image" alt="Logo Titulo" src={Logo} /> } 
                 boxTwo={<Login/>} 
             />
         </div>

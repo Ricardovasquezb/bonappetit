@@ -1,3 +1,11 @@
 .image{
     width: 80%;
 }
+
+.forheader{
+    max-width: 30%;
+    z-index: 2;
+    position: relative;
+    max-height: 70px;
+    margin: 10px 0px 0px 10px;
+}

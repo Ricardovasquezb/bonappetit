@@ -1,9 +1,7 @@
-import React from 'react';
-import '../assets/css/border.css';
+import React from "react";
+import "../assets/css/border.css";
 
 const border = props => {
-    return(
-        
-    )
-}
-export default border
+  return <div classname="page-border">{props.border}</div>;
+};
+export default border;
