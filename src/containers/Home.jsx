@@ -3,6 +3,7 @@ import firebaseContext from "../hooks/firebaseContext"
 import "../assets/css/homepg.css";
 import Logo from "../assets/img/Logo_Fondo_Blanco.png";
 import Image from "../components/Image";
+import sweetalert from 'sweetalert'
 
 
 const Consumer = firebaseContext.Consumer
@@ -26,6 +27,11 @@ const Home = props => {
                 .then(function (snapshot) {
                     console.log(snapshot,snapshot.val())
                     setName(snapshot.val().name);
+
+                    if(snapshot.val().name != null){
+                        sweetalert("Bienvenido, "+ name,"","success")
+                    }
+                    
                     
                     
                 })

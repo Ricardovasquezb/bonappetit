@@ -57,7 +57,7 @@ const Login = props => {
                                     console.log(result)
                                     const uid = result.user.uid
                                     localStorage.setItem("user",uid)
-                                    sweetalert("Estas dentro!","","success")
+                                    // sweetalert("Estas dentro!","","success")
                                     history.push("/home")
                                 })
                                 .catch((e)=>{
