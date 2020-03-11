@@ -7,8 +7,8 @@ import firebaseConfig from '../firebaseConfig';
 
 const firebaseApp = firebase.initializeApp(firebaseConfig);
 
-const firebaseAppAuth = firebaseApp.auth();
-const firebaseDatabase = firebaseApp.database();
+const firebaseAppAuth = firebase.auth();
+const firebaseDatabase = firebase.database();
 const providers = {
   googleProvider: new firebase.auth.GoogleAuthProvider(),
 };
