@@ -4,6 +4,8 @@ import "../assets/css/homepg.css";
 import Logo from "../assets/img/Logo_Fondo_Blanco.png";
 import Image from "../components/Image";
 import sweetalert from 'sweetalert'
+import { useHistory } from "react-router-dom"
+
 
 
 const Consumer = firebaseContext.Consumer
@@ -12,6 +14,8 @@ const Consumer = firebaseContext.Consumer
 const Home = props => {
 
     const [name, setName]=useState("");
+    const history = useHistory();
+
 
 
 
@@ -21,15 +25,16 @@ const Home = props => {
             contextResult => {
                 const firebase = {
                     read: (uid) => contextResult.firebaseDatabase.ref(`users/${uid}`).once('value'),
+                    
                 }
-               
+               if(user!=null){
                 firebase.read(user)
                 .then(function (snapshot) {
                     console.log(snapshot,snapshot.val())
                     setName(snapshot.val().name);
 
                     if(snapshot.val().name != null){
-                        sweetalert("Bienvenido, "+ name,"","success")
+                        sweetalert("Bienvenido,  "+ name,"","success")
                     }
                     
                     
@@ -38,6 +43,8 @@ const Home = props => {
                 .catch(function (error) {
                     
                 })
+               }
+                
                 return(
                     <div id="HomePage">
                       <div id="OFERTAS">
@@ -717,24 +724,40 @@ const Home = props => {
                             ry="0"
                             x="0"
                             y="0"
-                            width="1920"
+                            width="100%"
                             height="76"
                           ></rect>
                         </svg>
                         <div id="INICIO_e">
-                          <span>INICIO</span>
+                          <button onclick={ () => 
+                            {
+                                history.push("/home")
+                            }
+                        }>INICIO</button>
                         </div>
                         <div id="RESTAURANTES_e">
-                          <span>RESTAURANTES</span>
+                          <button onclick={ () => 
+                            {
+                                history.push("/restaurants")
+                            }
+                        }>RESTAURANTES</button>
                         </div>
                         <div id="PERFIL">
-                          <span>PERFIL</span>
+                          <button onclick={ () => 
+                            {
+                                history.push("/profile")
+                            }
+                        }>PERFIL</button>
                         </div>
-                        <div onclick="application.goToTargetView(event)" id="Salir">
-                          <span>Salir</span>
+                        <div onClick="application.goToTargetView(event)" id="Salir">
+                          <button onClick={ () => 
+                            {
+                                localStorage.removeItem('user')
+                            }
+                        }>Salir</button>
                         </div>
                         <div onclick="application.goToTargetView(event)" id="MIS_RESERVACIONES">
-                          <span>MIS RESERVACIONES</span>
+                          <button>MIS RESERVACIONES</button>
                         </div>
                         <img id="UserPhoto" src="../assets/img/account.png"></img>
                         <Image className="forheader" src={Logo} />
