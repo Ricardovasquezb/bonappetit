@@ -7,8 +7,9 @@ import Login from "../containers/Login"
 
 const LoginPage = () => {
     return (
-        <div className="login">
-            <LayoutType1 
+        <div>
+            <LayoutType1
+                mode={"container"}
                 boxOne={ <Image src={Logo} /> } 
                 boxTwo={<Login/>} 
             />

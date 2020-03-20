@@ -3,7 +3,18 @@
     align-items: center;
     flex-direction: column;
     justify-content: center;
-    height: 80%;
-    width: 450px;
+    height: 100%;
+    width: 850px;
+    border-radius: 3%;
+    box-shadow: black;
 }
 
+.lightmode{
+    background-color: white;
+    color: black;
+}
+
+.darkmode{
+    background-color: rgb(245, 196, 196);
+    color: white
+}   

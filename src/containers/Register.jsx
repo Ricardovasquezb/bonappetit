@@ -2,10 +2,11 @@ import React, {useState} from 'react'
 import Button from '../components/normalButton'
 import '../assets/css/register.css'
 import TextInput from "../components/TextInput"
-import Card from '../components/Card'
 import { useHistory } from "react-router-dom"
 import sweetalert from 'sweetalert'
 import firebaseContext from "../hooks/firebaseContext"
+import HCard from '../components/HCard'
+import Card from '../components/Card'
 
 
 const imgUrl ="https://www.google.com/imgres?imgurl=https%3A%2F%2Fwww.svgrepo.com%2Fshow%2F164688%2Fblank-user.svg&imgrefurl=https%3A%2F%2Fwww.svgrepo.com%2Fsvg%2F164688%2Fblank-user&docid=4qsao-ll0DDAXM&tbnid=5F-Xyl9A83DepM%3A&vet=10ahUKEwi2wM3QuYHoAhWjd98KHRcaCh0QMwhLKAAwAA..i&w=800&h=800&client=safari&bih=1017&biw=1920&q=user%20blank%20icon&ved=0ahUKEwi2wM3QuYHoAhWjd98KHRcaCh0QMwhLKAAwAA&iact=mrc&uact=8"
@@ -15,6 +16,7 @@ const Register = props => {
     const [name, setName] = useState("");
     const [lastname, setLastname] = useState("");
     const [email, setEmail] = useState("");
+    const [phone, setPhone] = useState("");
     const [password, setPassword] = useState("");
     const [repeatpass, setRepeatpass] = useState("");
     const history = useHistory();
@@ -37,6 +39,9 @@ const Register = props => {
                     const handleEmail = e => {
                         setEmail(e.target.value);
                     }
+                    const handlePhone = e => {
+                        setPhone(e.target.value);
+                    }
                     const handlePassword = e => {
                         setPassword(e.target.value);
                     }
@@ -44,37 +49,61 @@ const Register = props => {
                         setRepeatpass(e.target.value);
                     }
                 
-                    
                     return(
-                        <Card>
-                            <TextInput 
-                                label="Nombre"
-                                value={name}
-                                change={handleName}
-                            />
-                            <TextInput 
-                                label="Apellido"
-                                value={lastname}
-                                change={handleLastname}
-                            />
-                            <TextInput 
-                                label="Correo Electrónico"
-                                value={email}
-                                change={handleEmail}
-                            />
-                            <TextInput
-                                password 
-                                label="Contraseña"
-                                value={password}
-                                change={handlePassword}
-                            />            
-                            <TextInput
-                                password 
-                                label="Repetir Contraseña"
-                                value={repeatpass}
-                                change={handleRepeatpass}
-                            />            
-                            <Button darkmode click={ () => {
+                        <Card mode={"darkmode"}>
+
+                                <HCard>
+                                    <TextInput 
+                                        text-alternative
+                                        label="Nombre"
+                                        value={name}
+                                        change={handleName}
+                                    />
+                                    <TextInput 
+                                        text-alternative
+                                        label="Apellido"
+                                        value={lastname}
+                                        change={handleLastname}
+                                    />
+                                </HCard>
+                                
+                                <HCard>
+                                    <TextInput 
+                                        text-alternative
+                                        label="Telefono/Celular"
+                                        value={phone}
+                                        change={handlePhone}
+                                    />
+
+                                    <TextInput 
+                                        text-alternative
+                                        label="Correo Electrónico"
+                                        value={email}
+                                        change={handleEmail}
+                                        />
+
+                                </HCard>
+
+                                <HCard>
+
+                                    <TextInput 
+                                        text-alternative
+                                        password 
+                                        label="Contraseña"
+                                        value={password}
+                                        change={handlePassword}
+                                    />   
+
+                                    <TextInput 
+                                        text-alternative
+                                        password 
+                                        label="Repetir Contraseña"
+                                        value={repeatpass}
+                                        change={handleRepeatpass}
+                                    /> 
+                                </HCard>    
+                         
+                                <Button darkmode click={ () => {
                                 
                                 firebase.signUp(email,password)
                                     .then((result) => {

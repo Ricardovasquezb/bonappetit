@@ -19,15 +19,16 @@ const ForgotPassword = props => {
     return (
         <Card>
             <Text
-            children = "Ingrese su correo electrónico para poder comprobar su identidad"
+                children = "Ingrese su correo electrónico para poder comprobar su identidad"
             />
 
             
-            <TextInput
-            label="Correo Electrónico"
-            value = {email}
-            change = {handleEmail}
+            <TextInput text-input
+                label="Correo Electrónico"
+                value = {email}
+                change = {handleEmail}
             />   
+
             <Button darkmode click = { ()=>{
 
 

@@ -38,25 +38,29 @@ const Login = props => {
             
 
                 return(
-                    <Card >
-                        <TextInput 
+                    <Card>
+ 
+                        
+                         <TextInput 
                             email
                             label="Usuario"
                             value={username}
                             change={handleUsername}
-                        />
+                        /> 
+
                         <TextInput
                             password 
                             label="Contraseña"
                             value={password}
                             change={handlePassword}
-                        />            
+                        />     
+
                         <Button darkmode click={ () => {
                             firebase.signIn(username,password)
                                 .then((result)=> {
                                     console.log(result, result.user.uid)
                                     const uid = result.user.uid
-                                    sweetalert("Estas dentro!","","success")
+                                    sweetalert("Estás dentro!","","success")
                                     history.push("/home")
                                 })
                                 .catch((e)=>{
@@ -79,16 +83,17 @@ const Login = props => {
                                 ¿No tienes una cuenta?
                             </TextButton>
                         </div>
-                       <div className='row'>
-                       <Button  click={ ()=>{
-            
-                       } }>
-                           Iniciar con Google
-                        </Button>
+                       <div className='column'>
                         <Button darkmode click={ () => {
                             history.push("/register")
                         } }>
                            Crear cuenta
+                        </Button>
+                       
+                       <Button  click={ ()=>{
+            
+                       } }>
+                           Iniciar con Google
                         </Button>
                        </div>
             

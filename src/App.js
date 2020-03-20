@@ -11,6 +11,7 @@ import Login from "./pages/LoginPage"
 import Register from "./pages/RegisterPage"
 import ForgotPassword from './pages/ForgotPasswordPage'
 import Home from './pages/HomePage'
+import NewReservation from './pages/NewReservationPage'
 import FirebaseInstance from './hooks/firebaseInstance'
 import FirebaseContext from './hooks/firebaseContext'
 
@@ -35,6 +36,9 @@ import FirebaseContext from './hooks/firebaseContext'
                     </Route>
                     <Route exact path="/forgot-password">
                         <ForgotPassword />
+                    </Route>
+                    <Route exact path="/new-reservation">
+                        <NewReservation />
                     </Route>
                     <Route exact path="/home">
                         <Home />

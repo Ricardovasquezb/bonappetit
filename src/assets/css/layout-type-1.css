@@ -1,13 +1,15 @@
 .layout-type-1 {
-    display: flex;
+    display: inline-flex;
     height: 60%;
-    width: 70%;
+    width: 100%;
+    padding: 10%;
     flex-direction: row;
     align-items: center;
     justify-content: center;
 }
 
 .Box-1{
+    margin-left: 5%;
     height: 100%;
     width: 50%;
     display:flex;
@@ -17,6 +19,9 @@
 }
 
 .vertical-line{
-    border-right: 2px solid gray;
-    
+    border-right: 2px solid gray;  
+}
+
+.container{
+    background-color: rgb(245, 196, 196);
 }
