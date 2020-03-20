@@ -27,17 +27,19 @@ const MyReservations = props => {
                 contextResult => {
                                       
                     return(
-                        <Card>
+                        <Card mode={"darkmode-register"}>
                             <TextInput
                                 label="Cantidad de personas"
                             />
                             <DateTimePicker
                                 label="Fecha de inicio"
                                 minDate = {0}
+                                maxDate = {4}
                             />
                             <DateTimePicker
                                 label="Fecha de salida estimada"
                                 minDate = {0}
+                                maxDate = {4}
                             />
 
                             <Button darkmode>

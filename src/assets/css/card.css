@@ -16,5 +16,29 @@
 
 .darkmode{
     background-color: rgb(245, 196, 196);
-    color: white
+    color: white;
+    box-shadow: 5px 5px 15px 1px rgb(122, 120, 120);
 }   
+
+.darkmode-register{
+    background-color: rgb(245, 196, 196);
+    color: white;
+    box-shadow: 5px 5px 15px 1px rgb(122, 120, 120);
+    padding: 8% 2%;
+}
+
+.darkmode-forgotPassword{
+    display: flex;
+    height: 60%;
+    width: 100%;
+    font-size: 12px;
+    background-color: rgb(245, 196, 196);
+    color: black;
+    box-shadow: 5px 5px 15px 1px rgb(122, 120, 120);
+    padding: 8% 10%;
+    margin: 10px 10px;
+}
+
+.darkmode-forgotPassword input{
+    width: 100%;
+}

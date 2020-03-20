@@ -3,7 +3,7 @@ import '../assets/css/image.css'
 
 const Image = props => {
     return(
-        <img className='image' alt='' src={props.src}/>
+        <img className={`image ${props.mode}`} alt='' src={props.src}/>
     )
 }
 

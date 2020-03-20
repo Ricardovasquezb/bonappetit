@@ -17,7 +17,7 @@ const ForgotPassword = props => {
     }
 
     return (
-        <Card>
+        <Card mode='darkmode-forgotPassword'>
             <Text
                 children = "Ingrese su correo electrónico para poder comprobar su identidad"
             />

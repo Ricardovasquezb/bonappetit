@@ -7,6 +7,9 @@ import sweetalert from 'sweetalert'
 import firebaseContext from "../hooks/firebaseContext"
 import HCard from '../components/HCard'
 import Card from '../components/Card'
+import Image from '../components/Image'
+import Text from '../components/Text'
+import Logo from '../assets/img/Logo_Fondo_Blanco.png'
 
 
 const imgUrl ="https://www.google.com/imgres?imgurl=https%3A%2F%2Fwww.svgrepo.com%2Fshow%2F164688%2Fblank-user.svg&imgrefurl=https%3A%2F%2Fwww.svgrepo.com%2Fsvg%2F164688%2Fblank-user&docid=4qsao-ll0DDAXM&tbnid=5F-Xyl9A83DepM%3A&vet=10ahUKEwi2wM3QuYHoAhWjd98KHRcaCh0QMwhLKAAwAA..i&w=800&h=800&client=safari&bih=1017&biw=1920&q=user%20blank%20icon&ved=0ahUKEwi2wM3QuYHoAhWjd98KHRcaCh0QMwhLKAAwAA&iact=mrc&uact=8"
@@ -50,7 +53,10 @@ const Register = props => {
                     }
                 
                     return(
-                        <Card mode={"darkmode"}>
+                        <Card mode={"darkmode-register"}>
+                            <Image mode='image-register' src={Logo}/>
+                            
+                            <Text children="Registro"/>
 
                                 <HCard>
                                     <TextInput 
