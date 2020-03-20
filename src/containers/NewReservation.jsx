@@ -28,10 +28,21 @@ const MyReservations = props => {
                                       
                     return(
                         <Card>
+                            <TextInput
+                                label="Cantidad de personas"
+                            />
                             <DateTimePicker
                                 label="Fecha de inicio"
                                 minDate = {0}
                             />
+                            <DateTimePicker
+                                label="Fecha de salida estimada"
+                                minDate = {0}
+                            />
+
+                            <Button darkmode>
+                                Reservar
+                            </Button>
                         </Card>
                     )
                 }
