@@ -20,7 +20,7 @@
 }
 
 /*contenedor del picker*/
-.react-datetime-picker__wrapper{
+.react-date-picker__wrapper{
     border: none;
 }
 
@@ -38,28 +38,6 @@
 
 
 /*******/
-.react-clock__face{
-    color: violet;
-}
-
-.vertical-center{
-    display: flex;
-    justify-content:center;
-    align-items: center;
-}
-
-  html {
-    font-size: 62.5%;
-}
-
-body {
-    background: #EFEFEF;
-}
-
-.row {
-    display: flex;
-    width: 100%;
-}
 
 .datetime-picker-picker{
     background-color: white;
@@ -83,8 +61,8 @@ body {
 }
 
 .react-calendar__navigation{
-        background-color: dodgerBlue;
-        color: white;
+        
+        color: dodgerblue;
         cursor: default;
         font-size:1.4rem;
         display: block;
@@ -97,7 +75,7 @@ body {
 }
 
 .react-calendar__navigation__label{
-    color: white;
+    color: dodgerblue;
     cursor: default;
     font-size: 10px;
     display: block;
@@ -106,13 +84,8 @@ body {
     user-select: none;
 }
 
-.react-datetime-picker__inputGroup{
+.react-date-picker__inputGroup{
     padding-right: 10%;
-}
-
-
-.react-datetime-picker__clock {
-
 }
 
 .react-clock__face{

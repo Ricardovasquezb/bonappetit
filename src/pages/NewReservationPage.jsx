@@ -9,6 +9,9 @@ import firebaseContext from "../hooks/firebaseContext"
 import NewReservation from '../containers/NewReservation'
 import LayoutType1 from '../components/LayoutType1';
 import LayoutRestaurant from '../containers/LayoutRestaurant'
+import LayoutTest from '../assets/img/LayoutTest.png'
+import Image from "../components/Image";
+
 
 
 const MyReservationsPage = props => {
@@ -22,7 +25,7 @@ const MyReservationsPage = props => {
     return (
         <div className="MyReservations">
             <LayoutType1 
-                boxOne={ <LayoutRestaurant/> }
+                boxOne={ <Image src={LayoutTest}/> }
                 boxTwo={<NewReservation/>} 
             />
         </div>
