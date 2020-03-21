@@ -22,7 +22,6 @@ const DateTimePicker = props => {
                 {props.label}
             </span>    
             <DatePicker className='datetime-picker-picker'
-                //selected={startDate}
                 value={startDate}
                 onChange={onChange}
                 minDate={subDays(new Date(), props.minDate)}
