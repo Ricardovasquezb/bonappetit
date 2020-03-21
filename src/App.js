@@ -7,6 +7,7 @@ import {
     Redirect
 } from "react-router-dom";
 import "./assets/css/index.css"
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Login from "./pages/LoginPage"
 import Register from "./pages/RegisterPage"
 import ForgotPassword from './pages/ForgotPasswordPage'

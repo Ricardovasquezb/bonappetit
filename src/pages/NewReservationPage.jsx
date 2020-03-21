@@ -11,6 +11,8 @@ import LayoutType1 from '../components/LayoutType1';
 import LayoutRestaurant from '../containers/LayoutRestaurant'
 import LayoutTest from '../assets/img/LayoutTest.png'
 import Image from "../components/Image";
+import Navigationbar from "../containers/NavigationBar"
+
 
 
 
@@ -24,6 +26,7 @@ const MyReservationsPage = props => {
 
     return (
         <div className="MyReservations">
+            <Navigationbar/>
             <LayoutType1 
                 boxOne={ <Image src={LayoutTest}/> }
                 boxTwo={<NewReservation/>} 

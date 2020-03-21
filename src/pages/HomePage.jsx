@@ -1,10 +1,13 @@
 import React from 'react'
 import Home from '../containers/Home'
+import Navigationbar from "../containers/NavigationBar"
+
 
 const HomePage = props => {
     return(
         <div>
-            <h1>temporary home page</h1>
+            <Navigationbar/>
+            <Home/>
         </div>
     )
 }

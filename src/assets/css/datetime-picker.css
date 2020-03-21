@@ -22,6 +22,7 @@
 /*contenedor del picker*/
 .react-date-picker__wrapper{
     border: none;
+    padding: 8px;
 }
 
 /***Calendar**/
@@ -88,6 +89,6 @@
     padding-right: 10%;
 }
 
-.react-clock__face{
-    
+.react-date-picker__clear-button {
+    visibility: hidden;
 }
