@@ -7,7 +7,7 @@ import NLNavBar from "../containers/NonLoggedNavBar"
 const RegisterPage = props => {
     return(
         <div className="register">
-            <NLNavBar/>
+            <NLNavBar Tittle="Registro"/>
             <LayoutType2
             Box={<Register/>}
             /> 

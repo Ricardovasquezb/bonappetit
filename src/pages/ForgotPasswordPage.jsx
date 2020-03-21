@@ -8,7 +8,7 @@ import NLNavBar from "../containers/NonLoggedNavBar"
 const ForgotPasswordPage = () => {
     return (
        <div className="forgot-password">
-           <NLNavBar/>
+           <NLNavBar Tittle="Recuperar contraseña"/>
            <LayoutType2
                 Box={<ForgotPassword/>}
            />

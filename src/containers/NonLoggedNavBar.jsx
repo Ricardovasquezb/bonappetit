@@ -26,6 +26,9 @@ const NLNavBar = props => {
                 className="d-inline-block align-top"
             />{' '}
             </Navbar.Brand>
+            <Navbar.Text>
+                {props.Tittle}
+            </Navbar.Text>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
         </Navbar>
     );

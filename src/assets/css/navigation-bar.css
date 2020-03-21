@@ -1,4 +1,4 @@
-.navigation-bar{
+/* .navigation-bar{
     background-color: #F7F8F9;
     overflow: hidden;
 }
@@ -20,4 +20,9 @@
 .navigation-bar a:active{
     background-color: #f27980;
     color: white
+} */
+
+.btn {
+    margin-left: 5px;
+    margin-right: 5px;
 }

@@ -70,6 +70,13 @@ const Login = props => {
                         } }>
                            Iniciar Sesión
                         </Button>
+
+                        <Button  click={ ()=>{
+
+                                } }>
+                            Iniciar con Google
+                        </Button>
+
                         <div className='column'>
                             <TextButton click={ () => {
                             history.push("/forgot-password")
@@ -82,21 +89,7 @@ const Login = props => {
                         } }>
                                 ¿No tienes una cuenta?
                             </TextButton>
-                        </div>
-                       <div className='column'>
-                        <Button darkmode click={ () => {
-                            history.push("/register")
-                        } }>
-                           Crear cuenta
-                        </Button>
-                       
-                       <Button  click={ ()=>{
-            
-                       } }>
-                           Iniciar con Google
-                        </Button>
-                       </div>
-            
+                        </div>           
                        
                     </Card>
                 )

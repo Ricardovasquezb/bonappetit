@@ -54,9 +54,9 @@ const Register = props => {
                 
                     return(
                         <Card mode={"darkmode-register"}>
-                            <Image mode='image-register' src={Logo}/>
+                            {/* <Image mode='image-register' src={Logo}/> */}
                             
-                            <Text children="Registro"/>
+                            {/* <Text children="Registro"/> */}
 
                                 <HCard>
                                     <TextInput 

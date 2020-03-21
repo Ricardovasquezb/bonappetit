@@ -6,6 +6,7 @@
     border-radius: 50px;
     background-color: transparent;
     display: flex;
+    font-size: 12px;
     justify-content: space-around;
     align-items: center;
     margin-top: 3%;
