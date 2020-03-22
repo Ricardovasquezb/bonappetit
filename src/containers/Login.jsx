@@ -33,7 +33,7 @@ const Login = props => {
                 //const firebase = contextResult.firebaseAppAuth;
                 const firebase = {
                     signIn: (email, password)=> contextResult.firebaseAppAuth.signInWithEmailAndPassword(email, password),
-        
+                    appAuth: ()=> contextResult.firebaseAppAuth
                 };
             
 
@@ -53,16 +53,23 @@ const Login = props => {
                         />            
                         <Button darkmode click={ () => {
                             firebase.signIn(username,password)
-                                .then((result)=> {
-                                    console.log(result)
-                                    const uid = result.user.uid
-                                    localStorage.setItem("user",uid)
-                                    // sweetalert("Estas dentro!","","success")
-                                    history.push("/home")
-                                })
-                                .catch((e)=>{
+                            if(!firebase.appAuth().currentUser.emailVerified){
+                                sweetalert("Tu correo no ha sido verificado","","error")
+                                    history.push("/login")
+                            }else{
+                               
+                                // .then((result)=> {
+                                //     console.log(result)
+                                //     const uid = result.user.uid
+                                //     localStorage.setItem("user",uid)
+                                //     // sweetalert("Estas dentro!","","success")
+                                //     history.push("/home")
+                                // })
+                                // .catch((e)=>{
             
-                                })
+                                // })
+                                
+                            };
                             
                         } }>
                            Iniciar Sesión

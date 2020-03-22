@@ -25,7 +25,8 @@ const Register = props => {
                 contextResult => {
                     const firebase = {
                         signUp: (email, password) => contextResult.firebaseAppAuth.createUserWithEmailAndPassword(email, password),
-                        write: (user,uid) =>contextResult.firebaseDatabase.ref(`users/${uid}`).set(user)
+                        write: (user,uid) =>contextResult.firebaseDatabase.ref(`users/${uid}`).set(user),
+                        appAuth:() =>contextResult.firebaseAppAuth
                     }
 
                     const handleName = e => {
@@ -79,20 +80,22 @@ const Register = props => {
                                 firebase.signUp(email,password)
                                     .then((result) => {
                                         console.log(result, result.user.uid)
-                                        const uid = result.user.uid
+                                        const user= firebase.appAuth().currentUser;
                                         firebase.write({
                                             name,
                                             lastname,
                                             role: 'client',
                                             imgUrl
-                                        },uid)
+                                        },result.user.uid)
                                             .then(value => {
                                                 console.log(value)
                                             })
                                             .catch(err => {
                                                 console.log(err)
                                             });
-
+                                            
+                                        
+                                        user.sendEmailVerification()
                                         sweetalert("Registro Exitoso!", "Se ha registrado exitosamente!", "success")
                                         history.push("/login")
                                     })
