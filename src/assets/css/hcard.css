@@ -1,0 +1,9 @@
+.hcard-format{
+    display:flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+    height: 15%;
+    width: 450px;
+    margin: 15px 40px;
+}
