@@ -1,5 +1,5 @@
 import React, {useState, Component} from 'react'
-import TimePicker from 'react-time-picker'
+import TimePicker from 'react-bootstrap-time-picker';
 import {subDays, addHours, addMonths} from 'date-fns';
 import '../assets/css/time-picker.css'
 
@@ -18,6 +18,8 @@ const Time_Picker = props =>{
             </span> 
             <TimePicker className='time-picker-picker'
                 onChange={onChange}
+                start={props.start}
+                end={props.end}
                 value={startDate}
                 minTime={addHours(new Date(), props.minTime)}
             />

@@ -30,6 +30,7 @@ const Navigationbar = props => {
                  <Nav.Link href="#home">Home</Nav.Link>
                  <NavDropdown title="Reservaciones" id="basic-nav-dropdown">
                      <NavDropdown.Item href="#new-reservation">Nueva Reservación</NavDropdown.Item>
+                     <NavDropdown.Item href="#my-reservations">Mis Reservaciones</NavDropdown.Item>
                      {/* <NavDropdown.Item href="#my-reservations">Mis Reservaciones</NavDropdown.Item>
                      <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
                      <NavDropdown.Divider />
