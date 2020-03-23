@@ -3,6 +3,24 @@ import Select from 'react-select';
 import '../assets/css/picker-select.css';
 
 
+const customStyles = {
+
+    option: (provided, state) => ({
+        ...provided,
+        borderBottom: '1px dotted pink',
+        color: state.isSelected ? 'red' : 'black',
+
+    }),
+    singleValue: (provided, state) => {
+        const opacity = state.isDisabled ? 0.5 : 1;
+        const transition = 'opacity 300ms';
+
+        return { ...provided, opacity, transition };
+    }
+}
+
+
+
 const Dropdown = props => {
     
     const [startItem, setItem] = useState(null);
@@ -22,8 +40,10 @@ const Dropdown = props => {
                 isSearchable
                 value={startItem}
                 onChange={onChange}
+                hideSelectedOptions
                 options={props.options}
-               
+                menuShouldBlockScroll  
+                styles={customStyles}
             />
         </div>
         

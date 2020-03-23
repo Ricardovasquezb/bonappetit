@@ -38,7 +38,7 @@ const MyReservations = props => {
         { value: 'Tarde', label: 'Tarde' },
         { value: 'Noche', label: 'Noche' },
       ];
-      
+
       const mesas = [
         { value: '1', label: 'Mesa 1' },
         { value: '2', label: 'Mesa 2' },
@@ -49,6 +49,9 @@ const MyReservations = props => {
         { value: '7', label: 'Mesa 7' },
         { value: '8', label: 'Mesa 8' },
         { value: '9', label: 'Mesa 9' },
+        { value: '10', label: 'Terraza 1' },
+        { value: '11', label: 'Terraza 2' },
+        { value: '12', label: 'Terraza 3' },
         
       ];
     return (
@@ -67,13 +70,13 @@ const MyReservations = props => {
 
                             <Dropdown
                                 label="Seleccione el horario"
-                                placeholder="Mañana"
+                                placeholder="Mañana, Tarde o Noche"
                                 options={options}
                             />
                             
                             <Dropdown
                                 label="Seleccione una mesa"
-                                placeholder="Mesa 1"
+                                placeholder="Mesa 1, Mesa 2, ..."
                                 options={mesas}
                             />
 
