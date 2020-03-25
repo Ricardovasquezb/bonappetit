@@ -19,7 +19,7 @@ const Home = props =>{
         <div className='home'>
 
             <h1>Welcome to the Home!</h1>
-            <CardView src={image} color='dark' title='Meson de la cava' content='Noche de parejas' ButtonLabel='Reservar'/>
+            <CardView src={image} color='Secondary' title='Meson de la cava' content='Noche de parejas' ButtonLabel='Reservar'/>
            
             <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam nihil temporibus nulla voluptate dolor enim, molestiae, atque corporis corrupti ab deleniti voluptatem. Enim numquam, doloremque a vitae hic reiciendis nesciunt!
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam nihil temporibus nulla voluptate dolor enim, molestiae, atque corporis corrupti ab deleniti voluptatem. Enim numquam, doloremque a vitae hic reiciendis nesciunt!

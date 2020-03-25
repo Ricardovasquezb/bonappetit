@@ -8,6 +8,7 @@ const CarouselView = props => {
 
 
     var Data = [];
+    
     const [index, setIndex] = useState(0);
 
     const handleSelect = (selectedIndex, e) => {
@@ -15,6 +16,7 @@ const CarouselView = props => {
     };
 
     Data = props.source;
+
     return(
         <Carousel activeIndex={index} onSelect={handleSelect} className='carousel' fade>
             {Data.map((item) => (

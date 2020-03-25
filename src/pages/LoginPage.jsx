@@ -12,18 +12,18 @@ const LoginPage = () => {
 
     var Data = [
         {
-            'src': 'https://images.squarespace-cdn.com/content/v1/59121c03e58c6261e471ad5a/1552653735675-V7YQG7ND514QONW6B73V/ke17ZwdGBToddI8pDm48kNvT88LknE-K9M4pGNO0Iqd7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QPOohDIaIeljMHgDF5CVlOqpeNLcJ80NK65_fV7S1USOFn4xF8vTWDNAUBm5ducQhX-V3oVjSmr829Rco4W2Uo49ZdOtO_QXox0_W7i2zEA/color-blanco.jpg?format=1500w',
+            'src': 'https://images.clarin.com/2020/03/16/como-lograr-trabajar-desde-casa___bouTRX4e_1256x620__1.jpg',
             'label': '¿En casa?',
             'description': 'Realiza tus reservaciones desde la comodidad de tu hogar'
         },
         {
-            'src': 'https://images.squarespace-cdn.com/content/v1/59121c03e58c6261e471ad5a/1552653735675-V7YQG7ND514QONW6B73V/ke17ZwdGBToddI8pDm48kNvT88LknE-K9M4pGNO0Iqd7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QPOohDIaIeljMHgDF5CVlOqpeNLcJ80NK65_fV7S1USOFn4xF8vTWDNAUBm5ducQhX-V3oVjSmr829Rco4W2Uo49ZdOtO_QXox0_W7i2zEA/color-blanco.jpg?format=1500w',
+            'src': 'https://d286ib5nnf9jej.cloudfront.net/wp-content/uploads/2015/06/shutterstock_139876522-750x500.jpg',
             'label': '¿En la oficina?',
             'description': '!Puedes hacerlo rápido!'
         },
         {
-            'src': 'https://images.squarespace-cdn.com/content/v1/59121c03e58c6261e471ad5a/1552653735675-V7YQG7ND514QONW6B73V/ke17ZwdGBToddI8pDm48kNvT88LknE-K9M4pGNO0Iqd7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QPOohDIaIeljMHgDF5CVlOqpeNLcJ80NK65_fV7S1USOFn4xF8vTWDNAUBm5ducQhX-V3oVjSmr829Rco4W2Uo49ZdOtO_QXox0_W7i2zEA/color-blanco.jpg?format=1500w',
-            'label': '¿Cansasdo?',
+            'src': 'https://www.lavanguardia.com/r/GODO/LV/p5/WebSite/2018/08/24/Recortada/img_cris_20180824-153324_imagenes_lv_otras_fuentes_istock-831879926-kFhE-U451424521555sNG-992x558@LaVanguardia-Web.jpg',
+            'label': '¿Cansado?',
             'description': '!Siquiera tiene que pararte!'
         }
     ];
