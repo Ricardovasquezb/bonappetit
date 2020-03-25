@@ -116,18 +116,28 @@ const Register = props => {
                                     .then((result) => {
                                         console.log(result, result.user.uid)
                                         const user= firebase.appAuth().currentUser;
+                                        
                                         firebase.write({
                                             name,
                                             lastname,
                                             role: 'client',
-                                            imgUrl
+                                            imgUrl,
+                                            phone
                                         },result.user.uid)
                                             .then(value => {
+                                                user.updateProfile({
+                                                    displayName: name,
+                                                    phoneNumber: phone,
+                                                    photoURL: imgUrl,
+                                                    
+                                                })
                                                 console.log(value)
                                             })
                                             .catch(err => {
                                                 console.log(err)
                                             });
+
+                                        
                                             
                                         
                                         user.sendEmailVerification()
