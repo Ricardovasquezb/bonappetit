@@ -33,25 +33,28 @@ const Login = props => {
                 //const firebase = contextResult.firebaseAppAuth;
                 const firebase = {
                     signIn: (email, password)=> contextResult.firebaseAppAuth.signInWithEmailAndPassword(email, password),
-        
                 };
             
 
                 return(
-                    <Card>
+                    <Card mode='login-card'>
  
                         
                          <TextInput 
                             email
+                            icon_mode='icon'
                             label="Usuario"
                             value={username}
+                            icon='📧'
                             change={handleUsername}
                         /> 
 
                         <TextInput
                             password 
+                            icon_mode='icon'
                             label="Contraseña"
                             value={password}
+                            icon='🔑'
                             change={handlePassword}
                         />     
 
@@ -83,12 +86,8 @@ const Login = props => {
                         } }>
                                 Olvidé mi contraseña
                             </TextButton>
-                            <div className="below-line" />
-                            <TextButton click={ () => {
-                            history.push("/register")
-                        } }>
-                                ¿No tienes una cuenta?
-                            </TextButton>
+                            <div/>
+                      
                         </div>           
                        
                     </Card>

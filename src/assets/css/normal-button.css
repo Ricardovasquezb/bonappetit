@@ -1,12 +1,13 @@
 .normal-button {
-    height: 37px;
+    height: 45px;
     width: 120px;
     border: 1px solid black;
     cursor: pointer;
-    border-radius: 50px;
+    /* border-radius: 50px; */
+    border-radius: 4px;
     background-color: transparent;
     display: flex;
-    font-size: 12px;
+    font-size: 11px;
     justify-content: space-around;
     align-items: center;
     margin-top: 3%;

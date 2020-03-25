@@ -4,7 +4,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: #383c41;
 }
+.login-background{
+    background-color: #58595a;
+}
+
 .column{
     width: 100%;
     display: flex;
