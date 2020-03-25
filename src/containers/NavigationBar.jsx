@@ -15,7 +15,7 @@ const Navigationbar = props => {
         {label: 'Inicio', link: '/'}
     ];
     return(
-        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" fixed="top">
+        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" sticky="top">
             <Navbar.Brand href="#">
             <img
                 alt=""
@@ -31,10 +31,8 @@ const Navigationbar = props => {
                  <NavDropdown title="Reservaciones" id="basic-nav-dropdown">
                      <NavDropdown.Item href="#new-reservation">Nueva Reservación</NavDropdown.Item>
                      <NavDropdown.Item href="#my-reservations">Mis Reservaciones</NavDropdown.Item>
-                     {/* <NavDropdown.Item href="#my-reservations">Mis Reservaciones</NavDropdown.Item>
-                     <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
                      <NavDropdown.Divider />
-                     <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item> */}
+                     <NavDropdown.Item href="#action/3.4">Cancelar Reservación</NavDropdown.Item>
                  </NavDropdown>
                  </Nav>
                  {/* <Form inline>

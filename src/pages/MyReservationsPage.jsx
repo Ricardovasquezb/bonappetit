@@ -12,6 +12,7 @@ import LayoutRestaurant from '../containers/LayoutRestaurant'
 import LayoutTest from '../assets/img/LayoutTest.png'
 import Image from "../components/Image";
 import Navigationbar from "../containers/NavigationBar"
+import Footer from "../containers/Footer"
 
 
 
@@ -30,6 +31,7 @@ const MyReservationsPage = props => {
             <LayoutType2
                 boxOne={ <MyReservations/> }
             />
+            <Footer/>
         </div>
     );
 }
