@@ -8,7 +8,7 @@ import { useHistory } from "react-router-dom"
 import sweetalert from 'sweetalert'
 import firebaseContext from "../hooks/firebaseContext"
 
-const Consumer = firebaseContext.Consumer
+const Consumer = firebaseContext
 
 
 
@@ -24,8 +24,6 @@ const Login = props => {
     const handlePassword = e => {
         setPassword(e.target.value);
     }
-
-    localStorage.clear();
     
    
    return(
@@ -35,94 +33,62 @@ const Login = props => {
                 //const firebase = contextResult.firebaseAppAuth;
                 const firebase = {
                     signIn: (email, password)=> contextResult.firebaseAppAuth.signInWithEmailAndPassword(email, password),
-                    appAuth: ()=> contextResult.firebaseAppAuth,
-                    provider:()=> contextResult.provider,
-                    read: (uid) => contextResult.firebaseDatabase.ref(`users/${uid}`).once('value'),
-                    };
+                };
             
 
                 return(
-                    <Card >
-                        <TextInput 
+                    <Card mode='login-card'>
+ 
+                        
+                         <TextInput 
                             email
+                            icon_mode='icon'
                             label="Usuario"
                             value={username}
+                            icon='📧'
                             change={handleUsername}
-                        />
+                        /> 
+
                         <TextInput
                             password 
+                            icon_mode='icon'
                             label="Contraseña"
                             value={password}
+                            icon='🔑'
                             change={handlePassword}
-                        />            
+                        />     
+
                         <Button darkmode click={ () => {
                             firebase.signIn(username,password)
-                            .then((result)=> {
-                                const uid = result.user.uid
-                                localStorage.setItem("user",uid)
-                                var user = firebase.appAuth().currentUser;
-                                
-                                if(user== null){
-                                    sweetalert("Debes registrarte para hacer login con estas credenciales.","","error")
-                                    history.replace("/login")
-                                }else{
-                                    firebase.read(user.uid)
-                                    .then(function (snapshot) {
-                                        console.log(snapshot,snapshot.val(),user)
-                                    })
-                                    .catch(function (error) {
-                    
-                                    })
-                                   
-                    
-                                    
-                                    if(!user.emailVerified){
-                                        sweetalert("Su correo no ha sido verificado", "Porfavor revisar su bandeja de  entrada","warning")
-                                        history.replace("/login")
-                                    }else{
-
-                                        history.push("/home")
-                                    }
-                                };
-
-                            })
-                            .catch((e)=>{
-                                console.log(e);
-                                sweetalert(e.code,e.message,"error")
-        
-                            })
-                          
+                                .then((result)=> {
+                                    console.log(result, result.user.uid)
+                                    const uid = result.user.uid
+                                    sweetalert("Estás dentro!","","success")
+                                    history.push("/home")
+                                })
+                                .catch((e)=>{
+            
+                                })
                             
                         } }>
                            Iniciar Sesión
                         </Button>
+
+                        <Button  click={ ()=>{
+
+                                } }>
+                            Iniciar con Google
+                        </Button>
+
                         <div className='column'>
                             <TextButton click={ () => {
                             history.push("/forgot-password")
                         } }>
                                 Olvidé mi contraseña
                             </TextButton>
-                            <div className="below-line" />
-                            <TextButton click={ () => {
-                            history.push("/register")
-                        } }>
-                                ¿No tienes una cuenta?
-                            </TextButton>
-                        </div>
-                       <div className='row'>
-                       <Button  click={ ()=>{
-            
-                            firebase.appAuth().signInWithRedirect(firebase.provider);
-                       } }>
-                           Iniciar con Google
-                        </Button>
-                        <Button darkmode click={ () => {
-                            history.push("/register")
-                        } }>
-                           Crear cuenta
-                        </Button>
-                       </div>
-            
+                            <div/>
+                      
+                        </div>           
                        
                     </Card>
                 )

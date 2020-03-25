@@ -27,6 +27,14 @@
     padding: 8% 2%;
 }
 
+.login-card{
+    background-color: white;
+    width: 650px;
+    padding-left: 0px;
+    padding-right: 0px;
+    border-radius: 4px;
+}
+
 .darkmode-forgotPassword{
     display: flex;
     height: 60%;

@@ -18,22 +18,24 @@ const CarouselView = props => {
     Data = props.source;
 
     return(
-        <Carousel activeIndex={index} onSelect={handleSelect} className='carousel' fade>
-            {Data.map((item) => (
-                <Carousel.Item>
-                    <img
-                        className="d-block w-100"
-                        src={item.src}
-                        alt={item.alt}
-                    />
-                    <Carousel.Caption className='carousel-caption'>
-                        <h3 className='carousel h3'>{item.label}</h3>
-                        <p className='carousel p'>{item.description}</p>
-                    </Carousel.Caption>
-                </Carousel.Item>
-            ))
-            }
-        </Carousel>
+        <div className='carousel'> 
+            <Carousel activeIndex={index} onSelect={handleSelect} fade>
+                {Data.map((item) => (
+                    <Carousel.Item className='carousel-item'>
+                        <img
+                            className="d-block w-100"
+                            src={item.src}
+                            alt={item.alt}
+                        />
+                        <Carousel.Caption className='carousel-caption'>
+                            <h3 className='carousel h3'>{item.label}</h3>
+                            <p className='carousel p'>{item.description}</p>
+                        </Carousel.Caption>
+                    </Carousel.Item>
+                ))
+                }
+            </Carousel>
+        </div>
     );
 }
 
