@@ -1,6 +1,7 @@
 import React from 'react'
 import Home from '../containers/Home'
 import Navigationbar from "../containers/NavigationBar"
+import Footer from '../containers/Footer'
 
 
 const HomePage = props => {
@@ -8,6 +9,7 @@ const HomePage = props => {
         <div>
             <Navigationbar/>
             <Home/>
+            <Footer/>
         </div>
     )
 }
