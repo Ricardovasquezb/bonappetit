@@ -53,7 +53,7 @@ const Register = props => {
                     }
                 
                     return(
-                        <Card mode={"darkmode-register"}>
+                        <Card mode={"register-card"}>
                             {/* <Image mode='image-register' src={Logo}/> */}
                             
                             {/* <Text children="Registro"/> */}

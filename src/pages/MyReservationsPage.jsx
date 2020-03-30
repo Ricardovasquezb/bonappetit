@@ -1,11 +1,10 @@
 import React, {useState} from 'react'
 import Button from '../components/normalButton'
-import '../assets/css/register.css'
-import TextInput from "../components/TextInput"
-import Card from '../components/Card'
+
 import { useHistory } from "react-router-dom"
 import sweetalert from 'sweetalert'
 import firebaseContext from "../hooks/firebaseContext"
+
 import MyReservations from '../containers/MyReservations'
 import LayoutType2 from '../components/LayoutType2';
 import LayoutRestaurant from '../containers/LayoutRestaurant'
@@ -29,7 +28,7 @@ const MyReservationsPage = props => {
         <div className="MyReservations">
             <Navigationbar/>
             <LayoutType2
-                boxOne={ <MyReservations/> }
+                Box={ <MyReservations/> }
             />
             <Footer/>
         </div>

@@ -5,7 +5,10 @@
     justify-content: center;
     height: 100%;
     width: 850px;
-    border-radius: 3%;
+    align-items: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border-radius: 4px;
     box-shadow: black;
 }
 
@@ -20,31 +23,42 @@
     box-shadow: 5px 5px 15px 1px rgb(122, 120, 120);
 }   
 
-.darkmode-register{
-    background-color: rgb(245, 196, 196);
-    color: white;
-    box-shadow: 5px 5px 15px 1px rgb(122, 120, 120);
+.register-card{
+    background-color: white;
+    color: black;
+    box-shadow: 5px 5px 15px 1px rgb(27, 20, 20);
     padding: 8% 2%;
 }
 
 .login-card{
     background-color: white;
-    width: 650px;
+    width: 400px;
     padding-left: 0px;
+    
     padding-right: 0px;
     border-radius: 4px;
+}
+
+.new-reservation-card{
+    background-color: white;
+    margin-top: 10px;
+    color: black;
+    box-shadow: 5px 5px 15px 1px rgb(122, 120, 120);
+    padding: 8% 2%;
 }
 
 .darkmode-forgotPassword{
     display: flex;
     height: 60%;
-    width: 100%;
+    width: 400px;
     font-size: 12px;
-    background-color: rgb(245, 196, 196);
+    background-color: white;
+    border-radius: 4px;
     color: black;
-    box-shadow: 5px 5px 15px 1px rgb(122, 120, 120);
+    /* box-shadow: 5px 5px 15px 1px rgb(122, 120, 120); */
+    box-shadow: 5px 5px 15px 1px rgb(27, 20, 20);
     padding: 8% 10%;
-    margin: 10px 10px;
+    margin: 35px 35px;
 }
 
 .darkmode-forgotPassword input{

@@ -17,7 +17,7 @@ const NLNavBar = props => {
         {label: 'Inicio', link: '/'}
     ];
     return(
-        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" fixed="top">
+        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" sticky="top">
             <Navbar.Brand href="#login">
             <img
                 alt=""
