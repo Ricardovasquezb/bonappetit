@@ -37,9 +37,9 @@ const MyReservations = props => {
         { value: 'Mañana', label: 'Mañana' },
         { value: 'Tarde', label: 'Tarde' },
         { value: 'Noche', label: 'Noche' },
-      ];
+    ];
 
-      const mesas = [
+    const mesas = [
         { value: '1', label: 'Mesa 1' },
         { value: '2', label: 'Mesa 2' },
         { value: '3', label: 'Mesa 3' },
@@ -53,7 +53,8 @@ const MyReservations = props => {
         { value: '11', label: 'Terraza 2' },
         { value: '12', label: 'Terraza 3' },
         
-      ];
+    ];
+    
     return (
         <Consumer>
             {

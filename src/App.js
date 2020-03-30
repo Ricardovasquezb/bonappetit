@@ -28,7 +28,7 @@ import MyReservations from './pages/MyReservationsPage';
             <HashRouter>
                 <Switch >
                     <Route exact path="/">
-                        <Home/>
+                        <Login/>
                     </Route>
                     <Route exact path="/login">
                         <Login />

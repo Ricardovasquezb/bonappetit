@@ -16,7 +16,7 @@ const Navigationbar = props => {
     ];
     return(
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" sticky="top">
-            <Navbar.Brand href="#">
+            <Navbar.Brand href="#home">
             <img
                 alt=""
                 src={Logo}

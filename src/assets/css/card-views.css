@@ -1,0 +1,29 @@
+.card-views{
+    display: flex;
+    align-items: center;
+    width: 900px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.card{
+    max-width: 300px; 
+    margin-bottom: 30px;
+    margin-right: 10px;
+}
+
+@media screen and (max-width: 850px) {
+
+    .card-views{
+        display: inline;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .card{
+        max-width: 300px; 
+        margin-bottom: 20px;
+        margin-right: 20px;
+    }
+}    

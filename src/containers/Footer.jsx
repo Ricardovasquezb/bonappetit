@@ -6,7 +6,7 @@ import Imagen from '../assets/img/Copa_Blanca.png'
 
 const Footer = props => {
     return(
-        <Navbar collapseOnSelect sticky="bottom" expand="lg" bg="dark" variant="dark">
+        <Navbar collapseOnSelect  sticky="bottom" expand="lg" bg="dark" variant="dark">
             <Navbar.Brand href="#home">
                 Bon APPetit
             </Navbar.Brand>
@@ -21,7 +21,7 @@ const Footer = props => {
             <Nav>
             <Nav.Link eventKey={2}>
                     <img src={Imagen} width="10"/>
-                    &copy; {new Date().getFullYear()} Copyright: <a href="http://localhost:3000/#/home"> BonAPPetit.com </a>
+                    &copy; {new Date().getFullYear()} Copyright: <a href="https://project-bonappetit.firebaseapp.com/"> BonAPPetit.com </a>
             </Nav.Link>
             </Nav>
         </Navbar.Collapse>
