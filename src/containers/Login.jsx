@@ -8,7 +8,7 @@ import { useHistory } from "react-router-dom"
 import sweetalert from 'sweetalert'
 import firebaseContext from "../hooks/firebaseContext"
 
-const Consumer = firebaseContext
+const Consumer = firebaseContext.Consumer
 
 
 
@@ -24,7 +24,8 @@ const Login = props => {
     const handlePassword = e => {
         setPassword(e.target.value);
     }
-    
+
+    localStorage.clear();
    
    return(
        <Consumer>
@@ -33,7 +34,10 @@ const Login = props => {
                 //const firebase = contextResult.firebaseAppAuth;
                 const firebase = {
                     signIn: (email, password)=> contextResult.firebaseAppAuth.signInWithEmailAndPassword(email, password),
-                };
+                    appAuth: ()=> contextResult.firebaseAppAuth,
+                    provider:()=> contextResult.provider,
+                    read: (uid) => contextResult.firebaseDatabase.ref(`users/${uid}`).once('value'),
+                    };
             
 
                 return(
@@ -58,19 +62,46 @@ const Login = props => {
                             change={handlePassword}
                         />     
 
-                        <Button darkmode click={ () => {
+                            <Button darkmode click={ () => {
                             firebase.signIn(username,password)
-                                .then((result)=> {
-                                    console.log(result, result.user.uid)
-                                    const uid = result.user.uid
-                                    sweetalert("Estás dentro!","","success")
-                                    history.push("/home")
-                                })
-                                .catch((e)=>{
-            
-                                })
+                            .then((result)=> {
+                                const uid = result.user.uid
+                                localStorage.setItem("user",uid)
+                                var user = firebase.appAuth().currentUser;
+                                
+                                if(user== null){
+                                    sweetalert("Debes registrarte para hacer login con estas credenciales.","","error")
+                                    history.replace("/login")
+                                }else{
+                                    firebase.read(user.uid)
+                                    .then(function (snapshot) {
+                                        console.log(snapshot,snapshot.val(),user)
+                                    })
+                                    .catch(function (error) {
+                    
+                                    })
+                                   
+                    
+                                    
+                                    if(!user.emailVerified){
+                                        sweetalert("Su correo no ha sido verificado", "Porfavor revisar su bandeja de  entrada","warning")
+                                        history.replace("/login")
+                                    }else{
+
+                                        history.push("/home")
+                                    }
+                                };
+
+                            })
+                            .catch((e)=>{
+                                console.log(e);
+                                sweetalert(e.code,e.message,"error")
+        
+                            })
+                          
                             
                         } }>
+
                            Iniciar Sesión
                         </Button>
 
