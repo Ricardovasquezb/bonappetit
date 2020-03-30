@@ -16,7 +16,7 @@ const Home = props =>{
     const cards_values = [
         {
             // 'src': {image},
-            'color': 'Secondary',
+            'color': 'Dark',
             'title': 'Meson de la cava',
             'content': 'Noche de parejas',
             'href' : 'login',
@@ -25,14 +25,14 @@ const Home = props =>{
         },
         {
             // 'src': {image},
-            'color': 'Secondary',
+            'color': 'Dark',
             'title': 'Meson del Iberia',
             'content': 'Tarde de parejas',
             'ButtonLabel': 'Reservar'
         },
         {
             // 'src': {image},
-            'color': 'Secondary',
+            'color': 'Dark',
             'title': 'Meson del Iberia',
             'content': 'Tarde de parejas',
             'ButtonLabel': 'Reservar'
