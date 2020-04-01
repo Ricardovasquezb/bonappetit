@@ -1,15 +1,14 @@
 .my-reservations{
-    /* display: flex;
     height: 100%;
     width: 100%;
     margin-top: 30px;
-    margin-bottom: 30px; */
+    margin-bottom: 50px;
 }
 
 .my-reservations h3{
     text-align: center;
     margin-top: 30px;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 .main{

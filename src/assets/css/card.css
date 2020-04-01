@@ -26,8 +26,10 @@
 .register-card{
     background-color: white;
     color: black;
+    width: 40%;
+    height: 100%;
     box-shadow: 5px 5px 15px 1px rgb(27, 20, 20);
-    padding: 8% 2%;
+    padding: 4% 2%;
 }
 
 .login-card{
@@ -50,14 +52,14 @@
 .darkmode-forgotPassword{
     display: flex;
     height: 60%;
-    width: 400px;
+    width: 50%;
     font-size: 12px;
     background-color: white;
     border-radius: 4px;
     color: black;
     /* box-shadow: 5px 5px 15px 1px rgb(122, 120, 120); */
     box-shadow: 5px 5px 15px 1px rgb(27, 20, 20);
-    padding: 8% 10%;
+    padding: 6% 7%;
     margin: 35px 35px;
 }
 

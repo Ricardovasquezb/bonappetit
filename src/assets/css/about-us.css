@@ -1,0 +1,20 @@
+.about-us{
+    display: inline;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+}
+
+.about-us p{
+    margin-right: 200px;
+}
+.team{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 5%;
+    justify-content: center;
+}
+
+.team h2{
+    margin-bottom: 20px;
+}

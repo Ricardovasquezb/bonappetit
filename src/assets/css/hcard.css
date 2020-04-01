@@ -7,3 +7,20 @@
     width: 450px;
     margin: 15px 40px;
 }
+
+@media screen and (max-width: 1000px) {
+    
+    .hcard-format{
+        display: inline;
+        align-items: center;
+        margin: 15px 40px;
+        justify-content: center;
+        width: 100%;
+        margin-bottom: 0px;
+    }
+
+    .text-input{
+        padding: 0%;
+        margin-left: 55px;
+    }
+}

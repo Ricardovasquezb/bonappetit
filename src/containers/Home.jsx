@@ -36,6 +36,34 @@ const Home = props =>{
             'title': 'Meson del Iberia',
             'content': 'Tarde de parejas',
             'ButtonLabel': 'Reservar'
+        },
+        {
+            // 'src': {image},
+            'color': 'Dark',
+            'title': 'Meson del Iberia',
+            'content': 'Tarde de parejas',
+            'ButtonLabel': 'Reservar'
+        },
+        {
+            // 'src': {image},
+            'color': 'Dark',
+            'title': 'Meson del Iberia',
+            'content': 'Tarde de parejas',
+            'ButtonLabel': 'Reservar'
+        },
+        {
+            // 'src': {image},
+            'color': 'Dark',
+            'title': 'Meson del Iberia',
+            'content': 'Tarde de parejas',
+            'ButtonLabel': 'Reservar'
+        },
+        {
+            // 'src': {image},
+            'color': 'Dark',
+            'title': 'Meson del Iberia',
+            'content': 'Tarde de parejas',
+            'ButtonLabel': 'Reservar'
         }
     ];
     
