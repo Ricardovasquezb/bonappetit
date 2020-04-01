@@ -4,6 +4,12 @@ import "../assets/css/home.css"
 import CarouselView from '../components/CarouselView'
 import CardView from '../components/CardView'
 import image from '../assets/img/Logo_Fondo_Blanco.png'
+import firebaseContext from "../hooks/firebaseContext"
+
+
+
+const Consumer = firebaseContext.Consumer
+
 
 const Home = props =>{
     
