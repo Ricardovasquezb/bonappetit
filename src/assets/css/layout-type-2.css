@@ -6,12 +6,15 @@
     align-items: center;
     padding: 1%;
     justify-content: center;
+    justify-items: center;
 }
 
 .box-2{
     display:flex;
     height: 100%;
-    width: 40%;
+    width: 80%;
     align-items:center;
     justify-content: center;
+    justify-items: center;
+    margin-left: 25px;
 }

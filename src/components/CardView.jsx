@@ -46,7 +46,7 @@ const CardView = props => {
                 bg={item.color.toLowerCase()}
                 text={item.color.toLowerCase() === 'light' ? 'dark' : 'white'}
                 style={{ width: '18rem' }}>
-                <Card.Img variant="top" src={item.src} alt={item.src}/>
+                <Card.Img variant="top" src={item.src}/>
                 <Card.Body>
                     <Card.Title>{item.title}</Card.Title>
                     <Card.Subtitle className="mb-2">{item.subtitle}</Card.Subtitle>

@@ -4,6 +4,12 @@ import "../assets/css/home.css"
 import CarouselView from '../components/CarouselView'
 import CardView from '../components/CardView'
 import image from '../assets/img/Logo_Fondo_Blanco.png'
+import firebaseContext from "../hooks/firebaseContext"
+
+
+
+const Consumer = firebaseContext.Consumer
+
 
 const Home = props =>{
     
@@ -36,35 +42,79 @@ const Home = props =>{
             'title': 'Meson del Iberia',
             'content': 'Tarde de parejas',
             'ButtonLabel': 'Reservar'
+        },
+        {
+            // 'src': {image},
+            'color': 'Dark',
+            'title': 'Meson del Iberia',
+            'content': 'Tarde de parejas',
+            'ButtonLabel': 'Reservar'
+        },
+        {
+            // 'src': {image},
+            'color': 'Dark',
+            'title': 'Meson del Iberia',
+            'content': 'Tarde de parejas',
+            'ButtonLabel': 'Reservar'
+        },
+        {
+            // 'src': {image},
+            'color': 'Dark',
+            'title': 'Meson del Iberia',
+            'content': 'Tarde de parejas',
+            'ButtonLabel': 'Reservar'
+        },
+        {
+            // 'src': {image},
+            'color': 'Dark',
+            'title': 'Meson del Iberia',
+            'content': 'Tarde de parejas',
+            'ButtonLabel': 'Reservar'
         }
     ];
     
-    
     return(
-        <div className='home'>
+        <Consumer>
+            {
+                contextResult=>{
+                 //const firebase = contextResult.firebaseAppAuth;
+                 const firebase = {
+                     signIn: (email, password)=> contextResult.firebaseAppAuth.signInWithEmailAndPassword(email, password),
+                     appAuth: ()=> contextResult.firebaseAppAuth,
+                     provider:()=> contextResult.provider,
+                     read: (uid) => contextResult.firebaseDatabase.ref(`users/${uid}`).once('value'),
+                     };
+             
+   
+                        return(
+                            <div className='home'>
 
-            <h1>Welcome to the Home!</h1>
-            {/* <CardView src={image} color='Secondary' title='Meson de la cava' content='Noche de parejas' ButtonLabel='Reservar'/> */}
-            
-            <CardView values={cards_values}/>
-           
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam nihil temporibus nulla voluptate dolor enim, molestiae, atque corporis corrupti ab deleniti voluptatem. Enim numquam, doloremque a vitae hic reiciendis nesciunt!
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam nihil temporibus nulla voluptate dolor enim, molestiae, atque corporis corrupti ab deleniti voluptatem. Enim numquam, doloremque a vitae hic reiciendis nesciunt!
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam nihil temporibus nulla voluptate dolor enim, molestiae, atque corporis corrupti ab deleniti voluptatem. Enim numquam, doloremque a vitae hic reiciendis nesciunt!
-            </p>
-            
-             <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam nihil temporibus nulla voluptate dolor enim, molestiae, atque corporis corrupti ab deleniti voluptatem. Enim numquam, doloremque a vitae hic reiciendis nesciunt!
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam nihil temporibus nulla voluptate dolor enim, molestiae, atque corporis corrupti ab deleniti voluptatem. Enim numquam, doloremque a vitae hic reiciendis nesciunt!
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam nihil temporibus nulla voluptate dolor enim, molestiae, atque corporis corrupti ab deleniti voluptatem. Enim numquam, doloremque a vitae hic reiciendis nesciunt!
-            </p>
-            
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam nihil temporibus nulla voluptate dolor enim, molestiae, atque corporis corrupti ab deleniti voluptatem. Enim numquam, doloremque a vitae hic reiciendis nesciunt!
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam nihil temporibus nulla voluptate dolor enim, molestiae, atque corporis corrupti ab deleniti voluptatem. Enim numquam, doloremque a vitae hic reiciendis nesciunt!
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam nihil temporibus nulla voluptate dolor enim, molestiae, atque corporis corrupti ab deleniti voluptatem. Enim numquam, doloremque a vitae hic reiciendis nesciunt!
-            </p>
-        
-        </div>
-    );
+                                <h1>Welcome to the Home!</h1>
+                                {/* <CardView src={image} color='Secondary' title='Meson de la cava' content='Noche de parejas' ButtonLabel='Reservar'/> */}
+                                
+                                <CardView values={cards_values}/>
+                            
+                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam nihil temporibus nulla voluptate dolor enim, molestiae, atque corporis corrupti ab deleniti voluptatem. Enim numquam, doloremque a vitae hic reiciendis nesciunt!
+                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam nihil temporibus nulla voluptate dolor enim, molestiae, atque corporis corrupti ab deleniti voluptatem. Enim numquam, doloremque a vitae hic reiciendis nesciunt!
+                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam nihil temporibus nulla voluptate dolor enim, molestiae, atque corporis corrupti ab deleniti voluptatem. Enim numquam, doloremque a vitae hic reiciendis nesciunt!
+                                </p>
+                                
+                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam nihil temporibus nulla voluptate dolor enim, molestiae, atque corporis corrupti ab deleniti voluptatem. Enim numquam, doloremque a vitae hic reiciendis nesciunt!
+                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam nihil temporibus nulla voluptate dolor enim, molestiae, atque corporis corrupti ab deleniti voluptatem. Enim numquam, doloremque a vitae hic reiciendis nesciunt!
+                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam nihil temporibus nulla voluptate dolor enim, molestiae, atque corporis corrupti ab deleniti voluptatem. Enim numquam, doloremque a vitae hic reiciendis nesciunt!
+                                </p>
+                                
+                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam nihil temporibus nulla voluptate dolor enim, molestiae, atque corporis corrupti ab deleniti voluptatem. Enim numquam, doloremque a vitae hic reiciendis nesciunt!
+                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam nihil temporibus nulla voluptate dolor enim, molestiae, atque corporis corrupti ab deleniti voluptatem. Enim numquam, doloremque a vitae hic reiciendis nesciunt!
+                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam nihil temporibus nulla voluptate dolor enim, molestiae, atque corporis corrupti ab deleniti voluptatem. Enim numquam, doloremque a vitae hic reiciendis nesciunt!
+                                </p>
+                            
+                            </div>
+                        )
+                }
+            }
+        </Consumer>
+    )
 }
 
 export default Home;

@@ -16,6 +16,7 @@ import NewReservation from './pages/NewReservationPage'
 import FirebaseInstance from './hooks/firebaseInstance'
 import FirebaseContext from './hooks/firebaseContext'
 import MyReservations from './pages/MyReservationsPage';
+import AboutUs from './pages/AboutUsPage';
 
  const Provider = FirebaseContext.Provider
 
@@ -44,6 +45,9 @@ import MyReservations from './pages/MyReservationsPage';
                     </Route>
                     <Route exact path="/my-reservations">
                         <MyReservations />
+                    </Route>
+                    <Route exact path="/about-us">
+                        <AboutUs />
                     </Route>
                     <Route exact path="/home">
                         <Home />

@@ -1,24 +1,28 @@
 .card-views{
     display: flex;
-    align-items: center;
-    width: 900px;
+    justify-content: space-between;
+    margin: 0 auto;
+    padding: 10px 0;    
+    /* justify-content: space-between; */
+    width: 100%;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: flex-start;
+    justify-self: self-start;
 }
 
 .card{
     max-width: 300px; 
-    margin-bottom: 30px;
-    margin-right: 10px;
+    margin-bottom: 20px;
+    /* margin-left: 10px;
+    margin-right: 10px; */
 }
 
-@media screen and (max-width: 850px) {
+@media screen and (max-width: 750px) {
 
     .card-views{
-        display: inline;
-        flex-direction: column;
-        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
     }
 
     .card{
