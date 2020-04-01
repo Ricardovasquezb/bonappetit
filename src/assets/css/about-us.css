@@ -6,7 +6,9 @@
 }
 
 .about-us p{
-    margin-right: 200px;
+    
+    padding-right: 15%;
+    text-justify: inter-word;
 }
 .team{
     display: flex;
