@@ -1,13 +1,18 @@
+@vertical-border-size: 2px;
+
 .layout-type-1 {
-    display: flex;
+    display: inline-flex;
     height: 60%;
-    width: 70%;
+    width: 100%;
+    padding-top: 4%;
+    padding-bottom: 10%;
     flex-direction: row;
     align-items: center;
     justify-content: center;
 }
 
 .Box-1{
+    margin-left: 5%;
     height: 100%;
     width: 50%;
     display:flex;
@@ -16,7 +21,25 @@
 
 }
 
+@media screen and (max-width: 700px) {
+    .layout-type-1{
+        display: inline-block;
+    }
+    .Box-1 {
+        margin-top: 30px;
+        width: 100%;
+    }
+
+    .horizontal-line{
+        border-bottom: 5px solid gray;
+    }
+
+  }
+
 .vertical-line{
-    border-right: 2px solid gray;
-    
+    border-right: @vertical-border-size solid gray;  
+}
+
+.container{
+    background-color: rgb(245, 196, 196);
 }

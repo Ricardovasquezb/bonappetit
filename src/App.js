@@ -7,12 +7,15 @@ import {
     Redirect
 } from "react-router-dom";
 import "./assets/css/index.css"
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Login from "./pages/LoginPage"
 import Register from "./pages/RegisterPage"
 import ForgotPassword from './pages/ForgotPasswordPage'
 import Home from './pages/HomePage'
+import NewReservation from './pages/NewReservationPage'
 import FirebaseInstance from './hooks/firebaseInstance'
 import FirebaseContext from './hooks/firebaseContext'
+import MyReservations from './pages/MyReservationsPage';
 
  const Provider = FirebaseContext.Provider
 
@@ -25,7 +28,7 @@ import FirebaseContext from './hooks/firebaseContext'
             <HashRouter>
                 <Switch >
                     <Route exact path="/">
-                        <Home/>
+                        <Login/>
                     </Route>
                     <Route exact path="/login">
                         <Login />
@@ -35,6 +38,12 @@ import FirebaseContext from './hooks/firebaseContext'
                     </Route>
                     <Route exact path="/forgot-password">
                         <ForgotPassword />
+                    </Route>
+                    <Route exact path="/new-reservation">
+                        <NewReservation />
+                    </Route>
+                    <Route exact path="/my-reservations">
+                        <MyReservations />
                     </Route>
                     <Route exact path="/home">
                         <Home />

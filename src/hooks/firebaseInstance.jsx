@@ -9,16 +9,14 @@ const firebaseApp = firebase.initializeApp(firebaseConfig);
 
 const firebaseAppAuth = firebase.auth();
 const firebaseDatabase = firebase.database();
-const providers = {
-  googleProvider: new firebase.auth.GoogleAuthProvider(),
-};
+const provider = new firebase.auth.GoogleAuthProvider();
 
 
 const firebaseInstance = () => { 
     return {
         firebaseApp,
         firebaseAppAuth,
-        providers,
+        provider,
         firebaseDatabase
     }
 }

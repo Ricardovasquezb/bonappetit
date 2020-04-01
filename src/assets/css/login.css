@@ -4,7 +4,14 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: #383c41;
 }
+.login-background{
+    background-color: #58595a;
+    /* background-image: linear-gradient(135deg, #8BC6EC 0%, #9599E2 100%); */
+    /* background-image: linear-gradient(#383c41 0%, #9599E2 100%); */
+}
+
 .column{
     width: 100%;
     display: flex;

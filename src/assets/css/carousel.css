@@ -1,0 +1,20 @@
+.carousel{
+    border-width: 0px;
+    align-items: center;
+    width: 100%;
+}
+
+.carousel h3{
+    color: black;
+}
+
+.carousel p{
+    color: black;
+}
+
+.carousel-item{
+    width: 100%
+}
+
+.carousel-caption{
+}
