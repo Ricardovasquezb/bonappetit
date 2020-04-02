@@ -34,10 +34,10 @@
         border-bottom: 5px solid gray;
     }
 
-  }
+}
 
 .vertical-line{
-    border-right: @vertical-border-size solid gray;  
+        border-right: @vertical-border-size solid gray;  
 }
 
 .container{

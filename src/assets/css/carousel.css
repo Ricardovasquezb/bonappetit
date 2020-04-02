@@ -16,5 +16,10 @@
     width: 100%
 }
 
+carousel-item active carousel-item{
+    width: 50px;
+}
+
 .carousel-caption{
+    
 }
