@@ -17,17 +17,17 @@ const Home = props =>{
 
     var Slider_Source = [
         {
-            'src': 'http://www.singlecolorimage.com/get/33fd8f/700x350',
+            'src': 'http://www.singlecolorimage.com/get/33fd8f/400x250',
             'label': 'Bienvenido a Bon APPetit',
             'description': 'Para realizar una reservacion seleccionesun restaurant'
         },
         {
-            'src': 'http://www.singlecolorimage.com/get/ff85a9/700x350',
+            'src': 'http://www.singlecolorimage.com/get/ff85a9/400x250',
             'label': 'Te gustan las ofertas?',
             'description': 'Bon APPetit te permite visualizar las ofertas de un restaurante y reservar para una de estas'
         },
         {
-            'src': 'http://www.singlecolorimage.com/get/41427a/700x350',
+            'src': 'http://www.singlecolorimage.com/get/41427a/400x250',
             'label': '¡Estés donde estés!',
             'description': 'Te ofrecemos la posibilidad de llevar a cabo tus reservaciones para el restaurant'
         }
