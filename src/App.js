@@ -40,9 +40,9 @@ import AboutUs from './pages/AboutUsPage';
                     <Route exact path="/forgot-password">
                         <ForgotPassword />
                     </Route>
-                    <Route exact path="/new-reservation">
+                    {/* <Route exact path="/new-reservation">
                         <NewReservation />
-                    </Route>
+                    </Route> */}
                     <Route exact path="/my-reservations">
                         <MyReservations />
                     </Route>

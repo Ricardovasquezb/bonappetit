@@ -6,6 +6,9 @@ import CardView from '../components/CardView'
 import LayoutType1 from '../components/LayoutType1'
 import image from '../assets/img/Logo_Fondo_Blanco.png'
 
+import firebaseContext from "../hooks/firebaseContext"
+
+const Consumer = firebaseContext.Consumer
 
 const Home = props =>{
     
@@ -32,7 +35,6 @@ const Home = props =>{
             'description': 'Te ofrecemos la posibilidad de llevar a cabo tus reservaciones para el restaurant'
         }
     ];
-
     const cards_values = [
         {
             'src': 'https://images2.listindiario.com/image/article/339/680x460/0/D4D01D5D-11C3-4153-A15F-74095C9212E1.jpeg',
@@ -93,25 +95,34 @@ const Home = props =>{
             'ButtonLabel': 'Reservar'
         }
     ];
-    
-    
-    return(
-        <div className='home'>
 
-            <div className='home-twocol'>
-                <CarouselView className='home-col1'
-                        source={Slider_Source}
-                />
-                <p>Hola</p>
-            </div>
-            <CardView values={cards_values}/>
-           
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam nihil temporibus nulla voluptate dolor enim, molestiae, atque corporis corrupti ab deleniti voluptatem. Enim numquam, doloremque a vitae hic reiciendis nesciunt!
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam nihil temporibus nulla voluptate dolor enim, molestiae, atque corporis corrupti ab deleniti voluptatem. Enim numquam, doloremque a vitae hic reiciendis nesciunt!
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam nihil temporibus nulla voluptate dolor enim, molestiae, atque corporis corrupti ab deleniti voluptatem. Enim numquam, doloremque a vitae hic reiciendis nesciunt!
-            </p>
-        
-        </div>
+    return(
+        <Consumer>
+            {
+                ({ firebaseDatabase }) => {
+                    return (
+                        <div className='home'>
+                            <div className='home-twocol'>
+                                <CarouselView className='home-col1'
+                                    firebaseInstance={firebaseDatabase}
+                                    source={Slider_Source}
+                                />
+                            </div>
+                            <CardView 
+                                firebaseInstance={firebaseDatabase}
+                                values={cards_values}
+                            />
+                        
+                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam nihil temporibus nulla voluptate dolor enim, molestiae, atque corporis corrupti ab deleniti voluptatem. Enim numquam, doloremque a vitae hic reiciendis nesciunt!
+                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam nihil temporibus nulla voluptate dolor enim, molestiae, atque corporis corrupti ab deleniti voluptatem. Enim numquam, doloremque a vitae hic reiciendis nesciunt!
+                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam nihil temporibus nulla voluptate dolor enim, molestiae, atque corporis corrupti ab deleniti voluptatem. Enim numquam, doloremque a vitae hic reiciendis nesciunt!
+                            </p>
+                        
+                        </div>
+                    )
+                }
+            }
+        </Consumer>
     );
 }
 

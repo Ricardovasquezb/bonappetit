@@ -12,7 +12,6 @@ const firebaseAppAuth = firebase.auth();
 const firebaseDatabase = firebase.database();
 const provider = new firebase.auth.GoogleAuthProvider();
 
-
 const firebaseInstance = () => { 
     return {
         firebaseApp,
