@@ -12,22 +12,24 @@ import Button from 'react-bootstrap/Button'
 
 const LoginNavBar = props =>{
     return(
-        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" fixed="top">
-        <Navbar.Brand href="#login">
-        <img
-            alt=""
-            src={Logo}
-            width="100"
-            className="d-inline-block align-top"
-        />{' '}
-        </Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-         <Navbar.Collapse id="basic-navbar-nav">
-         <Nav className="mr-auto">
-        </Nav>
-             <Button variant="outline-success" href="#register">Crear cuenta</Button>
-         </Navbar.Collapse>
-    </Navbar>
+        <>
+            <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" fixed="top">
+                <Navbar.Brand href="#login">
+                <img
+                    alt=""
+                    src={Logo}
+                    width="100"
+                    className="d-inline-block align-top"
+                />{' '}
+                </Navbar.Brand>
+                <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                <Navbar.Collapse id="basic-navbar-nav">
+                <Nav className="mr-auto">
+                </Nav>
+                    <Button variant="outline-success" href="#register">Crear cuenta</Button>
+                </Navbar.Collapse>
+            </Navbar>
+        </>
     );
 }
 

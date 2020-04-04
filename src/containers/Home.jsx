@@ -102,7 +102,6 @@ const Home = props =>{
                 <CarouselView className='home-col1'
                         source={Slider_Source}
                 />
-                <p>Hola</p>
             </div>
             <CardView values={cards_values}/>
            

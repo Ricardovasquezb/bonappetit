@@ -16,7 +16,14 @@ const TextInput = props => {
         <div className={`text-input ${mode}`} >
             <span>{props.label}</span>
             <div className='div-input'>
-                <input className={`input-${icon_mode}`}  required type={type} value={props.value} onChange={props.change} />
+                <input 
+                    data-testid="custom-element"
+                    className={`input-${icon_mode}`}  
+                    required 
+                    type={type} 
+                    value={props.value} 
+                    onChange={props.change} 
+                />
                 <InputGroup.Text id="inputGroupPrepend" className={icon_mode}>{props.icon}</InputGroup.Text>
             </div>
         </div>

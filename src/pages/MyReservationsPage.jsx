@@ -9,9 +9,6 @@ import LayoutType2 from '../components/LayoutType2';
 import Navigationbar from "../containers/NavigationBar"
 import Footer from "../containers/Footer"
 
-
-
-
 const MyReservationsPage = props => {
     const [name, setName] = useState("");
     const [lastname, setLastname] = useState("");
