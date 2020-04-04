@@ -121,14 +121,13 @@ const Register = props => {
                                             name,
                                             lastname,
                                             role: 'client',
-                                            imgUrl,
-                                            phone
                                         },result.user.uid)
                                             .then(value => {
                                                 user.updateProfile({
                                                     displayName: name,
                                                     phoneNumber: phone,
                                                     photoURL: imgUrl,
+                                                    
                                                     
                                                 })
                                                 console.log(value)
