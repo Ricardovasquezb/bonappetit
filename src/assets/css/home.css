@@ -1,3 +1,22 @@
 .home{
     padding: 40px;
 }
+
+.home-twocol{
+    display: inline-flex;
+    
+}
+
+.home-col1{
+    margin-left: 5%;
+    height: 100%;
+    width: 50%;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.home-col2{
+    width: 50%;
+
+}
