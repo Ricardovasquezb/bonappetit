@@ -17,17 +17,17 @@ const Home = props =>{
 
     var Slider_Source = [
         {
-            'src': 'http://www.singlecolorimage.com/get/33fd8f/400x250',
+            'src': 'http://www.singlecolorimage.com/get/33fd8f/400x150',
             'label': 'Bienvenido a Bon APPetit',
             'description': 'Para realizar una reservacion seleccionesun restaurant'
         },
         {
-            'src': 'http://www.singlecolorimage.com/get/ff85a9/400x250',
+            'src': 'http://www.singlecolorimage.com/get/ff85a9/400x150',
             'label': 'Te gustan las ofertas?',
             'description': 'Bon APPetit te permite visualizar las ofertas de un restaurante y reservar para una de estas'
         },
         {
-            'src': 'http://www.singlecolorimage.com/get/41427a/400x250',
+            'src': 'http://www.singlecolorimage.com/get/41427a/400x150',
             'label': '¡Estés donde estés!',
             'description': 'Te ofrecemos la posibilidad de llevar a cabo tus reservaciones para el restaurant'
         }
@@ -102,7 +102,9 @@ const Home = props =>{
                 <CarouselView className='home-col1'
                         source={Slider_Source}
                 />
-                <p>Hola</p>
+                <div className='home-col2'>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Placeat atque, consequuntur necessitatibus repellat in laborum minima molestiae porro quisquam voluptates praesentium. Nesciunt dolorum dolor autem est? Quas quaerat inventore nam!</p>
+                </div>
             </div>
             <CardView values={cards_values}/>
            
