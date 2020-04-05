@@ -40,7 +40,7 @@ const CardView = props => {
                     <Card.Body>
                         <Card.Title>{item.name}</Card.Title>
                         <Card.Subtitle className="mb-2">{item.direction}</Card.Subtitle>
-                        <Button variant={item.button_variant} onClick={toCreateReservation(item.id)}>
+                        <Button variant={item.button_variant} onClick={toCreateReservation(item.uid)}>
                             {"Reservar"}
                         </Button>
                         <Card.Link href={`#/${item.href}`}>{item.link}</Card.Link>

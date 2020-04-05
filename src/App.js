@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import {
     HashRouter,
@@ -20,8 +20,17 @@ import AboutUs from './pages/AboutUsPage';
 
  const Provider = FirebaseContext.Provider
 
- const App = ()=>{
+ const App = () => {
+    const [userSession, setUserSession] = useState(null)
+
     const firebaseInstance = FirebaseInstance();
+    firebaseInstance.firebaseAppAuth.onAuthStateChanged(function(user) {
+        if (user) {
+            setUserSession(user)
+        } else {
+          // No user is signed in.
+        }
+    });
 
     return(
         <Provider value={firebaseInstance}>
@@ -41,6 +50,7 @@ import AboutUs from './pages/AboutUsPage';
                     </Route>
                     <Route path="/new-reservation/:restaurantId">
                         <NewReservation 
+                            userSession={userSession}
                             firebaseAppAuth={firebaseInstance.firebaseAppAuth}
                             firebaseDatabase={firebaseInstance.firebaseDatabase}
                         />

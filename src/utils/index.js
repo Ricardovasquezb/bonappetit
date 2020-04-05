@@ -11,3 +11,4 @@ export const arrayFirebaseParser = (firebaseArray) => {
     }
     return result
 }
+export const dateParser = (date) => `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`

@@ -8,25 +8,19 @@ import 'react-calendar/dist/Calendar.css';
 
 
 
-const DateTimePicker = props => {
-    
-    const [startDate, setStartDate] = useState(new Date());
-    const onChange = date =>{
-        setStartDate(date)
-    }
-    const mode = props.mode;
+const DateTimePicker = ({ value, onChange, label, minDate, maxDate, placeholder }) => {
     return (
         <div className='datetime-picker'>
 
             <span className='datetime-picker-span'>
-                {props.label}
+                {label}
             </span>    
             <DatePicker className='datetime-picker-picker'
-                value={startDate}
+                value={value}
                 onChange={onChange}
-                minDate={subDays(new Date(), props.minDate)}
-                maxDate={addMonths(new Date(), props.maxDate)}
-                placeholderText={props.Placeholder}
+                minDate={subDays(new Date(), minDate)}
+                maxDate={addMonths(new Date(), maxDate)}
+                placeholderText={placeholder}
                 showDisabledMonthNavigation
                 showTimeSelect
             />
