@@ -1,6 +1,8 @@
 .table-view{
-    box-shadow: 3px 3px 20px 1px rgb(170, 167, 167);
+    box-shadow: 6px 6px 10px 1px rgb(170, 167, 167);
     padding: 1%;
+    margin: 20px;
+    font-size: x-large;
 }
 
 .table-responsive{
@@ -28,7 +30,6 @@
     max-height: 40px;
     max-width: 40px;
     border-radius: 20px;
-    background-color: violet;
 
     object-fit: cover;
 }

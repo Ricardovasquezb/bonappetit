@@ -1,5 +1,6 @@
 import React from 'react'
 import Home from '../containers/Home'
+import HomeHost from '../containers/HomeHost'
 import Navigationbar from "../containers/NavigationBar"
 import Footer from '../containers/Footer'
 

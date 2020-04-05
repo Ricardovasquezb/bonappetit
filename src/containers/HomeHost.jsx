@@ -56,7 +56,10 @@ const HomeHost = props =>{
     ];
     
     return(
-        <div>            
+        <div className='home-host'>            
+            <DashboardBox/>
+            <DashboardBox/>
+            <DashboardBox/>
             <DashboardBox/>
             <TableView titles={TableTitle} values={TableValues}/>
         </div>
