@@ -19,11 +19,14 @@ import Button from 'react-bootstrap/Button'
 // outline-light
 // outline-link
 
-const normalButton = props => {
+const NormalButton = props => {
     const mode = props.darkmode? "button-darkmode":"button-lightmode";
     //en caso de querer un boton con dark background se manda lo siguiente <Button darkmode/> en caso de querer un button blanco se invoca el button solamente
     return(
-        <Button variant={props.variant} className={`normal-button ${mode}`} onClick={props.click}> 
+        <Button 
+            data-testid="button-for-test"
+            variant={props.variant} className={`normal-button ${mode}`} onClick={props.click}
+        > 
             {props.children}
         </Button>
     )
@@ -31,4 +34,4 @@ const normalButton = props => {
 
 
 
-export default normalButton
+export default NormalButton
