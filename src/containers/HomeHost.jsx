@@ -1,6 +1,7 @@
 import React from 'react';
 import '../assets/css/home-host.css';
 
+import DashboardBox from '../components/DashboardBox'
 import TableView from '../components/TableView'
 
 
@@ -55,7 +56,8 @@ const HomeHost = props =>{
     ];
     
     return(
-        <div>
+        <div>            
+            <DashboardBox/>
             <TableView titles={TableTitle} values={TableValues}/>
         </div>
     );

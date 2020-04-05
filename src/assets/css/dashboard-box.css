@@ -1,0 +1,45 @@
+.dashboard-box{
+
+}
+
+.col-md-4{
+    display: inline-flex;
+    width: 100%;
+    height: 100%;
+    max-width: 300px;
+    min-width: 300px;
+
+    min-height: 300px;
+    box-shadow: 3px 3px 20px 1px rgb(170, 167, 167);
+    padding: 1%;
+
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.card mb-3 widget-chart{
+    padding: 0%;
+    width: 300px;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+    border: none;
+    background-color: turquoise;
+}
+
+.widget-description{
+    display: inline-flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+h2{
+    font-weight: bolder;
+    text-align: center;
+}
+
+h4{
+    text-align: center;
+}
