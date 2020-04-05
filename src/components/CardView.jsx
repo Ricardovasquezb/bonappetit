@@ -21,8 +21,8 @@ const CardView = props => {
             })
     }, [])
     
-    const toCreateReservation = () => {
-        toLocation("/new-reservation")
+    const toCreateReservation = (restaurantId) => () => {
+        toLocation("/new-reservation/" + restaurantId)
     }
 
     return(
@@ -40,7 +40,7 @@ const CardView = props => {
                     <Card.Body>
                         <Card.Title>{item.name}</Card.Title>
                         <Card.Subtitle className="mb-2">{item.direction}</Card.Subtitle>
-                        <Button variant={item.button_variant} onClick={toCreateReservation}>
+                        <Button variant={item.button_variant} onClick={toCreateReservation(item.id)}>
                             {"Reservar"}
                         </Button>
                         <Card.Link href={`#/${item.href}`}>{item.link}</Card.Link>

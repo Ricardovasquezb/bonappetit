@@ -21,7 +21,6 @@ import AboutUs from './pages/AboutUsPage';
  const Provider = FirebaseContext.Provider
 
  const App = ()=>{
-
     const firebaseInstance = FirebaseInstance();
 
     return(
@@ -40,9 +39,12 @@ import AboutUs from './pages/AboutUsPage';
                     <Route exact path="/forgot-password">
                         <ForgotPassword />
                     </Route>
-                    {/* <Route exact path="/new-reservation">
-                        <NewReservation />
-                    </Route> */}
+                    <Route path="/new-reservation/:restaurantId">
+                        <NewReservation 
+                            firebaseAppAuth={firebaseInstance.firebaseAppAuth}
+                            firebaseDatabase={firebaseInstance.firebaseDatabase}
+                        />
+                    </Route>
                     <Route exact path="/my-reservations">
                         <MyReservations />
                     </Route>

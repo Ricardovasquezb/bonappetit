@@ -110,7 +110,6 @@ const Home = props =>{
                             </div>
                             <CardView 
                                 firebaseInstance={firebaseDatabase}
-                                values={cards_values}
                             />
                         
                             <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam nihil temporibus nulla voluptate dolor enim, molestiae, atque corporis corrupti ab deleniti voluptatem. Enim numquam, doloremque a vitae hic reiciendis nesciunt!

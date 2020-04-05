@@ -1,9 +1,9 @@
-import React, {useState} from 'react'
+import React, { useState, useEffect } from 'react'
 import Button from '../components/normalButton'
 import '../assets/css/new-reservation.css'
 import TextInput from "../components/TextInput"
 import Card from '../components/Card'
-import { useHistory } from "react-router-dom"
+import { useParams, Redirect } from "react-router-dom"
 import sweetalert from 'sweetalert'
 import firebaseContext from "../hooks/firebaseContext"
 import NewReservation from '../containers/NewReservation'
@@ -14,17 +14,20 @@ import Image from "../components/Image";
 import Navigationbar from "../containers/NavigationBar"
 import Footer from "../containers/Footer"
 
+const NewReservationsPage = ({ firebaseDatabase, firebaseAppAuth }) => {
+    const { restaurantId } = useParams();
+    const [tables, setTables] = useState([]);
+    const userUid = firebaseAppAuth.currentUser ? firebaseAppAuth.currentUser.uid : null; 
 
+    console.log(userUid); 
 
+    useEffect(() => {
+        firebaseDatabase.ref("/reservations/").push({
+            
+        })
+    }, [])
 
-const NewReservationsPage = props => {
-    const [name, setName] = useState("");
-    const [lastname, setLastname] = useState("");
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [repeatpass, setRepeatpass] = useState("");
-    const history = useHistory();
-
+    if (!restaurantId) return <Redirect to="/home" />
     return (
         <div className="new-reservation">
             <Navigationbar/>
