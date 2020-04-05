@@ -4,8 +4,6 @@ import "../assets/css/home.css"
 import CarouselView from '../components/CarouselView'
 import CardView from '../components/CardView'
 import LayoutType1 from '../components/LayoutType1'
-import image from '../assets/img/Logo_Fondo_Blanco.png'
-
 
 const Home = props =>{
     
@@ -86,14 +84,13 @@ const Home = props =>{
             'ButtonLabel': 'Reservar'
         }
     ];
-    
-    
+
     return(
         <div className='home'>
 
             <div className='home-twocol'>
                 <CarouselView
-                        source={Slider_Source}
+                    source={Slider_Source}
                 />
                 {/* <div className='home-col2'>
                     <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Placeat atque, consequuntur necessitatibus repellat in laborum minima molestiae porro quisquam voluptates praesentium. Nesciunt dolorum dolor autem est? Quas quaerat inventore nam!</p>

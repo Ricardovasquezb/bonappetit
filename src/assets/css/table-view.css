@@ -1,0 +1,42 @@
+.table-view{
+    box-shadow: 3px 3px 20px 1px rgb(170, 167, 167);
+    padding: 1%;
+}
+
+.table-responsive{
+
+}
+
+.titles{
+    background-color: #212529;
+}
+.titles th{
+    color: white;
+    font-weight: bolder;
+}
+
+.div-user{
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-img{
+    height: 40px;
+    width: 40px;
+    max-height: 40px;
+    max-width: 40px;
+    border-radius: 20px;
+    background-color: violet;
+
+    object-fit: cover;
+}
+.profile-img img{
+    height: 40px;
+    width: 40px;
+}
+
+.profile-name{
+    margin-left: 10px;
+}
