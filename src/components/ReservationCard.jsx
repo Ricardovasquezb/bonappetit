@@ -4,38 +4,53 @@ import Button from 'react-bootstrap/Button';
 import '../assets/css/card-views.css'
 import { useHistory } from "react-router-dom"
 import { arrayFirebaseParser } from "../utils"
-import database from 'firebase/database'
+import * as firebase from 'firebase/app';
+import 'firebase/database'
 
 
-const ReservationCard = props => {
+
+
+const ReservationCard = ({ dataList }) => {
     const { push: toLocation } = useHistory()
-    const data = props.dataList
+    const [restaurants, setRestaurant] = useState([])
+
+    var information=[];
     
-    console.log(props.dataList,data)
-    
-    
+    const database = firebase.database()
+
     const toDetailsReservation = (reservationId) => () => {
         toLocation("/reservation-detail/" + reservationId)
     }
 
-    data.forEach(item => {
-        console.log(item)
-    });
+    useEffect(() => {
+        for (let item of dataList) {
+            console.log("iteracion")
+            database.ref(`/restaurant/${item.restaurant_id}`).once("value")
+                .then(snapShot => {
+                    const val = snapShot.val()
+                    setRestaurant([ ...restaurants, val ])
+                })
+                .catch(err => {
+                    console.log(err)
+                })
+        }
+        console.log(dataList, "aqui andamos")
+    }) 
+
     return(
     <div className='card-views'>
         {
-            data.map((item, key) => (                 
+            restaurants.map((item, key) => (                 
                 <Card 
-                
                     key={key}
                     bg={"dark"}
                     text={'light'}
                     style={{ width: '18rem' }}
                 >
-                    <Card.Img variant="top" src={item.profileurl}/>
+                    <Card.Img variant="top" src={item.profileUrl}/>
                     <Card.Body>
                         <Card.Title>{item.name}</Card.Title>
-                        <Card.Subtitle className="mb-2">{item.direction}</Card.Subtitle>
+                        <Card.Subtitle className="mb-2">{item.date}</Card.Subtitle>
                         <Button variant={item.button_variant} onClick={toDetailsReservation(item.uid)}>
                             {"Ver reservacion"}
                         </Button>
