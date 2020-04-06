@@ -1,14 +1,19 @@
 import React, {useState} from 'react'
 import { useHistory } from "react-router-dom"
 import sweetalert from 'sweetalert'
-import firebaseContext from "../hooks/firebaseContext"
 
-import '../assets/css/register.css'
+import firebaseContext from "../hooks/firebaseContext"
 
 import Form from 'react-bootstrap/Form'
 import Col from 'react-bootstrap/Col'
 
+import '../assets/css/register.css'
+
 import Button from '../components/normalButton'
+import TextInput from "../components/TextInput"
+import HCard from '../components/HCard'
+import Card from '../components/Card'
+
 
 
 const imgUrl ="https://www.google.com/imgres?imgurl=https%3A%2F%2Fwww.svgrepo.com%2Fshow%2F164688%2Fblank-user.svg&imgrefurl=https%3A%2F%2Fwww.svgrepo.com%2Fsvg%2F164688%2Fblank-user&docid=4qsao-ll0DDAXM&tbnid=5F-Xyl9A83DepM%3A&vet=10ahUKEwi2wM3QuYHoAhWjd98KHRcaCh0QMwhLKAAwAA..i&w=800&h=800&client=safari&bih=1017&biw=1920&q=user%20blank%20icon&ved=0ahUKEwi2wM3QuYHoAhWjd98KHRcaCh0QMwhLKAAwAA&iact=mrc&uact=8"
@@ -21,17 +26,22 @@ const Register = props => {
     const [phone, setPhone] = useState("");
     const [password, setPassword] = useState("");
     const [repeatpass, setRepeatpass] = useState("");
+    
+    const [restaurantName, setRestName] = useState("");
+    const [restaurantAddress, setRestAddress] = useState("");
+    
     const history = useHistory();
 
     return (
         <Consumer>
             {
+                
                 contextResult => {
                     const firebase = {
                         signUp: (email, password) => contextResult.firebaseAppAuth.createUserWithEmailAndPassword(email, password),
                         write: (user,uid) =>contextResult.firebaseDatabase.ref(`users/${uid}`).set(user)
                     }
-
+                    
                     const handleName = e => {
                         setName(e.target.value);
                     }
@@ -50,13 +60,19 @@ const Register = props => {
                     const handleRepeatpass = e => {
                         setRepeatpass(e.target.value);
                     }
+
+
+                    const handleRestaurantName = e =>{
+                        setRestName(e.target.value);
+                    }
+                    const handleRestauranteAddress = e =>{
+                        setRestAddress(e.target.value);
+                    }
                 
                     return(
-                        <div className='register-comensal'>
+                        <div className='register-restaurant'>
                             <Form>
-                            {/* <Image mode='image-register' src={Logo}/> */}
-                            
-                            {/* <Text children="Registro"/> */}
+                            <h4>Sobre el Host</h4>
 
                             <Form.Row>
                                 <Form.Group as={Col} controlId="formGridName">
@@ -69,7 +85,7 @@ const Register = props => {
                                     <Form.Control onChange={handleLastname}/>
                                 </Form.Group>
                             </Form.Row>
-                                
+
                             <Form.Row>
                                 <Form.Group as={Col} controlId="formGridEmail">
                                         <Form.Label>Correo Electronico</Form.Label>
@@ -94,10 +110,27 @@ const Register = props => {
                                         <Form.Label>Repetir Contraseña</Form.Label>
                                         <Form.Control onChange={handleRepeatpass} type='password'/>
                                 </Form.Group>
-                            </Form.Row> 
-                         
+                            </Form.Row>
+
+                            <h4>Sobre el Restaurante</h4>
+
+                            <Form.Row>
+                                <Form.Group as={Col} controlId="formGridRestaurant">
+                                    <Form.Label>Nombre del Restaurante</Form.Label>
+                                    <Form.Control onChange={handleRestaurantName}/>
+                                </Form.Group>
+                            </Form.Row>
+
+                            <Form.Row>
+                                <Form.Group as={Col} controlId="formGridAddress">
+                                        <Form.Label>Direccion</Form.Label>
+                                        <Form.Control onChange={handleRestauranteAddress}/>
+                                </Form.Group>
+                            </Form.Row>
+
+
                                 <Button darkmode click={ () => {
-                                
+                                    
                                 firebase.signUp(email,password)
                                     .then((result) => {
                                         console.log(result, result.user.uid)
@@ -126,15 +159,15 @@ const Register = props => {
                                         if(e.code === "auth/invalid-email"){
                                             sweetalert("Hey!", e.message , "error");    
                                                             }
-                                        if(e.code === "auth/weak-password"){
-                                            sweetalert("C'mon!", e.message , "warning");    
+                                                            if(e.code === "auth/weak-password"){
+                                                                sweetalert("C'mon!", e.message , "warning");    
                                                             }
-                                    });
-                
-                            } }>
+                                                        });
+                                                        
+                                                    } }>
                             Crear Cuenta
                             </Button>
-                        </Form>
+                        </Form>    
                         </div>
                     )
                 }

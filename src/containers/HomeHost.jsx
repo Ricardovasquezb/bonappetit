@@ -60,13 +60,13 @@ const HomeHost = props =>{
             'value': 30,
             'header': 'Reservas del dia',
             'icon': 'calendar-check',
-            'iconColor': 'green'
+            'iconColor': 'pink'
         },
         {
             'value': 4.5,
             'header': 'Rating',
             'icon': 'star-half-alt',
-            'iconColor': 'green',
+            'iconColor': 'pink',
             'iconFooter': 'angle-up',
             'footer': 'Promedio'
         },
@@ -74,7 +74,7 @@ const HomeHost = props =>{
             'value': 440,
             'header': 'Clientes',
             'icon': 'users',
-            'iconColor': 'green',
+            'iconColor': 'pink',
             'iconFooter': 'angle-up',
             'footer': 'Totales'
         }

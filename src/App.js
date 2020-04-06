@@ -10,6 +10,7 @@ import "./assets/css/index.css"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Login from "./pages/LoginPage"
 import Register from "./pages/RegisterPage"
+import RegisterRestaurante from "./pages/RegisterRestaurantePage"
 import ForgotPassword from './pages/ForgotPasswordPage'
 import Home from './pages/HomePage'
 import NewReservation from './pages/NewReservationPage'
@@ -49,6 +50,9 @@ library.add(fab, faCheckSquare, faCoffee, faAngleUp,
                     </Route>
                     <Route exact path="/register">
                         <Register />
+                    </Route> 
+                    <Route exact path="/register-restaurante">
+                        <RegisterRestaurante />
                     </Route>
                     <Route exact path="/forgot-password">
                         <ForgotPassword />
