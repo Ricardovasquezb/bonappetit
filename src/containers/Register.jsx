@@ -126,22 +126,25 @@ const Register = props => {
                                                 user.updateProfile({
                                                     displayName: name,
                                                     phoneNumber: phone,
-                                                    photoURL: imgUrl,
-                                                    
-                                                    
+                                                    photoURL: imgUrl,   
                                                 })
                                                 console.log(value)
                                             })
                                             .catch(err => {
                                                 console.log(err)
-                                            });
-
-                                        
-                                            
+                                            });    
                                         
                                         user.sendEmailVerification()
-                                        sweetalert("Registro Exitoso!", "Se ha registrado exitosamente!", "success")
-                                        history.push("/login")
+                                        .then(()=>{
+                                            sweetalert("Registro Exitoso!", "Se ha registrado exitosamente!", "success")
+                                            .then(()=>{
+                                                history.push("/login")
+                                            })
+                                        })
+                                        .catch(()=>{
+
+                                        })
+                                       
                                     })
                                     .catch((e) => {
                                         console.error(e)
