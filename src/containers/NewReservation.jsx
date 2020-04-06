@@ -71,7 +71,7 @@ const MyReservations = props => {
 
                             <Dropdown
                                 label="Seleccione el horario"
-                                placeholder="Mañana, Tarde o Noche"
+                                placeholder="Mañana, Tarde, ..."
                                 options={options}
                             />
                             

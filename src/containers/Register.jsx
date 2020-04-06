@@ -72,7 +72,7 @@ const Register = props => {
                                 
                             <Form.Row>
                                 <Form.Group as={Col} controlId="formGridEmail">
-                                        <Form.Label>Correo Electronico</Form.Label>
+                                        <Form.Label>E-mail</Form.Label>
                                         <div>
                                             <Form.Control onChange={handleEmail} type='email'/>
                                         </div>
@@ -91,8 +91,18 @@ const Register = props => {
                                 </Form.Group>
                                 
                                 <Form.Group as={Col} controlId="formGridRepPassword">
-                                        <Form.Label>Repetir Contraseña</Form.Label>
+                                        <Form.Label>Rep. Contraseña</Form.Label>
                                         <Form.Control onChange={handleRepeatpass} type='password'/>
+                                </Form.Group>
+                            </Form.Row>
+
+                            <Form.Row>
+                                <Form.Group as={Col} id="formGridFile">
+                                    <Form.Label>Imagen de Perfil</Form.Label>
+                                    <div class="custom-file">
+                                    <input id="inputGroupFile02" type="file" multiple class="custom-file-input"/>
+                                        <label class="custom-file-label" for="inputGroupFile01">Elija una imagen</label>
+                                    </div>
                                 </Form.Group>
                             </Form.Row> 
                          

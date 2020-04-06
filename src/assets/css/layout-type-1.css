@@ -1,5 +1,3 @@
-@vertical-border-size: 2px;
-
 .layout-type-1 {
     display: inline-flex;
     height: 60%;
@@ -27,17 +25,14 @@
     }
     .Box-1 {
         margin-top: 30px;
-        width: 100%;
+        width: 90%;
+        align-items: center;
+        justify-content: center;
     }
 
     .horizontal-line{
         border-bottom: 5px solid gray;
     }
-
-}
-
-.vertical-line{
-        border-right: @vertical-border-size solid gray;  
 }
 
 .container{
