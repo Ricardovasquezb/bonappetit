@@ -45,7 +45,7 @@ const Settings = props => {
                     <Form.Group as={Col} id="formGridFile">
                         <Form.Label>Layout del Restaurante</Form.Label>
                         <div class="custom-file">
-                            <input id="inputGroupFile01" type="file" class="custom-file-input"/>
+                        <input id="inputGroupFile02" type="file" multiple class="custom-file-input"/>
                             <label class="custom-file-label" for="inputGroupFile01">Elija el archivo imagen</label>
                         </div>
                     </Form.Group>

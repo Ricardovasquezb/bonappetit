@@ -7,7 +7,7 @@ import Imagen from '../assets/img/Copa_Blanca.png'
 const Footer = props => {
     return(
         <Navbar collapseOnSelect  sticky="bottom" expand="lg" bg="dark" variant="dark">
-            <Navbar.Brand href="#">
+            <Navbar.Brand href="#home">
                 Bon APPetit
             </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />

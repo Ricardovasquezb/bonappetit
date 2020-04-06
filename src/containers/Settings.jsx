@@ -48,7 +48,7 @@ const Settings = props => {
                         <Form.Label>Imagen de Perfil</Form.Label>
                         
                         <div class="custom-file">
-                            <input id="inputGroupFile01" type="file" class="custom-file-input"/>
+                            <input id="inputGroupFile02" type="file" multiple class="custom-file-input"/>
                             <label class="custom-file-label" for="inputGroupFile01">Elija un archivo .png .jpg.jpeg</label>
                         </div>
                     </Form.Group>
