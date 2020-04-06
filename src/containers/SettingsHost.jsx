@@ -22,6 +22,14 @@ const Settings = props => {
                         <Form.Label>Nombre del Restaurant</Form.Label>
                         <Form.Control readOnly defaultValue={User.name}/>
                     </Form.Group>
+                    
+                    <Form.Group as={Col} controlId="formGridEmail">
+                        <Form.Label>Foto de perfil</Form.Label>
+                        <div class="custom-file">
+                            <input id="inputGroupFile01" type="file" class="custom-file-input"/>
+                            <label class="custom-file-label" for="inputGroupFile01">Formatos permitidos: .png .jpg .jpeg</label>
+                        </div>
+                    </Form.Group>
                 </Form.Row>
 
                 <Form.Group controlId="formGridAddress1">
