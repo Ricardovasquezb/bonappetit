@@ -27,10 +27,6 @@ const MyReservations = props => {
     const dynamicHandler = (seter) => (value) => seter(value)
 
     const handleClick = () => {
-        const dateParsed = dateParser(date || new Date())
-        const tableKey = table.value
-        const scheduleKey = schedule.value
-        props.done({ table: tableKey, schedule: scheduleKey, date: dateParsed })
         sweetalert({
             title: "¿Confirmar reserva?",
             text: "Si revisaste bien los datos de tu reserva puedes seguir",
@@ -38,17 +34,18 @@ const MyReservations = props => {
             buttons: ["Seguir viendo mi reserva",true],
             
           })
-          .then((createreservation) => {
-              sweetalert("Tu reservacion ha sido exitosamente registrada", {
-                icon: "success",
-              })
-              .then(()=>{
-                  history.replace("/my-reservations")
-
-              })
+          .then((value) => {
+              if(value){
+                    const dateParsed = dateParser(date || new Date())
+                    const tableKey = table.value
+                    const scheduleKey = schedule.value
+                    props.done({ table: tableKey, schedule: scheduleKey, date: dateParsed })
+    
+                
+              }
+              
           });
-        
-
+       
     }
 
     const options = [
