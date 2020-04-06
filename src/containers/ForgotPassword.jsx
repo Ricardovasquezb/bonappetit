@@ -44,16 +44,52 @@ const ForgotPassword = props => {
                         />   
 
                         <Button darkmode click = { ()=>{
-
                             firebase.appAuth().sendPasswordResetEmail(email)
                             .then((result)=>{
                                 console.log(result)
-                                history.replace("/login")
-
-                            })
+                                sweetalert({
+                                        title: "¿Enviar correo de reseteo de contraseña?",
+                                        text: "Se te enviara un correo con un link que te permitira resetear tu contraseña",
+                                        icon: "warning",
+                                        buttons: true,
+                                        dangerMode: true,
+                                })
+                                    .then(()=>{
+                                        firebase.appAuth().sendPasswordResetEmail(email)
+                                            .then((result) => {
+                                                sweetalert("Se ha envidao un correo que te permitira cambiar tu contraseña a tu email", {
+                                                icon: "success"})
+                                                    .then(()=>{
+                                                        history.replace("/login")
+                                                    });
+                                                })
+                                            })
+                                                .catch((error)=>{
+                                                    console.log(error)
+                                                })
+                                        
+                            }) 
 
                             .catch((e)=>{
                                 console.log(e)
+                                switch (e.code) {
+                                    case "auth/user-not-found":
+                                        sweetalert("Este correo no existe",{icon:"error"})
+                                        .then(()=>{
+                                         history.replace("/forgot-password")
+                                        })
+                                        break;
+                                    case "auth/invalid-email":
+                                        sweetalert("El formato del correo es incorrecto",{icon:"error"})
+                                        .then(()=>{
+                                         history.replace("/forgot-password")
+                                        })
+                                        break;
+                                
+                                    default:
+                                        break;
+                                }
+                                
                             })
                         } }>
                             Recuperar Contraseña

@@ -20,14 +20,35 @@ const MyReservations = props => {
     const [schedule, setSchedule] = useState("")
     const [table, setTable] = useState("");
     const [date, setDate] = useState(new Date());
+
+    const history = useHistory();
+
     
-    const dynamicHanler = (seter) => (value) => seter(value)
+    const dynamicHandler = (seter) => (value) => seter(value)
 
     const handleClick = () => {
         const dateParsed = dateParser(date || new Date())
         const tableKey = table.value
         const scheduleKey = schedule.value
         props.done({ table: tableKey, schedule: scheduleKey, date: dateParsed })
+        sweetalert({
+            title: "¿Confirmar reserva?",
+            text: "Si revisaste bien los datos de tu reserva puedes seguir",
+            icon: "warning",
+            buttons: ["Seguir viendo mi reserva",true],
+            
+          })
+          .then((createreservation) => {
+              sweetalert("Tu reservacion ha sido exitosamente registrada", {
+                icon: "success",
+              })
+              .then(()=>{
+                  history.replace("/my-reservations")
+
+              })
+          });
+        
+
     }
 
     const options = [
@@ -53,12 +74,12 @@ const MyReservations = props => {
                                 minDate = {0}
                                 maxDate = {4}
                                 value={date}
-                                onChange={dynamicHanler(setDate)}
+                                onChange={dynamicHandler(setDate)}
                             />
 
                             <Dropdown
                                 value={schedule}
-                                onChange={dynamicHanler(setSchedule)}
+                                onChange={dynamicHandler(setSchedule)}
                                 label="Seleccione el horario"
                                 placeholder="Mañana, Tarde o Noche"
                                 options={options}
@@ -66,7 +87,7 @@ const MyReservations = props => {
                             
                             <Dropdown
                                 value={table}
-                                onChange={dynamicHanler(setTable)}
+                                onChange={dynamicHandler(setTable)}
                                 label="Seleccione una mesa"
                                 placeholder="Mesa 1, Mesa 2, ..."
                                 options={mesas}
