@@ -111,12 +111,6 @@ const Home = props =>{
                             <CardView 
                                 firebaseInstance={firebaseDatabase}
                             />
-                        
-                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam nihil temporibus nulla voluptate dolor enim, molestiae, atque corporis corrupti ab deleniti voluptatem. Enim numquam, doloremque a vitae hic reiciendis nesciunt!
-                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam nihil temporibus nulla voluptate dolor enim, molestiae, atque corporis corrupti ab deleniti voluptatem. Enim numquam, doloremque a vitae hic reiciendis nesciunt!
-                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam nihil temporibus nulla voluptate dolor enim, molestiae, atque corporis corrupti ab deleniti voluptatem. Enim numquam, doloremque a vitae hic reiciendis nesciunt!
-                            </p>
-                        
                         </div>
                     )
                 }
