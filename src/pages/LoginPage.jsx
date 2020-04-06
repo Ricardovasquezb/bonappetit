@@ -24,7 +24,7 @@ const LoginPage = () => {
             'description': '!Puedes hacerlo rápido!'
         },
         {
-            'src': 'http://www.singlecolorimage.com/get/41427a/1420x400',
+            'src': 'http://www.singlecolorimage.com/get/6ea1d2/1420x400',
             'label': '¿Cansad@?',
             'description': '!Siquiera tiene que pararte!'
         }

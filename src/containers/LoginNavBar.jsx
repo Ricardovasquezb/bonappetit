@@ -25,7 +25,17 @@ const LoginNavBar = props =>{
          <Navbar.Collapse id="basic-navbar-nav">
          <Nav className="mr-auto">
         </Nav>
-             <Button variant="outline-success" href="#register">Crear cuenta</Button>
+            <Navbar.Text>
+                ¿Quieres ser un
+            </Navbar.Text>
+                <Button variant="outline-success" href="#register">Comensal</Button>
+            <Navbar.Text>
+                o un
+            </Navbar.Text>
+                <Button variant="outline-success" href="#register-restaurante">Restaurante</Button>
+            <Navbar.Text>
+                ?
+            </Navbar.Text>
          </Navbar.Collapse>
     </Navbar>
     );

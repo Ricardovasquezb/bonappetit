@@ -79,7 +79,7 @@ const NewReservationsPage = ({ firebaseDatabase, firebaseAppAuth, userSession })
     return (
         <div className="new-reservation">
             <Navigationbar/>
-            <h3>Nombre del Restaurant</h3>
+            <h2>NOMBRE DEL RESTAURANTE</h2>
             <LayoutType1 
                 boxOne={ <Image src={LayoutTest}/> }
                 boxTwo={

@@ -14,14 +14,14 @@ const Footer = props => {
         <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="mr-auto">
                 <Nav.Link href="#about-us">Quienes Somos</Nav.Link>
-                <Nav.Link href="#contact">Contacto</Nav.Link>
-                <Nav.Link href="#help">Ayuda</Nav.Link>
+                {/* <Nav.Link href="#contact">Contacto</Nav.Link>
+                <Nav.Link href="#help">Ayuda</Nav.Link> */}
             </Nav>
 
             <Nav>
             <Nav.Link eventKey={2}>
                     <img src={Imagen} width="10"/>
-                    &copy; {new Date().getFullYear()} Copyright: <a href="https://project-bonappetit.firebaseapp.com/"> BonAPPetit.com </a>
+                    &copy; {new Date().getFullYear()} Copyright: BonAPPetit.com
             </Nav.Link>
             </Nav>
         </Navbar.Collapse>

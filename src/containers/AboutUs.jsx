@@ -23,7 +23,7 @@ const AboutUs = props => {
             ' llevar a cabo el proceso de selección y seguimiento de tus reservaciones'
         },
         {
-            'src': 'http://www.singlecolorimage.com/get/41427a/1420x400',
+            'src': 'http://www.singlecolorimage.com/get/6ea1d2/1420x400',
             'label': '¡Estés donde estés!',
             'description': 'Te ofrecemos la posibilidad de llevar a cabo tus reservaciones para el restaurant'+
             ' de tu preferencia estes donde estes'
