@@ -12,6 +12,7 @@ import FormControl from 'react-bootstrap/FormControl'
 
 const Navigationbar = props => {
 
+    var User = props.user
     let pages = [
         {label: 'Inicio', link: '/'}
     ];
@@ -28,20 +29,20 @@ const Navigationbar = props => {
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
              <Navbar.Collapse id="basic-navbar-nav">
                  <Nav className="mr-auto">
-                 <Nav.Link href="#home">Home</Nav.Link>
+                 <Nav.Link href="#home">Inicio</Nav.Link>
                  <NavDropdown title="Reservaciones" id="basic-nav-dropdown">
                      <NavDropdown.Item href="#new-reservation">Nueva Reservación</NavDropdown.Item>
                      <NavDropdown.Item href="#my-reservations">Mis Reservaciones</NavDropdown.Item>
                      {/* <NavDropdown.Divider />
                      <NavDropdown.Item href="#action/3.4">Cancelar Reservación</NavDropdown.Item> */}
                  </NavDropdown>
+                 <NavDropdown title="Usuario" id="basic-nav-dropdown">
+                     <NavDropdown.Item href="#settings">Configuraciones</NavDropdown.Item>
+                 </NavDropdown>
                  </Nav>
                  <FormControl type="text" placeholder="Escriba aqui para buscar" className=" mr-sm-2" />
-                 {/* <Form inline>
-                 <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-                 <Button variant="outline-success">Search</Button>
-                 </Form> */}
-                 <Button variant="outline-danger" href="#login">Salir</Button>
+
+                    <Button variant="outline-danger" href="#login">Salir</Button>
              </Navbar.Collapse>
         </Navbar>
     );

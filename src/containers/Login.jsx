@@ -8,7 +8,10 @@ import { useHistory } from "react-router-dom"
 import sweetalert from 'sweetalert'
 import firebaseContext from "../hooks/firebaseContext"
 
-const Consumer = firebaseContext.Consumer
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
+
+const Consumer = firebaseContext
 
 
 

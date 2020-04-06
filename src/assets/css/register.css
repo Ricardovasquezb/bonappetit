@@ -7,7 +7,23 @@
     align-items: center;
     justify-content: center;
 }
+.register-comensal{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    padding: 4%;
+    box-shadow: 5px 5px 10px 1px rgb(8, 8, 8);
+}
 
+.register-restaurant{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    padding: 4%;
+    box-shadow: 5px 5px 10px 1px rgb(8, 8, 8);
+}
 .register-background{
     /* background-color: #58595a; */
     background-image: linear-gradient(135deg, #58595a 0%, #17181a 100%);
@@ -15,3 +31,4 @@
     padding-bottom: 80px;
 
 }
+

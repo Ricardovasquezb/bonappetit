@@ -1,3 +1,18 @@
 .home-host{
+    padding: 40px;
+    /* display: inline;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    break-inside: auto;
+    justify-content: space-between;
+    align-content: center; */
+}
+
+h3{
+    margin: 20px;
+}
+@media screen and (max-width: 700px) {
     
 }

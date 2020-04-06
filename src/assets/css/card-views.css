@@ -8,6 +8,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-self: self-start;
+    
 }
 
 .card-img-top{
@@ -21,6 +22,8 @@
     margin-bottom: 20px;
     /* margin-left: 10px;
     margin-right: 10px; */
+    box-shadow: 5px 5px 10px 1px rgb(112, 110, 110);
+
 }
 
 @media screen and (max-width: 750px) {

@@ -4,7 +4,7 @@ import Logo from '../assets/img/Logo_Fondo_Blanco.png'
 
 import Slider from '../components/CarouselView'
 import LayoutType1 from '../components/LayoutType1'
-import CardView from '../components/CardView'
+import StaticCardview from '../components/StaticCardview'
 import Image from '../components/Image'
 
 const AboutUs = props => {
@@ -23,7 +23,7 @@ const AboutUs = props => {
             ' llevar a cabo el proceso de selección y seguimiento de tus reservaciones'
         },
         {
-            'src': 'http://www.singlecolorimage.com/get/41427a/1420x400',
+            'src': 'http://www.singlecolorimage.com/get/6ea1d2/1420x400',
             'label': '¡Estés donde estés!',
             'description': 'Te ofrecemos la posibilidad de llevar a cabo tus reservaciones para el restaurant'+
             ' de tu preferencia estes donde estes'
@@ -97,7 +97,7 @@ const AboutUs = props => {
             </div>
             <div className='team'>
                 <h2>El BonAPPeTeam</h2>
-                <CardView values={Team}/>
+                <StaticCardview values={Team}/>
             </div>
         </div>
     );

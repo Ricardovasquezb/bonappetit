@@ -1,11 +1,9 @@
-import React, {useState} from 'react'
+import React, { useState, useEffect } from 'react'
 import Button from '../components/normalButton'
 import '../assets/css/new-reservation.css'
 import TextInput from "../components/TextInput"
 import Card from '../components/Card'
-import { useHistory } from "react-router-dom"
-import sweetalert from 'sweetalert'
-import firebaseContext from "../hooks/firebaseContext"
+import { useParams, Redirect } from "react-router-dom"
 import NewReservation from '../containers/NewReservation'
 import LayoutType1 from '../components/LayoutType1';
 import LayoutRestaurant from '../containers/LayoutRestaurant'
@@ -13,25 +11,117 @@ import LayoutTest from '../assets/img/LayoutTest.png'
 import Image from "../components/Image";
 import Navigationbar from "../containers/NavigationBar"
 import Footer from "../containers/Footer"
+import { arrayFirebaseParser } from "../utils/index"
+import sweetalert from 'sweetalert'
+import { useHistory } from "react-router-dom"
 
 
 
+const NewReservationsPage = ({ firebaseDatabase, firebaseAppAuth, userSession }) => {
+    const { restaurantId } = useParams();
 
-const NewReservationsPage = props => {
-    const [name, setName] = useState("");
-    const [lastname, setLastname] = useState("");
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [repeatpass, setRepeatpass] = useState("");
     const history = useHistory();
 
+
+    const [tableList, setTableList] = useState([]);
+
+    const [restaurantName, setrestaurantName] = useState("empty");
+
+    const getrestaurantName = ()=>{
+        firebaseDatabase.ref(`/restaurant/${restaurantId}/name`).once("value")
+        .then(snapShot=> {
+             
+            setrestaurantName(snapShot.val())
+        })
+        .catch(e=>{
+            console.error(e)
+        })
+    }
+    getrestaurantName()
+
+    const getTables = () => {
+        firebaseDatabase.ref(`/restaurant/${restaurantId}/tables`).once("value")
+            .then(snapShot => {
+                const val = snapShot.val()
+                const dataParsed = arrayFirebaseParser(val)
+                setTableList(dataParsed)
+            })
+            .catch(e => {
+                console.error(e)
+            })
+    }
+
+    const verifyIfExist = async (toEqual) => {
+        const snapShot = await firebaseDatabase.ref("/reservations/").orderByChild("reservationId").equalTo(toEqual).once("value")
+        
+        return snapShot.exists()
+    }
+
+    const createReservation = async ({ schedule, table, date }) => {
+        const reservationId = `${date}.${table}.${schedule}.${restaurantId}`
+        const verify = await verifyIfExist(reservationId)
+        
+        console.log(verify)
+
+        if (!verify) { 
+            const toPush = {
+                user_uid: userSession.uid,
+                restaurant_id: restaurantId,
+                schedule,
+                table,
+                date,
+                reservationId
+            }
+            return firebaseDatabase.ref("/reservations/").push(toPush)
+             
+        } else {
+            throw {
+                error: true,
+                message: "Esta reserva esta ocupada",       
+            }
+            
+
+            
+        }
+    }
+    const doneHandler = (data) => {
+        console.log(data)
+        createReservation(data)
+            .then(() => {
+                sweetalert("Tu reservacion ha sido exitosamente registrada", {
+                    icon: "success",
+                  })
+                  .then(()=>{
+                    history.replace("/my-reservations")    
+                  })            })
+            .catch((e) => {
+                if (e.error) {
+                    sweetalert("Esta mesa ya esta ocupada", {
+                        icon: "error",
+                      })
+                } else {
+                    console.log(e)
+                }
+            })
+    }
+
+    useEffect(() => {
+        getTables()
+    }, [])
+
+    if (!restaurantId) return <Redirect to="/home" />
     return (
         <div className="new-reservation">
             <Navigationbar/>
-            <h3>Nombre del Restaurant</h3>
+            <h3>{restaurantName}</h3>
             <LayoutType1 
                 boxOne={ <Image src={LayoutTest}/> }
-                boxTwo={<NewReservation/>} 
+                boxTwo={
+                    <NewReservation
+                        listData={tableList}
+                        done={doneHandler}
+                    />
+                } 
             />
             <Footer/>
         </div>
