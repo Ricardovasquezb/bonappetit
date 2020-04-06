@@ -18,6 +18,7 @@ import FirebaseContext from './hooks/firebaseContext'
 import MyReservations from './pages/MyReservationsPage';
 import AboutUs from './pages/AboutUsPage';
 import SettingsPage from './pages/SettingsPage';
+import AllReservationsHostPage from './pages/AllReservationsHostPage';
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
@@ -57,6 +58,9 @@ library.add(fab, faCheckSquare, faCoffee, faAngleUp,
                     </Route>
                     <Route exact path="/my-reservations">
                         <MyReservations />
+                    </Route>
+                    <Route exact path="/all-reservations">
+                        <AllReservationsHostPage />
                     </Route>
                     <Route exact path="/about-us">
                         <AboutUs />

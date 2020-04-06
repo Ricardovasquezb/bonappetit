@@ -13,7 +13,7 @@ import Footer from '../containers/Footer'
 const SettingsPage = props =>{
       
     var User = {
-        type : 1,
+        type : 2,
         name : 'Josias Ramon',
         lastname : 'Carmona Amparo',
         email: 'joracaam@gmail.com',

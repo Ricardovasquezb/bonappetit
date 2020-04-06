@@ -18,7 +18,7 @@ const NLNavBar = props => {
     ];
     return(
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" sticky="top">
-            <Navbar.Brand href="#login">
+            <Navbar.Brand href="#home">
             <img
                 alt=""
                 src={Logo}

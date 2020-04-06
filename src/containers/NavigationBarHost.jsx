@@ -32,7 +32,8 @@ const NavigationbarHost = props => {
              <Navbar.Collapse id="basic-navbar-nav">
                  <Nav className="mr-auto">
                     <Nav.Link href="#home">Inicio</Nav.Link>
-                    <Nav.Link href="#statistics">Estadisticas</Nav.Link>
+                    <Nav.Link href="#all-reservations">Reservaciones</Nav.Link>
+                    {/* <Nav.Link href="#statistics">Estadisticas</Nav.Link> */}
                     <Nav.Link href="#settings">Configuración</Nav.Link>
                 </Nav>
                 <Button variant="outline-danger" href="#login">Salir</Button>

@@ -12,8 +12,10 @@ const Settings = props => {
     
     var User = props.user;
     return(
+    <div className='general'>
+
+        <h2>DATOS DEL USUARIO</h2>
       <div className='settings'>
-          <h2>Datos del usuario</h2>
             <Form>
             
                 <Form.Group  controlId="formGridName">
@@ -58,6 +60,7 @@ const Settings = props => {
                 </Button>
             </Form>
         </div>
+    </div>
     );
 }
 

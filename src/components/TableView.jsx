@@ -41,6 +41,7 @@ const TableView = props => {
                   </td>
                   <td>{item.TableNumber}</td>
                   <td>{item.hour}</td>
+                  <td>{item.code}</td>
                 </tr>
               ))
             }

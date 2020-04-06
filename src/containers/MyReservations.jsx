@@ -44,7 +44,7 @@ const MyReservations = props =>{
     ];
     return(
         <div className='my-reservations'>
-            <h3>Mis reservaciones</h3>
+            <h2>MIS RESERVACIONES</h2>
             <div className='cards'>
                 <CardView values={reservations} onClick={console.log('clicked')}/>
             </div>

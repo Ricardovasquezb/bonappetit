@@ -1,0 +1,21 @@
+.all-reservations-host{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-self: center;
+    align-items: center;
+    padding: 40px;
+}
+.all-reservations-host datetime-picker{
+    width: 250px;
+    margin-bottom: 0px;
+}
+
+all-reservations-host h2{
+    margin-top: 0px;
+}
+
+all-reservations-host h4{
+    margin-bottom: 0px;
+}

@@ -1,5 +1,8 @@
+.general{
+    margin: 3%
+}
 .settings{
-    margin-top: 3%;
+    margin-top: 1%;
     margin-left: 5%;
     margin-right: 5%;
     margin-bottom: 3%;
@@ -16,4 +19,8 @@
 
 .form-group col{
     padding: 0%;
+}
+
+h2{
+    margin-top: 3%;
 }
