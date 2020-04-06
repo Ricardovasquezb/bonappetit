@@ -4,33 +4,29 @@ import Button from 'react-bootstrap/Button';
 import '../assets/css/card-views.css'
 import { useHistory } from "react-router-dom"
 import { arrayFirebaseParser } from "../utils"
+import database from 'firebase/database'
 
-const CardView = props => {
+
+const ReservationCard = props => {
     const { push: toLocation } = useHistory()
-    const [data, setData] = useState([]);
-
-    useEffect(() => {
-        props.firebaseInstance.ref("/reservations").once("value")
-            .then(snapShot => {
-                const val = snapShot.val()
-                const dataParsed = arrayFirebaseParser(val)
-                console.log(dataParsed)
-                setData(dataParsed)
-            })
-            .catch(e => {
-                console.error(e)
-            })
-    }, [])
+    const data = props.dataList
+    
+    console.log(props.dataList,data)
+    
     
     const toDetailsReservation = (reservationId) => () => {
-        toLocation("/new-reservation/" + reservationId)
+        toLocation("/reservation-detail/" + reservationId)
     }
+
+    data.forEach(item => {
+        console.log(item)
+    });
     return(
     <div className='card-views'>
         {
-            data.map((item, key) => (   
-                
+            data.map((item, key) => (                 
                 <Card 
+                
                     key={key}
                     bg={"dark"}
                     text={'light'}
@@ -52,4 +48,4 @@ const CardView = props => {
   );
 }
 
-export default CardView;
+export default ReservationCard;

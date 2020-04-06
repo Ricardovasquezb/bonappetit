@@ -87,6 +87,9 @@ library.add(fab, faCheckSquare, faCoffee, faAngleUp,
                     <Route exact path="/about-us">
                         <AboutUs />
                     </Route>
+                    <Route exact path="/reservation-detail">
+                        <AboutUs />
+                    </Route>
                     <Route exact path="/settings">
                         <SettingsPage/>
                     </Route>
