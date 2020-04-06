@@ -11,6 +11,9 @@ import firebaseContext from "../hooks/firebaseContext"
 const Consumer = firebaseContext.Consumer
 
 const Home = props =>{
+
+
+    var User = props.user;//we have  to make it dynamic
     
     const [Username, setUserName] = useState("Welcome to the Home!");
 
@@ -20,17 +23,17 @@ const Home = props =>{
 
     var Slider_Source = [
         {
-            'src': 'http://www.singlecolorimage.com/get/33fd8f/400x250',
-            'label': 'Bienvenido a Bon APPetit',
-            'description': 'Para realizar una reservacion seleccionesun restaurant'
+            'src': 'http://www.singlecolorimage.com/get/33fd8f/200x50',
+            'label': `${User.name}, esto es Bon APPetit`,
+            'description': 'Para realizar una reservacion selecciones un restaurant'
         },
         {
-            'src': 'http://www.singlecolorimage.com/get/ff85a9/400x250',
-            'label': 'Te gustan las ofertas?',
+            'src': 'http://www.singlecolorimage.com/get/ff85a9/200x50',
+            'label': '¿Te gustan las ofertas?',
             'description': 'Bon APPetit te permite visualizar las ofertas de un restaurante y reservar para una de estas'
         },
         {
-            'src': 'http://www.singlecolorimage.com/get/41427a/400x250',
+            'src': 'http://www.singlecolorimage.com/get/6ea1d2/200x50',
             'label': '¡Estés donde estés!',
             'description': 'Te ofrecemos la posibilidad de llevar a cabo tus reservaciones para el restaurant'
         }
@@ -111,12 +114,6 @@ const Home = props =>{
                             <CardView 
                                 firebaseInstance={firebaseDatabase}
                             />
-                        
-                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam nihil temporibus nulla voluptate dolor enim, molestiae, atque corporis corrupti ab deleniti voluptatem. Enim numquam, doloremque a vitae hic reiciendis nesciunt!
-                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam nihil temporibus nulla voluptate dolor enim, molestiae, atque corporis corrupti ab deleniti voluptatem. Enim numquam, doloremque a vitae hic reiciendis nesciunt!
-                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam nihil temporibus nulla voluptate dolor enim, molestiae, atque corporis corrupti ab deleniti voluptatem. Enim numquam, doloremque a vitae hic reiciendis nesciunt!
-                            </p>
-                        
                         </div>
                     )
                 }

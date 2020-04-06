@@ -6,9 +6,15 @@ import sweetalert from 'sweetalert'
 import '../assets/css/my-reservations.css'
 
 import Button from '../components/normalButton'
-import CardView from '../components/CardView'
+import ReservationCard from '../components/ReservationCard'
+import { dateParser } from '../utils'
+
+
+const Consumer = firebaseContext.Consumer
 
 const MyReservations = props =>{
+
+    
 
     var reservations = [
        
@@ -42,13 +48,25 @@ const MyReservations = props =>{
             'ButtonLabel': 'Modificar'
         }   
     ];
+
     return(
-        <div className='my-reservations'>
-            <h2>MIS RESERVACIONES</h2>
-            <div className='cards'>
-                <CardView values={reservations} onClick={console.log('clicked')}/>
-            </div>
-        </div>
+        <Consumer>
+            {
+                ({ firebaseDatabase }) => {
+                    return(
+                        <div className='my-reservations'>
+                            <h2>MIS RESERVACIONES</h2>
+                            <div className='cards'>
+                                <ReservationCard 
+                                    firebaseInstance={firebaseDatabase}
+                                    dataList = {props.reservationsList}
+                                />         
+                            </div>
+                        </div>
+                    );
+                }
+            }
+        </Consumer>
     );
 }
 
