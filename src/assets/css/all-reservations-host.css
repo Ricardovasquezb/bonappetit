@@ -1,11 +1,14 @@
 .all-reservations-host{
-    display: flex;
-    width: 100%;
-    flex-direction: column;
+    display: block;
     flex-wrap: wrap;
-    justify-self: center;
+    justify-content: center;
     align-items: center;
     padding: 40px;
+}
+
+.picker{
+    display: flex;
+    padding-left: 26%;
 }
 .all-reservations-host datetime-picker{
     width: 250px;

@@ -26,11 +26,13 @@ import { fab } from '@fortawesome/free-brands-svg-icons'
 import { 
     faCheckSquare, faCoffee,faAngleUp,
     faAngleDown,   faArrowLeft,     faArrowRight,
-    faEllipsisH, faSpinner, faCalendarCheck, faStarHalfAlt, faUsers, faKey, faAt} from '@fortawesome/free-solid-svg-icons'
+    faEllipsisH, faSpinner, faCalendarCheck, faStarHalfAlt, faUsers, 
+    faKey, faAt, faChartLine} from '@fortawesome/free-solid-svg-icons'
 
 library.add(fab, faCheckSquare, faCoffee, faAngleUp,
     faAngleDown,   faArrowLeft,     faArrowRight,
-    faEllipsisH, faSpinner, faCalendarCheck,faStarHalfAlt, faUsers, faKey, faAt)
+    faEllipsisH, faSpinner, faCalendarCheck,
+    faStarHalfAlt, faUsers, faKey, faAt, faChartLine)
 
  const Provider = FirebaseContext.Provider
 

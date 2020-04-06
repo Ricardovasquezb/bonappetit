@@ -57,7 +57,7 @@ const HomeHost = props =>{
     ];
     const DashBoxes = [
         {
-            'value': 30,
+            'value': 3,
             'header': 'Reservas del dia',
             'icon': 'calendar-check',
         },
@@ -67,6 +67,13 @@ const HomeHost = props =>{
             'icon': 'star-half-alt',
             'iconFooter': 'angle-up',
             'footer': 'Promedio'
+        },
+        {
+            'value': 125,
+            'header': 'Reservaciones en el mes',
+            'icon': 'chart-line',
+            'iconFooter': 'angle-up',
+            'footer': 'Hasta la fecha'
         },
         {
             'value': 440,
@@ -81,10 +88,10 @@ const HomeHost = props =>{
     return(
         <div className='home-host'>
             <h2>{User.name.toUpperCase()}</h2>            
-            <h3>Estadisticas</h3>
-            <DashboardBox source = {DashBoxes}/>
             <h3>Lista de reservas del dia</h3>
             <TableView titles={TableTitle} values={TableValues}/>
+            <h3>Estadisticas</h3>
+            <DashboardBox source = {DashBoxes}/>
         </div>
     );
 }
