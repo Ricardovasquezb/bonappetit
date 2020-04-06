@@ -18,6 +18,20 @@ const NewReservationsPage = ({ firebaseDatabase, firebaseAppAuth, userSession })
 
     const [tableList, setTableList] = useState([]);
 
+    const [restaurantName, setrestaurantName] = useState("empty");
+
+    const getrestaurantName = ()=>{
+        firebaseDatabase.ref(`/restaurant/${restaurantId}/name`).once("value")
+        .then(snapShot=> {
+             
+            setrestaurantName(snapShot.val())
+        })
+        .catch(e=>{
+            console.error(e)
+        })
+    }
+    getrestaurantName()
+
     const getTables = () => {
         firebaseDatabase.ref(`/restaurant/${restaurantId}/tables`).once("value")
             .then(snapShot => {
@@ -32,6 +46,7 @@ const NewReservationsPage = ({ firebaseDatabase, firebaseAppAuth, userSession })
 
     const verifyIfExist = async (toEqual) => {
         const snapShot = await firebaseDatabase.ref("/reservations/").orderByChild("reservationId").equalTo(toEqual).once("value")
+        
         return snapShot.exists()
     }
 
@@ -79,7 +94,7 @@ const NewReservationsPage = ({ firebaseDatabase, firebaseAppAuth, userSession })
     return (
         <div className="new-reservation">
             <Navigationbar/>
-            <h3>Nombre del Restaurant</h3>
+            <h3>{restaurantName}</h3>
             <LayoutType1 
                 boxOne={ <Image src={LayoutTest}/> }
                 boxTwo={
