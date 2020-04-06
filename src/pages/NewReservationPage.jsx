@@ -29,15 +29,33 @@ const NewReservationsPage = ({ firebaseDatabase, firebaseAppAuth, userSession })
                 console.error(e)
             })
     }
-    const createReservation = ({ schedule, table, date }) => {
+
+    const verifyIfExist = async (toEqual) => {
+        const snapShot = await firebaseDatabase.ref("/reservations/").orderByChild("reservationId").equalTo(toEqual).once("value")
+        return snapShot.exists()
+    }
+
+    const createReservation = async ({ schedule, table, date }) => {
+        const reservationId = `${date}.${table}.${schedule}.${restaurantId}`
         const toPush = {
             user_uid: userSession.uid,
             restaurant_id: restaurantId,
             schedule,
             table,
-            date
+            date,
+            reservationId
         }
-        return firebaseDatabase.ref("/reservations/").push(toPush)
+
+        const verify = await verifyIfExist(reservationId)
+
+        if (!verify) {
+            return firebaseDatabase.ref("/reservations/").push(toPush)
+        } else {
+            throw {
+                error: true,
+                message: "Esta reserva esta ocupada"
+            }
+        }
     }
     const doneHanler = (data) => {
         createReservation(data)
@@ -45,7 +63,11 @@ const NewReservationsPage = ({ firebaseDatabase, firebaseAppAuth, userSession })
                 console.log("Se guardo")
             })
             .catch((e) => {
-                console.log(e)
+                if (e.error) {
+                    console.log(e.message)
+                } else {
+                    console.log(e)
+                }
             })
     }
 
