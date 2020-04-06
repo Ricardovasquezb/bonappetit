@@ -4,7 +4,7 @@ import Logo from '../assets/img/Logo_Fondo_Blanco.png'
 
 import Slider from '../components/CarouselView'
 import LayoutType1 from '../components/LayoutType1'
-import CardView from '../components/CardView'
+import StaticCardview from '../components/StaticCardview'
 import Image from '../components/Image'
 
 const AboutUs = props => {
@@ -97,7 +97,7 @@ const AboutUs = props => {
             </div>
             <div className='team'>
                 <h2>El BonAPPeTeam</h2>
-                <CardView values={Team}/>
+                <StaticCardview values={Team}/>
             </div>
         </div>
     );

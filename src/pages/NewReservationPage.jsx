@@ -12,11 +12,32 @@ import Image from "../components/Image";
 import Navigationbar from "../containers/NavigationBar"
 import Footer from "../containers/Footer"
 import { arrayFirebaseParser } from "../utils/index"
+import sweetalert from 'sweetalert'
+import { useHistory } from "react-router-dom"
+
+
 
 const NewReservationsPage = ({ firebaseDatabase, firebaseAppAuth, userSession }) => {
     const { restaurantId } = useParams();
 
+    const history = useHistory();
+
+
     const [tableList, setTableList] = useState([]);
+
+    const [restaurantName, setrestaurantName] = useState("empty");
+
+    const getrestaurantName = ()=>{
+        firebaseDatabase.ref(`/restaurant/${restaurantId}/name`).once("value")
+        .then(snapShot=> {
+             
+            setrestaurantName(snapShot.val())
+        })
+        .catch(e=>{
+            console.error(e)
+        })
+    }
+    getrestaurantName()
 
     const getTables = () => {
         firebaseDatabase.ref(`/restaurant/${restaurantId}/tables`).once("value")
@@ -32,39 +53,52 @@ const NewReservationsPage = ({ firebaseDatabase, firebaseAppAuth, userSession })
 
     const verifyIfExist = async (toEqual) => {
         const snapShot = await firebaseDatabase.ref("/reservations/").orderByChild("reservationId").equalTo(toEqual).once("value")
+        
         return snapShot.exists()
     }
 
     const createReservation = async ({ schedule, table, date }) => {
         const reservationId = `${date}.${table}.${schedule}.${restaurantId}`
-        const toPush = {
-            user_uid: userSession.uid,
-            restaurant_id: restaurantId,
-            schedule,
-            table,
-            date,
-            reservationId
-        }
-
         const verify = await verifyIfExist(reservationId)
+        
+        console.log(verify)
 
-        if (!verify) {
+        if (!verify) { 
+            const toPush = {
+                user_uid: userSession.uid,
+                restaurant_id: restaurantId,
+                schedule,
+                table,
+                date,
+                reservationId
+            }
             return firebaseDatabase.ref("/reservations/").push(toPush)
+             
         } else {
             throw {
                 error: true,
-                message: "Esta reserva esta ocupada"
+                message: "Esta reserva esta ocupada",       
             }
+            
+
+            
         }
     }
-    const doneHanler = (data) => {
+    const doneHandler = (data) => {
+        console.log(data)
         createReservation(data)
             .then(() => {
-                console.log("Se guardo")
-            })
+                sweetalert("Tu reservacion ha sido exitosamente registrada", {
+                    icon: "success",
+                  })
+                  .then(()=>{
+                    history.replace("/my-reservations")    
+                  })            })
             .catch((e) => {
                 if (e.error) {
-                    console.log(e.message)
+                    sweetalert("Esta mesa ya esta ocupada", {
+                        icon: "error",
+                      })
                 } else {
                     console.log(e)
                 }
@@ -79,13 +113,13 @@ const NewReservationsPage = ({ firebaseDatabase, firebaseAppAuth, userSession })
     return (
         <div className="new-reservation">
             <Navigationbar/>
-            <h2>NOMBRE DEL RESTAURANTE</h2>
+            <h3>{restaurantName}</h3>
             <LayoutType1 
                 boxOne={ <Image src={LayoutTest}/> }
                 boxTwo={
                     <NewReservation
                         listData={tableList}
-                        done={doneHanler}
+                        done={doneHandler}
                     />
                 } 
             />
