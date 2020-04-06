@@ -11,6 +11,9 @@ import firebaseContext from "../hooks/firebaseContext"
 const Consumer = firebaseContext.Consumer
 
 const Home = props =>{
+
+
+    var User = props.user;//we have  to make it dynamic
     
     const [Username, setUserName] = useState("Welcome to the Home!");
 
