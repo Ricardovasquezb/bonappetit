@@ -12,13 +12,15 @@ import Footer from "../containers/Footer"
 
 
 
-const MyReservationsPage = props => {
+const MyReservationsPage = ({ firebaseDatabase, firebaseAppAuth, userSession }) => {
     const [name, setName] = useState("");
     const [lastname, setLastname] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [repeatpass, setRepeatpass] = useState("");
     const history = useHistory();
+
+
 
     return (
         <div>

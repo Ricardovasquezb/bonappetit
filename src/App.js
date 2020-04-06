@@ -75,7 +75,11 @@ library.add(fab, faCheckSquare, faCoffee, faAngleUp,
                         />
                     </Route>
                     <Route exact path="/my-reservations">
-                        <MyReservations />
+                        <MyReservations 
+                            userSession={userSession}
+                            firebaseAppAuth={firebaseInstance.firebaseAppAuth}
+                            firebaseDatabase={firebaseInstance.firebaseDatabase}
+                        />
                     </Route>
                     <Route exact path="/all-reservations">
                         <AllReservationsHostPage />

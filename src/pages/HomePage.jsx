@@ -5,6 +5,9 @@ import HomeHost from '../containers/HomeHost'
 import Navigationbar from "../containers/NavigationBar"
 import NavigationbarHost from "../containers/NavigationBarHost"
 import Footer from '../containers/Footer'
+import * as firebase from 'firebase/app'
+import 'firebase/auth';
+
 
 
 const HomePage = props => {
@@ -18,6 +21,8 @@ const HomePage = props => {
     address : 'Manzana i, No. 9, Res. Villas de Pantoja, Sto. Dgo. oeste',
     city: 'Santo Domingo'
    };
+
+   
 
     if(User.type == 1)
     { return(
