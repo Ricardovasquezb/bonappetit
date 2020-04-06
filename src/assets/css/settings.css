@@ -1,0 +1,19 @@
+.settings{
+    margin-top: 3%;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 3%;
+    padding: 5%;
+    box-shadow: 5px 5px 10px 1px rgb(112, 110, 110);
+}
+.form-row{
+    margin: 0px;
+}
+
+.form-control{
+    margin-left: 0px;
+}
+
+.form-group col{
+    padding: 0%;
+}

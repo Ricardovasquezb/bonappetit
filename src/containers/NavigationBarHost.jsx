@@ -10,9 +10,8 @@ import Button from 'react-bootstrap/Button'
 import FormControl from 'react-bootstrap/FormControl'
 
 
-const Navigationbar = props => {
+const NavigationbarHost = props => {
 
-    var User = props.user
     let pages = [
         {label: 'Inicio', link: '/'}
     ];
@@ -26,26 +25,20 @@ const Navigationbar = props => {
                 className="d-inline-block align-top"
             />{' '}
             </Navbar.Brand>
+            <Navbar.Text>
+                {props.Tittle}
+            </Navbar.Text>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
              <Navbar.Collapse id="basic-navbar-nav">
                  <Nav className="mr-auto">
-                 <Nav.Link href="#home">Inicio</Nav.Link>
-                 <NavDropdown title="Reservaciones" id="basic-nav-dropdown">
-                     <NavDropdown.Item href="#new-reservation">Nueva Reservación</NavDropdown.Item>
-                     <NavDropdown.Item href="#my-reservations">Mis Reservaciones</NavDropdown.Item>
-                     {/* <NavDropdown.Divider />
-                     <NavDropdown.Item href="#action/3.4">Cancelar Reservación</NavDropdown.Item> */}
-                 </NavDropdown>
-                 <NavDropdown title="Usuario" id="basic-nav-dropdown">
-                     <NavDropdown.Item href="#settings">Configuraciones</NavDropdown.Item>
-                 </NavDropdown>
-                 </Nav>
-                 <FormControl type="text" placeholder="Escriba aqui para buscar" className=" mr-sm-2" />
-
-                    <Button variant="outline-danger" href="#login">Salir</Button>
+                    <Nav.Link href="#home">Inicio</Nav.Link>
+                    <Nav.Link href="#statistics">Estadisticas</Nav.Link>
+                    <Nav.Link href="#settings">Configuración</Nav.Link>
+                </Nav>
+                <Button variant="outline-danger" href="#login">Salir</Button>
              </Navbar.Collapse>
         </Navbar>
     );
 }
 
-export default Navigationbar;
+export default NavigationbarHost;

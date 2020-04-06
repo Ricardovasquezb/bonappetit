@@ -1,7 +1,40 @@
 .dashboard-box{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    padding: 10px 0;    
+    /* justify-content: space-between; */
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-self: center;
 
+    align-items: center;
 }
 
+.mb-3.widget-chart{
+    display: inline-flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-self: center;
+    align-items: center;
+}
+.icon-wrapper{
+    display: inline-flex;
+    height: 100px;
+    width: 100px;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 5px;
+    padding: 3%;
+
+    border-radius: 50%;
+}
+
+.icon{
+    opacity: 100%;
+}
 .col-md-4{
     margin: 20px;
     
@@ -31,7 +64,7 @@
 }
 
 .widget-description{
-    display: inline-flex;
+    display: inline;
     align-items: center;
     flex-direction: column;
     justify-content: center;

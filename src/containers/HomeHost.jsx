@@ -3,12 +3,15 @@ import '../assets/css/home-host.css';
 
 import DashboardBox from '../components/DashboardBox'
 import TableView from '../components/TableView'
+import Settings from '../containers/SettingsHost'
 
 
 
 
 const HomeHost = props =>{
 
+    var User = props.user;
+    
     const TableTitle = [
         {
             'title': 'No.'
@@ -23,44 +26,58 @@ const HomeHost = props =>{
             'title': 'Horario'
         }
     ];
-    
     const TableValues = [
         {
-            'img': 'https://cdn4.iconfinder.com/data/icons/web-ui-color/128/Account-512.png',
+            'img': 'https://image.freepik.com/foto-gratis/personas-que-sonrie-alegre-hombres-guapos_1187-6057.jpg',
             'Name' : 'Josias R.',
             'LastName' : 'Carmona',
             'TableNumber' : '4',
             'hour': 'Tarde'
         },
         {
-            'img': 'https://cdn4.iconfinder.com/data/icons/web-ui-color/128/Account-512.png',
-            'Name' : 'John',
-            'LastName' : 'Doe',
-            'TableNumber' : '4',
-            'hour': 'Noche'
-        },
-        {
-            'img': 'https://cdn4.iconfinder.com/data/icons/web-ui-color/128/Account-512.png',
+            'img': 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQZN5i6aLO9vG4-gvTMO3xdEv99TY28cWYySlkFBqSAGVu4LV66&usqp=CAU',
             'Name' : 'Ricardo',
             'LastName' : 'Vasquez',
             'TableNumber' : '2',
             'hour': 'Tarde'
         },
         {
-            'img': 'https://cdn4.iconfinder.com/data/icons/web-ui-color/128/Account-512.png',
+            'img': 'https://lgfstatic.com/2015/conversions/virtudes-de-una-persona-large.jpg',
             'Name' : 'Edisson',
             'LastName' : 'Mata',
             'TableNumber' : '2',
             'hour': 'Noche'
         }
     ];
+    const DashBoxes = [
+        {
+            'value': 30,
+            'header': 'Reservas del dia',
+            'icon': 'calendar-check',
+            'iconColor': 'green'
+        },
+        {
+            'value': 4.5,
+            'header': 'Rating',
+            'icon': 'star-half-alt',
+            'iconColor': 'green',
+            'iconFooter': 'angle-up',
+            'footer': 'Promedio'
+        },
+        {
+            'value': 440,
+            'header': 'Clientes',
+            'icon': 'users',
+            'iconColor': 'green',
+            'iconFooter': 'angle-up',
+            'footer': 'Totales'
+        }
+    ]
+
     
     return(
         <div className='home-host'>            
-            <DashboardBox/>
-            <DashboardBox/>
-            <DashboardBox/>
-            <DashboardBox/>
+            <DashboardBox source = {DashBoxes}/>
             <TableView titles={TableTitle} values={TableValues}/>
         </div>
     );

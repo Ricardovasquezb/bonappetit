@@ -17,6 +17,18 @@ import FirebaseInstance from './hooks/firebaseInstance'
 import FirebaseContext from './hooks/firebaseContext'
 import MyReservations from './pages/MyReservationsPage';
 import AboutUs from './pages/AboutUsPage';
+import SettingsPage from './pages/SettingsPage';
+
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fab } from '@fortawesome/free-brands-svg-icons'
+import { 
+    faCheckSquare, faCoffee,faAngleUp,
+    faAngleDown,   faArrowLeft,     faArrowRight,
+    faEllipsisH, faSpinner, faCalendarCheck, faStarHalfAlt, faUsers, faKey, faAt} from '@fortawesome/free-solid-svg-icons'
+
+library.add(fab, faCheckSquare, faCoffee, faAngleUp,
+    faAngleDown,   faArrowLeft,     faArrowRight,
+    faEllipsisH, faSpinner, faCalendarCheck,faStarHalfAlt, faUsers, faKey, faAt)
 
  const Provider = FirebaseContext.Provider
 
@@ -48,6 +60,9 @@ import AboutUs from './pages/AboutUsPage';
                     </Route>
                     <Route exact path="/about-us">
                         <AboutUs />
+                    </Route>
+                    <Route exact path="/settings">
+                        <SettingsPage/>
                     </Route>
                     <Route exact path="/home">
                         <Home />
