@@ -78,7 +78,7 @@ const MyReservations = props => {
                                 value={schedule}
                                 onChange={dynamicHandler(setSchedule)}
                                 label="Seleccione el horario"
-                                placeholder="Mañana, Tarde o Noche"
+                                placeholder="Mañana, Tarde, ..."
                                 options={options}
                             />
                             

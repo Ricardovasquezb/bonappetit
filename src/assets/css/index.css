@@ -8,5 +8,9 @@
 html, body, #root {
     height: 100%;
     box-sizing: border-box;
-    
+}
+
+h2{
+    font-weight: bolder;
+    text-align: center;
 }

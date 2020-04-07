@@ -17,7 +17,7 @@
 }
 
 .carousel-caption{
-    
+
 }
 
 @media screen and (max-width: 650px) {
@@ -29,5 +29,9 @@
     .carousel h3{
         margin-top: 80px;
         font-size: 20px;
+    }
+
+    .carousel-indicators{
+        margin-bottom: 0px;
     }
 }

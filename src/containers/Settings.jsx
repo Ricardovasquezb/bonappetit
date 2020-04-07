@@ -49,7 +49,7 @@ const Settings = props => {
                         
                         <div class="custom-file">
                             <input id="inputGroupFile02" type="file" multiple class="custom-file-input"/>
-                            <label class="custom-file-label" for="inputGroupFile01">Elija un archivo .png .jpg.jpeg</label>
+                            <label class="custom-file-label" for="inputGroupFile01">Buscar imagen</label>
                         </div>
                     </Form.Group>
                 </Form.Row>

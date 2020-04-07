@@ -70,11 +70,11 @@
     justify-content: center;
 }
 
-h2{
+.dashboard-box h2{
     font-weight: bolder;
     text-align: center;
 }
 
-h4{
+.dashboard-box h4{
     text-align: center;
 }

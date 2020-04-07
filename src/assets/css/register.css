@@ -16,6 +16,11 @@
     box-shadow: 5px 5px 10px 1px rgb(8, 8, 8);
 }
 
+.form-label{
+    font-size: small;
+    font-weight: bold;
+}
+
 .register-restaurant{
     display:flex;
     align-items: center;
