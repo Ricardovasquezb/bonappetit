@@ -34,7 +34,6 @@ const ReservationCard = ({ dataList }) => {
                     console.log(err)
                 })
         }
-        console.log(dataList, "aqui andamos")
     }) 
 
     return(

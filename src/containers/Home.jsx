@@ -11,7 +11,7 @@ import firebaseContext from "../hooks/firebaseContext"
 const Consumer = firebaseContext.Consumer
 
 const Home = props =>{
-
+    
 
     var User = props.user;//we have  to make it dynamic
     

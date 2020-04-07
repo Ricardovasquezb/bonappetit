@@ -38,15 +38,17 @@ library.add(fab, faCheckSquare, faCoffee, faAngleUp,
 
  const App = () => {
     const [userSession, setUserSession] = useState(null)
+    const [isLoading, setIsLoading] = useState(true);
 
-    const firebaseInstance = FirebaseInstance();
-    firebaseInstance.firebaseAppAuth.onAuthStateChanged(function(user) {
+   const firebaseInstance = FirebaseInstance();
+    /*firebaseInstance.firebaseAppAuth.onAuthStateChanged(function(user) {
         if (user) {
+     ///       setIsLoading(false)
             setUserSession(user)
-        } else {
+///} else {
           // No user is signed in.
-        }
-    });
+        //}
+    //});*/
 
     return(
         <Provider value={firebaseInstance}>
@@ -76,6 +78,7 @@ library.add(fab, faCheckSquare, faCoffee, faAngleUp,
                     </Route>
                     <Route exact path="/my-reservations">
                         <MyReservations 
+                            isLoading={isLoading}
                             userSession={userSession}
                             firebaseAppAuth={firebaseInstance.firebaseAppAuth}
                             firebaseDatabase={firebaseInstance.firebaseDatabase}
