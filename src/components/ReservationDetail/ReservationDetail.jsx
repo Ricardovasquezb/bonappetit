@@ -6,10 +6,10 @@ import Moment from 'moment';
 
 import { Modal, Button, Form } from 'react-bootstrap';
 import DateTimePicker from '../DateTimePicker'
+import { ButtonGroup } from 'reactstrap';
 
 const ReservationDetail = ({ reservationData, isOpen, onSubmit, onClose}) => {
   const getInitialValues = () => {
-    console.log({ reservationData})
     const restaurantName = Lodash.get(reservationData, ['restaurant', 'name'], null);
     const restaurantTables = Lodash.get(reservationData, ['restaurant', 'tables'], {});
     const restaurantDirection = Lodash.get(reservationData, ['restaurant', 'direction'], null);
@@ -23,15 +23,18 @@ const ReservationDetail = ({ reservationData, isOpen, onSubmit, onClose}) => {
       restaurantTables,
       restaurantDirection,
       reservationSchedule,
-      reservationDate: Moment(reservationDate).toDate(),
+      reservationDate: Moment(reservationDate,'DD-MM-YYYY').toDate(),
       restaurantImageUrl,
       reservationTable,
     };
   };
 
+  const deleteReservation = ()=>{
+
+  }
+
   const renderForm = (objFormikProps) => {
     const { handleSubmit, setFieldValue, values} = objFormikProps;
-
     return (
       <Form noValidate onSubmit={handleSubmit}>
         <Modal show>
@@ -41,18 +44,23 @@ const ReservationDetail = ({ reservationData, isOpen, onSubmit, onClose}) => {
 
           <Modal.Body>
             <Modal.Title>{values.restaurantName}</Modal.Title>
-            <Form.Label>Mesa: </Form.Label>
+            <Modal.Body></Modal.Body>
+
+            
             <Field name="reservationTable" component="select" value={values.reservationTable} >
               {Object.keys(values.restaurantTables).map(tableKey => {
-                return <option value={tableKey}>Mesa: {values.restaurantTables[tableKey].number} || capacity: {values.restaurantTables[tableKey].capacity}  </option>
+                return <option value={tableKey}>Mesa {values.restaurantTables[tableKey].number}</option> //|| capacity: {values.restaurantTables[tableKey].capacity}  </option>
               })}
             </Field>
+            <Modal.Body></Modal.Body>
             <Form.Label>Horario:</Form.Label>
             <Field name="reservationSchedule" component="select" value={values.reservationSchedule}>
               <option value="Mañana">Mañana</option>
               <option value="Tarde">Tarde</option>
               <option value="Noche">Noche</option>
             </Field>
+            <Modal.Body></Modal.Body>
+
             <Field
               name={'reservationDate'}
               render={({field: {name}}) => {
@@ -73,11 +81,15 @@ const ReservationDetail = ({ reservationData, isOpen, onSubmit, onClose}) => {
 
           </Modal.Body>
 
-          <Modal.Footer>
-            <Button variant="secondary" onClick={onClose}>Close</Button>
-            <Button variant="primary" onClick={handleSubmit}>
-              Submit
-  </Button>
+          <Modal.Footer className="justify-content-between">
+            <ButtonGroup>
+              <Button variant="danger">Borrar reserva</Button>
+            </ButtonGroup>
+            <ButtonGroup>
+              <Button variant="secondary" onClick={onClose}>Cerrar</Button>
+              <Button variant="primary" onClick={handleSubmit}>Editar</Button>
+            </ButtonGroup>
+            
           </Modal.Footer>
       </Modal>
       </Form>

@@ -1,4 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import * as firebase from 'firebase/app'
+import 'firebase/database'
+import moment from 'moment';
+
+
 
 //Components
 import ReservationDetailComponent from '../../components/ReservationDetail';
@@ -6,7 +11,21 @@ import ReservationDetailComponent from '../../components/ReservationDetail';
 const ReservationDetailModal = ({ isOpen, reservationData, onClose}) => {
   const handleOnSubmit = (objReservationData) => {
     ///Update reservation
-    return console.log({ RESERVATION_SUBMIT: objReservationData});
+
+    const newData =  {
+      date: moment(objReservationData.reservationDate,'D-M-YYYY').format('D/M/YYYY'),
+      schedule: objReservationData.reservationSchedule,
+      table: objReservationData.reservationTable,
+      reservationId: `${moment(objReservationData.reservationDate,'D-M-YYYY').format('D/M/YYYY')}.${objReservationData.reservationTable}.${objReservationData.reservationSchedule}.${objReservationData.restaurantId}`,
+      user_uid: reservationData.user_uid,
+      restaurant_id: reservationData.restaurant_id,
+    }
+    
+    
+    return firebase.database().ref(`/reservations/${reservationData.uid}`).set(newData)
+    .then(()=>{
+      window.location.reload();
+    });
   };
 
   return (

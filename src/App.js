@@ -41,14 +41,7 @@ library.add(fab, faCheckSquare, faCoffee, faAngleUp,
     const [isLoading, setIsLoading] = useState(true);
 
    const firebaseInstance = FirebaseInstance();
-    /*firebaseInstance.firebaseAppAuth.onAuthStateChanged(function(user) {
-        if (user) {
-     ///       setIsLoading(false)
-            setUserSession(user)
-///} else {
-          // No user is signed in.
-        //}
-    //});*/
+    
 
     return(
         <Provider value={firebaseInstance}>
@@ -71,7 +64,7 @@ library.add(fab, faCheckSquare, faCoffee, faAngleUp,
                     </Route>
                     <Route path="/new-reservation/:restaurantId">
                         <NewReservation 
-                            userSession={userSession}
+                            userSession={localStorage.getItem("user")}
                             firebaseAppAuth={firebaseInstance.firebaseAppAuth}
                             firebaseDatabase={firebaseInstance.firebaseDatabase}
                         />
@@ -79,7 +72,7 @@ library.add(fab, faCheckSquare, faCoffee, faAngleUp,
                     <Route exact path="/my-reservations">
                         <MyReservations 
                             isLoading={isLoading}
-                            userSession={userSession}
+                            userSession={localStorage.getItem("user")}
                             firebaseAppAuth={firebaseInstance.firebaseAppAuth}
                             firebaseDatabase={firebaseInstance.firebaseDatabase}
                         />

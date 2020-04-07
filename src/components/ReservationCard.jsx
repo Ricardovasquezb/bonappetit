@@ -10,7 +10,7 @@ const ReservationCard = ({ dataList, isLoading, onClick }) => {
     return(
     <div className='card-views'>
         {isLoading ? (
-          [...Array(4)].map(() => {
+          [...Array(8)].map(() => {
             return <ReservationCardLoader/>;
           })
         ) : (dataList.map((item, key) => (
@@ -22,7 +22,7 @@ const ReservationCard = ({ dataList, isLoading, onClick }) => {
           >
             <Card.Img variant="top" src={item.restaurant.profileurl} />
             <Card.Body>
-              <Card.Title>Restaurante: {item.restaurant.name}</Card.Title>
+              <Card.Title>{item.restaurant.name}</Card.Title>
               <Card.Subtitle className="mb-2">{item.date}</Card.Subtitle>
               <Card.Subtitle className="mb-2">Horario: {item.schedule}</Card.Subtitle>
               <Button variant={item.button_variant} onClick={() => onClick(item)}>

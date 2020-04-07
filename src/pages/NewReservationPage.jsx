@@ -65,7 +65,7 @@ const NewReservationsPage = ({ firebaseDatabase, firebaseAppAuth, userSession })
 
         if (!verify) { 
             const toPush = {
-                user_uid: userSession.uid,
+                user_uid: userSession,
                 restaurant_id: restaurantId,
                 schedule,
                 table,
@@ -101,6 +101,7 @@ const NewReservationsPage = ({ firebaseDatabase, firebaseAppAuth, userSession })
                       })
                 } else {
                     console.log(e)
+                    console.log(localStorage.getItem('user'))
                 }
             })
     }
