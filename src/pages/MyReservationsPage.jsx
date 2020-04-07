@@ -10,11 +10,7 @@ import Navigationbar from "../containers/NavigationBar"
 import Footer from "../containers/Footer"
 import { arrayFirebaseParser } from "../utils/index"
 
-
-
-
-
-const MyReservationsPage = ({ firebaseDatabase, firebaseAppAuth, userSession }) => {
+const MyReservationsPage = ({ firebaseDatabase, firebaseAppAuth, userSession, isLoading }) => {
     const [name, setName] = useState("");
     const [lastname, setLastname] = useState("");
     const [email, setEmail] = useState("");
@@ -22,35 +18,49 @@ const MyReservationsPage = ({ firebaseDatabase, firebaseAppAuth, userSession }) 
     const [repeatpass, setRepeatpass] = useState("");
     const history = useHistory();
 
-
     const [ReservationsList, setReservationsList] = useState([]);
 
+const userUid =localStorage.getItem("user")
+    const getUserReservations = async () => {
 
-    const getUserReservations = () => {
-        console.log(userSession.uid)
-        firebaseDatabase.ref("/reservations/").orderByChild("user_uid").equalTo(userSession.uid).once("value")
-            .then(snapShot => {
-                    const val = snapShot.val()
-                    const dataParsed = arrayFirebaseParser(val)
-                    setReservationsList(dataParsed)
-                    
+        try {
+           // if (isLoading) return null
+            let reservationsWithData = []
+            const reservationSnapShot = await firebaseDatabase.ref("/reservations/").orderByChild("user_uid").equalTo(userUid).once("value")
+            const reservations = arrayFirebaseParser(reservationSnapShot.val())
+
+            for (let reservation of reservations) {
+                const restaurantSnapShot = await firebaseDatabase.ref(`/restaurant/${reservation.restaurant_id}`).once("value")
+                const restaurant = restaurantSnapShot.val()
+                reservationsWithData.push({
+                    ...reservation,
+                    restaurant_img: restaurant.profileurl,
+                    restaurant_name: restaurant.name
                 })
-                .catch(e => {
-                    console.error(e)
-                })
+            }
+
+            return setReservationsList(reservationsWithData)
+        } catch(e) {
+            alert("exploto aquí")
+            console.log(e)
+            return []
         }
-
-        useEffect(() => {
-            getUserReservations()
-        }, [])
+    }
+        
+    useEffect(() => {
+        getUserReservations()
+    }, [])
+console.log({ReservationsList})
     return (
         <div>
             <Navigationbar/>
-            <LayoutType2
-                Box={ <MyReservations
-                    reservationsList = {ReservationsList}
-                /> }
-            />
+            
+                        <LayoutType2
+                            Box={ <MyReservations
+                                reservationsList = {ReservationsList}
+                            /> }
+                        />
+                    
             <Footer/>
         </div>
     );
