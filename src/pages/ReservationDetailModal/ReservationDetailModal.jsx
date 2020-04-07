@@ -28,8 +28,21 @@ const ReservationDetailModal = ({ isOpen, reservationData, onClose}) => {
     });
   };
 
+  const deleteReservation = ()=>{
+    const restaurant_uid = reservationData.uid
+
+    return firebase.database().ref(`reservations/${restaurant_uid}`).remove()
+      .then(()=>{
+        window.location.reload();
+      })
+    
+    
+    
+  };
+  
+
   return (
-    <ReservationDetailComponent  reservationData={reservationData} onSubmit={handleOnSubmit} onClose={onClose}/>
+    <ReservationDetailComponent  reservationData={reservationData} onSubmit={handleOnSubmit} onClose={onClose} onDelete= {deleteReservation}/>
   )
 };
 

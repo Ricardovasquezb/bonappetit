@@ -7,8 +7,10 @@ import Moment from 'moment';
 import { Modal, Button, Form } from 'react-bootstrap';
 import DateTimePicker from '../DateTimePicker'
 import { ButtonGroup } from 'reactstrap';
+import * as firebase from 'firebase/app'
+import 'firebase/database'
 
-const ReservationDetail = ({ reservationData, isOpen, onSubmit, onClose}) => {
+const ReservationDetail = ({ reservationData, isOpen, onSubmit, onClose, onDelete}) => {
   const getInitialValues = () => {
     const restaurantName = Lodash.get(reservationData, ['restaurant', 'name'], null);
     const restaurantTables = Lodash.get(reservationData, ['restaurant', 'tables'], {});
@@ -28,10 +30,8 @@ const ReservationDetail = ({ reservationData, isOpen, onSubmit, onClose}) => {
       reservationTable,
     };
   };
-
-  const deleteReservation = ()=>{
-
-  }
+  
+  
 
   const renderForm = (objFormikProps) => {
     const { handleSubmit, setFieldValue, values} = objFormikProps;
@@ -83,11 +83,11 @@ const ReservationDetail = ({ reservationData, isOpen, onSubmit, onClose}) => {
 
           <Modal.Footer className="justify-content-between">
             <ButtonGroup>
-              <Button variant="danger">Borrar reserva</Button>
+              <Button variant="dark" onClick={onClose}>Cerrar</Button>
+              <Button variant="dark" onClick={handleSubmit}>Guardar Cambios</Button>
             </ButtonGroup>
             <ButtonGroup>
-              <Button variant="secondary" onClick={onClose}>Cerrar</Button>
-              <Button variant="primary" onClick={handleSubmit}>Editar</Button>
+              <Button variant="outline-danger" onClick = {onDelete}>Borrar reserva</Button>
             </ButtonGroup>
             
           </Modal.Footer>
