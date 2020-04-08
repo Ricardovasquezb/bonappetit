@@ -79,20 +79,11 @@ const Login = props => {
                                     .then(function (snapshot) {
                                         localStorage.setItem("role", snapshot.val().role)
                                         console.log(snapshot.val().role)
+                                        history.push("/home")
                                     })
                                     .catch(function (error) {
                     
                                     })
-                                   
-                    
-                                    
-                                    // if(!user.emailVerified){
-                                    //     sweetalert("Su correo no ha sido verificado", "Porfavor revisar su bandeja de  entrada","warning")
-                                    //     history.replace("/login")
-                                    // }else{
-
-                                        history.push("/home")
-                                    // }
                                 };
 
                             })

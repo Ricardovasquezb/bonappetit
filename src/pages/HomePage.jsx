@@ -15,43 +15,28 @@ const HomePage = props => {
 
     const [loggedUser, setloggedUser] = useState(null);
     const [dataReady, setdataReady] = useState(false);
-    const [restaurantData, setrestaurantData] = useState(null)
+    const restData=null;
 
-    
-    // const gettingLoggedUserData = async () => {
-    //     const snapshot = await firebase.database().ref("/users/" + localStorage.getItem("user")).once("value")
-    //     return snapshot.val()
+    const gettingrestaurantData = (async()=>{
 
-    // }
-    const gettingRestaurantData = async () => {
-        
-        console.log(localStorage.getItem("role"))
-        if (localStorage.getItem("role") === "host") {
-            const snapshot =  await firebase.database().ref("/restaurants/").orderByChild("host").equalTo(localStorage.getItem("user")).once("value")
-            return snapshot.val()
+        console.log(localStorage.getItem("user"),localStorage.getItem("role"))
+        const uid = localStorage.getItem("user")
+        const role = localStorage.getItem("role")
+
+        if(role === 'host'){
+            const restData = await firebase.database().ref(`/restaurants/`).orderByChild("host").equalTo(uid).once("value")
+            return restData.val()
+
         }
-    }
-
+    })
 
     useEffect(() => {
-       gettingRestaurantData()
-       .then(result=>{
-           console.log(result)
-
-       })
-    }, [])
-    // useEffect(() => {
-    //     gettingRestaurantData(loggedUser)
-    //     .then(snap => {
-    //         console.log(snap.val())
-    //         setrestaurantData(snap.val())
-    //         console.log(restaurantData)
-    //         setdataReady(true)
-    //     })
-    //     .catch((e)=>{
-
-    //     })
-    // },[])
+        gettingrestaurantData()
+        .then((snapshot)=>{
+             restData = snapshot
+             setdataReady(true)
+        })
+    },[])
 
    
 

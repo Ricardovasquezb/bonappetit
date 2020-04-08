@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useHistory } from "react-router-dom"
 import sweetalert from 'sweetalert'
 import * as firebase from 'firebase/app'
@@ -34,47 +34,47 @@ const imgUrl = ["https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.casadecam
 
 const tables = [
     {
-      name: 'tabla1',
+        name: 'tabla1',
         capacity: 4,
         floor: 1,
         number: 1
     },
     {
-      name: 'tabla2',
+        name: 'tabla2',
 
         capacity: 6,
         floor: 1,
         number: 2
     },
     {
-      name: 'tabla3',
+        name: 'tabla3',
 
         capacity: 2,
         floor: 1,
         number: 3
     },
     {
-      name: 'tabla4',
+        name: 'tabla4',
         capacity: 8,
         floor: 1,
         number: 4
     },
     {
-      name: 'tabla5',
+        name: 'tabla5',
 
         capacity: 4,
         floor: 1,
         number: 5
     },
     {
-      name: 'tabla6',
+        name: 'tabla6',
 
         capacity: 3,
         floor: 1,
         number: 6
     },
     {
-      name: 'tabla7',
+        name: 'tabla7',
         capacity: 4,
         floor: 1,
         number: 7
@@ -87,10 +87,10 @@ shuffle(layoutUrl)
 
 
 const mapToKey = (lists) => {
- return lists.reduce((accVal, curVal) => {
-    const name = Lodash.get(curVal, ['name'], 'name');
-    return {...accVal, [name]: curVal};
-  },{})
+    return lists.reduce((accVal, curVal) => {
+        const name = Lodash.get(curVal, ['name'], 'name');
+        return { ...accVal, [name]: curVal };
+    }, {})
 }
 
 
@@ -141,45 +141,29 @@ const RegisterRestaurant = props => {
         setProfileImageFile(image);
     }
 
-    console.log(layoutImageFile,profileImageFile)
+    console.log(layoutImageFile, profileImageFile)
 
-    // const allInputs = { imgUrl: '' }
-    // const [imageAsFile, setImageAsFile] = useState("");
-    // const [imageAsUrl, setImageAsUrl] = useState(allInputs);
+
     const handleFireBaseUpload = async (imageAsFile) => {
-    //   console.log('start of upload')
-      // async magic goes here...
-      if(imageAsFile === '') {
-        console.error(`not an image, the image file is a ${typeof(imageAsFile)}`)
-      }
-      const uploadTask = await firebase.storage().ref(`/images/${imageAsFile.name}`).put(imageAsFile)
-      if (uploadTask.state === 'success'){
-        return firebase.storage().ref('images').child(imageAsFile.name).getDownloadURL();
-      }
-      // uploadTask.on('state_changed', 
-      // (snapShot) => {
-      //   // console.log({ SNAPSHOT: snapShot});
-      // }, (err) => {
-      //   //catches the errors
-      //   console.log(err)
-      // },() => {
-      //   return firebase.storage().ref('images').child(imageAsFile.name).getDownloadURL()
 
-      // })
+        if (imageAsFile === '') {
+            console.error(`not an image, the image file is a ${typeof (imageAsFile)}`)
+        }
+        const uploadTask = await firebase.storage().ref(`/images/${imageAsFile.name}`).put(imageAsFile)
+        if (uploadTask.state === 'success') {
+            return firebase.storage().ref('images').child(imageAsFile.name).getDownloadURL();
+        }
 
-      }
 
-    //   .then(fireBaseUrl => {
-    //     console.log(fireBaseUrl)
-    //     return fireBaseUrl
-    // })
-      const getImagesUrls =  () => {
-       return  Promise.all([handleFireBaseUpload(layoutImageFile), handleFireBaseUpload(profileImageFile)]);
-        //Promise.all(handleFireBaseUpload(layoutImageFile), handleFireBaseUpload(profileImageFile))
-      }
-    
+    }
+
+
+    const getImagesUrls = () => {
+        return Promise.all([handleFireBaseUpload(layoutImageFile), handleFireBaseUpload(profileImageFile)]);
+    }
+
     const handleSubmit = async () => {
-      const restaurantImages = await getImagesUrls()
+        const restaurantImages = await getImagesUrls()
         firebase.auth().createUserWithEmailAndPassword(email, password)
             .then((result) => {
                 const uid = result.user.uid
@@ -198,7 +182,7 @@ const RegisterRestaurant = props => {
                     layouturl: restaurantImages[1]
                 })
                     .then(value => {
-                      console.log('SE CREO')
+                        console.log('SE CREO')
                         firebase.database().ref(`users/${uid}`).set({
                             name,
                             lastname,
@@ -222,7 +206,7 @@ const RegisterRestaurant = props => {
 
             })
             .catch((e) => {
-              console.log('FALLO LA CREACION')
+                console.log('FALLO LA CREACION')
 
                 console.error(e)
                 if (e.code === "auth/email-already-in-use") {
@@ -237,7 +221,7 @@ const RegisterRestaurant = props => {
             });
     }
 
-    
+
 
 
     const validEmailRegex = RegExp(/^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i);

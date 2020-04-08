@@ -16,6 +16,10 @@ const Navigationbar = props => {
     let pages = [
         {label: 'Inicio', link: '/'}
     ];
+
+    const onExit = ()=>{
+        localStorage.clear()
+    }
     return(
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" sticky="top">
             <Navbar.Brand href="#home">
@@ -42,7 +46,7 @@ const Navigationbar = props => {
                  </Nav>
                  <FormControl type="text" placeholder="Escriba aqui para buscar" className=" mr-sm-2" />
 
-                    <Button variant="outline-danger" href="#login">Salir</Button>
+                    <Button variant="outline-danger" href="#login" onClick={onExit}>Salir</Button>
              </Navbar.Collapse>
         </Navbar>
     );
