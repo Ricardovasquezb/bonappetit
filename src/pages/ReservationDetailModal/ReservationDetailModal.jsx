@@ -17,12 +17,11 @@ const ReservationDetailModal = ({ isOpen, reservationData, onClose}) => {
       schedule: objReservationData.reservationSchedule,
       table: objReservationData.reservationTable,
       reservationId: `${moment(objReservationData.reservationDate,'D-M-YYYY').format('D/M/YYYY')}.${objReservationData.reservationTable}.${objReservationData.reservationSchedule}.${objReservationData.restaurantId}`,
-      user_uid: reservationData.user_uid,
-      restaurant_id: reservationData.restaurant_id,
+      
     }
     
     
-    return firebase.database().ref(`/reservations/${reservationData.uid}`).set(newData)
+    return firebase.database().ref(`/reservations/${reservationData.uid}`).update(newData)
     .then(()=>{
       window.location.reload();
     });
