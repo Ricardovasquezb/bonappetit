@@ -1,11 +1,11 @@
 import React from 'react'
 import "../assets/css/register.css"
 import LayoutType2 from '../components/LayoutType2'
-import Register from '../containers/RegisterRestaurante'
+import Register from '../containers/RegisterRestaurant'
 import NLNavBar from "../containers/NonLoggedNavBar"
 import Footer from '../containers/Footer'
 
-const RegisterPage = props => {
+const RegisterRestaurantPage = props => {
     return(
         <div>
             <NLNavBar Tittle="Registro de Restaurante"/>
@@ -19,4 +19,4 @@ const RegisterPage = props => {
     )
 }
 
-export default RegisterPage
+export default RegisterRestaurantPage
