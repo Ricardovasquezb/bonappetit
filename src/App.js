@@ -90,7 +90,9 @@ library.add(fab, faCheckSquare, faCoffee, faAngleUp,
                         <SettingsPage/>
                     </Route>
                     <Route exact path="/home">
-                        <Home />
+                        <Home 
+                            firebaseDatabase={firebaseInstance.firebaseDatabase}
+                        />
                     </Route>
                 </Switch>
             </HashRouter>
