@@ -1,17 +1,28 @@
-import React from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import '../assets/css/home-host.css';
 
 import DashboardBox from '../components/DashboardBox'
 import TableView from '../components/TableView'
 import Settings from '../containers/SettingsHost'
+import { arrayFirebaseParser, averageByKyStrict, dateParser, getFirstQuantity, uniqueItemsFromKey } from '../utils';
 
+const getAllReservations = async (restaurantId, firebaseDatabase) => {
+    const ref = firebaseDatabase.ref("/reservations/")
+    const snapShot =  await ref.orderByChild("restaurant_id").equalTo(restaurantId).once("value")
+    return snapShot.val()
+}
+const getTodayReservations = (reservations) => {
+    return reservations.filter(reservation => {
+        return reservation.date === dateParser(new Date())
+    })
+}
+const getThisMonthReservations = (reservations) => {
+    return reservations.filter(reservation => reservation.date.substring(3) === dateParser(new Date()).substring(3) )
+}
 
+const HomeHost = ({ firebaseDatabase, user: User }) =>{
+    const [reservations, setReservations] = useState([]);
 
-
-const HomeHost = props =>{
-
-    var User = props.user;
-    
     const TableTitle = [
         {
             'title': 'No.'
@@ -55,28 +66,56 @@ const HomeHost = props =>{
             'code': '320 634 123'
         }
     ];
+
+    const restaurantDataTest = {
+        restaurant_id: "prueba1"
+    }
+    
+    useEffect(() => {
+        getAllReservations("prueba1", firebaseDatabase)
+            .then(result => {
+                const results = arrayFirebaseParser(result)
+                setReservations(results)
+            })
+            .catch(err => {
+                console.log(err)
+            })
+    }, [])
+    
+    const toMemoRaiting = () => averageByKyStrict(reservations, "punctuation")
+    const toMemoOnlyToday = () => getTodayReservations(reservations)
+    const toMemoOnlyThisMonth = () => getThisMonthReservations(reservations)
+    const toMemoFristThree = () => getFirstQuantity(3, reservations)
+    const toMemoClientsId = () => uniqueItemsFromKey(reservations, "user_uid")
+
+    const rating = useMemo(toMemoRaiting, [reservations])
+    const onlyToday = useMemo(toMemoOnlyToday, [reservations])
+    const threeFirst = useMemo(toMemoFristThree, [reservations])
+    const onlyThisMonth = useMemo(toMemoOnlyThisMonth, [reservations])
+    const clientsId = useMemo(toMemoClientsId, [reservations])
+
     const DashBoxes = [
         {
-            'value': 3,
+            'value': onlyToday.length,
             'header': 'Reservas del dia',
             'icon': 'calendar-check',
         },
         {
-            'value': 4.5,
+            'value': rating,
             'header': 'Rating',
             'icon': 'star-half-alt',
             'iconFooter': 'angle-up',
             'footer': 'Promedio'
         },
         {
-            'value': 125,
+            'value': onlyThisMonth.length,
             'header': 'Reservaciones en el mes',
             'icon': 'chart-line',
             'iconFooter': 'angle-up',
             'footer': 'Hasta la fecha'
         },
         {
-            'value': 440,
+            'value': clientsId.length,
             'header': 'Clientes',
             'icon': 'users',
             'iconFooter': 'angle-up',
@@ -84,7 +123,6 @@ const HomeHost = props =>{
         }
     ]
 
-    
     return(
         <div className='home-host'>
             <h2>{User.name.toUpperCase()}</h2>            
