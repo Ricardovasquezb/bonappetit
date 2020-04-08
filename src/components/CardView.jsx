@@ -10,7 +10,7 @@ const CardView = props => {
     const [data, setData] = useState([]);
 
     useEffect(() => {
-        props.firebaseInstance.ref("/restaurant").once("value")
+        props.firebaseInstance.ref("/restaurants").once("value")
             .then(snapShot => {
                 const val = snapShot.val()
                 const dataParsed = arrayFirebaseParser(val)

@@ -70,21 +70,30 @@ const Login = props => {
                                 const uid = result.user.uid
                                 localStorage.setItem("user",uid)
                                 var user = firebase.appAuth().currentUser;
+                                console.log(user)
+                                // if(user.emailVerified){
+                                    if(user== null){
+                                        sweetalert("Debes registrarte para hacer login con estas credenciales.","","error")
+                                        history.replace("/login")
+                                    }else{
+                                        firebase.read(user.uid)
+                                        .then(function (snapshot) {
+                                            localStorage.setItem("role", snapshot.val().role)
+                                            console.log(snapshot.val().role)
+                                            history.push("/home")
+                                        })
+                                        .catch(function (error) {
+                        
+                                        })
+                                    };
+                                // }else{
+                                //     sweetalert("Correo no verificado","Porfavor revisa tu bandeja de entrada y verifica tu correo para acceder a la plataforma","error")
+                                //     .then(()=>{
+                                //         window.location.reload()
+
+                                //     })
+                                // }
                                 
-                                if(user== null){
-                                    sweetalert("Debes registrarte para hacer login con estas credenciales.","","error")
-                                    history.replace("/login")
-                                }else{
-                                    firebase.read(user.uid)
-                                    .then(function (snapshot) {
-                                        localStorage.setItem("role", snapshot.val().role)
-                                        console.log(snapshot.val().role)
-                                        history.push("/home")
-                                    })
-                                    .catch(function (error) {
-                    
-                                    })
-                                };
 
                             })
                             .catch((e)=>{
@@ -97,12 +106,6 @@ const Login = props => {
                         } }>
 
                            Iniciar Sesión
-                        </Button>
-
-                        <Button  click={ ()=>{
-
-                                } }>
-                            Iniciar con Google
                         </Button>
 
                         <div className='column'>

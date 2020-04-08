@@ -7,7 +7,6 @@ import { useParams, Redirect } from "react-router-dom"
 import NewReservation from '../containers/NewReservation'
 import LayoutType1 from '../components/LayoutType1';
 import LayoutRestaurant from '../containers/LayoutRestaurant'
-import LayoutTest from '../assets/img/LayoutTest.png'
 import Image from "../components/Image";
 import Navigationbar from "../containers/NavigationBar"
 import Footer from "../containers/Footer"
@@ -27,6 +26,8 @@ const NewReservationsPage = ({ firebaseDatabase, firebaseAppAuth, userSession })
 
     const [restaurantName, setrestaurantName] = useState("empty");
 
+    const [layoutUrl,setlayoutUrl] = useState("empty")
+
     const getrestaurantName = ()=>{
         firebaseDatabase.ref(`/restaurants/${restaurantId}/name`).once("value")
         .then(snapShot=> {
@@ -38,8 +39,19 @@ const NewReservationsPage = ({ firebaseDatabase, firebaseAppAuth, userSession })
         })
     }
 
+    const getrestaurantLayout = () => {
+        firebaseDatabase.ref(`/restaurants/${restaurantId}/layouturl`).once("value")
+            .then(snapShot => {
+                const val = snapShot.val()
+                setlayoutUrl(val)
+            })
+            .catch(e => {
+                console.error(e)
+            })
+    }
+
     const getTables = () => {
-        firebaseDatabase.ref(`/restaurants${restaurantId}/tables`).once("value")
+        firebaseDatabase.ref(`/restaurants/${restaurantId}/tables`).once("value")
             .then(snapShot => {
                 const val = snapShot.val()
                 const dataParsed = arrayFirebaseParser(val)
@@ -109,15 +121,17 @@ const NewReservationsPage = ({ firebaseDatabase, firebaseAppAuth, userSession })
         getrestaurantName()
 
         getTables()
+
+        getrestaurantLayout()
     }, [])
 
     if (!restaurantId) return <Redirect to="/home" />
     return (
         <div className="new-reservation">
             <Navigationbar/>
-            <h3>{restaurantName}</h3>
+            <h3 align="center">{restaurantName}</h3>
             <LayoutType1 
-                boxOne={ <Image src={LayoutTest}/> }
+                boxOne={ <Image src={layoutUrl}/> }
                 boxTwo={
                     <NewReservation
                         listData={tableList}

@@ -5,6 +5,8 @@ import DashboardBox from '../components/DashboardBox'
 import TableView from '../components/TableView'
 import Settings from '../containers/SettingsHost'
 import { arrayFirebaseParser, averageByKyStrict, dateParser, getFirstQuantity, uniqueItemsFromKey } from '../utils';
+import * as firebase from 'firebase/app'
+import 'firebase/auth';
 
 const getAllReservations = async (restaurantId, firebaseDatabase) => {
     const ref = firebaseDatabase.ref("/reservations/")
@@ -20,8 +22,10 @@ const getThisMonthReservations = (reservations) => {
     return reservations.filter(reservation => reservation.date.substring(3) === dateParser(new Date()).substring(3) )
 }
 
-const HomeHost = ({ firebaseDatabase, user: User }) =>{
+const HomeHost = ({ firebaseDatabase, user }) =>{
     const [reservations, setReservations] = useState([]);
+
+    console.log(user,Object.keys(user)[0])
 
     const TableTitle = [
         {
@@ -72,7 +76,7 @@ const HomeHost = ({ firebaseDatabase, user: User }) =>{
     }
     
     useEffect(() => {
-        getAllReservations("prueba1", firebaseDatabase)
+        getAllReservations(Object.keys(user)[0], firebase.database())
             .then(result => {
                 const results = arrayFirebaseParser(result)
                 setReservations(results)
@@ -80,6 +84,8 @@ const HomeHost = ({ firebaseDatabase, user: User }) =>{
             .catch(err => {
                 console.log(err)
             })
+            
+
     }, [])
     
     const toMemoRaiting = () => averageByKyStrict(reservations, "punctuation")
@@ -125,7 +131,7 @@ const HomeHost = ({ firebaseDatabase, user: User }) =>{
 
     return(
         <div className='home-host'>
-            <h2>{User.name.toUpperCase()}</h2>            
+            <h2>{user[Object.keys(user)[0]].name}</h2>            
             <h3>Lista de reservas del dia</h3>
             <TableView titles={TableTitle} values={TableValues}/>
             <h3>Estadisticas</h3>

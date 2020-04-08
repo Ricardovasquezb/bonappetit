@@ -50,7 +50,7 @@ const MyReservationsPage = ({ firebaseDatabase, firebaseAppAuth, userSession }) 
 
     const getAllRestaurantData = () => {
       setIsLoading(true)
-     return firebaseDatabase.ref("/restaurant").once("value")
+     return firebaseDatabase.ref("/restaurants").once("value")
         .then(snapShot => {
           const val = snapShot.val();
           const dataParsed = arrayFirebaseParser(val);

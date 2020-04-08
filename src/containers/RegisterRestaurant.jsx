@@ -177,9 +177,9 @@ const RegisterRestaurant = props => {
                         totalrating: 0
                     },
                     stars: 0,
-                    profileurl: restaurantImages[0],
+                    profileurl: restaurantImages[1],
                     tables,
-                    layouturl: restaurantImages[1]
+                    layouturl: restaurantImages[0]
                 })
                     .then(value => {
                         console.log('SE CREO')
@@ -294,7 +294,7 @@ const RegisterRestaurant = props => {
                         </div>
                     </Form.Group>
                     <Form.Group as={Col} id="formGridFile2">
-                        <Form.Label>Layout del Restaurante</Form.Label>
+                        <Form.Label>Perfil del Restaurante</Form.Label>
                         <div className="ImageUploader">
                             <input id="inputGroupFile02" type="file" multiple class="custom-file-input" onChange={handleProfileImageFile} />
                             <label class="custom-file-label" for="inputGroupFile02">Elija el archivo imagen</label>
