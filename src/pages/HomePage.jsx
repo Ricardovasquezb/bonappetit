@@ -7,6 +7,8 @@ import NavigationbarHost from "../containers/NavigationBarHost"
 import Footer from '../containers/Footer'
 import * as firebase from 'firebase/app'
 import 'firebase/auth';
+import { useHistory } from "react-router-dom"
+
 
 import { arrayFirebaseParser } from "../utils/index"
 
@@ -15,6 +17,14 @@ import { arrayFirebaseParser } from "../utils/index"
 
 const HomePage = props => {
 
+    if(localStorage.getItem("role")===null && localStorage.getItem("user")){
+        history.replace("/login")
+        console.log('no hay nadie')
+       
+
+    }
+
+    const history = useHistory();
 
     const [loggedUser, setloggedUser] = useState(null);
     const [dataReady, setdataReady] = useState(false);
@@ -63,6 +73,8 @@ const HomePage = props => {
         
     },[])
 
+    
+
     if (!dataReady) {
         return (
             <div>
@@ -72,8 +84,6 @@ const HomePage = props => {
             </div>
         )
     } else {
-        console.log(userData,restData)
-
         if (localStorage.getItem("role") === 'client') {
             return (
                 <div>

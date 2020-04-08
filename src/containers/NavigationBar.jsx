@@ -11,6 +11,7 @@ import FormControl from 'react-bootstrap/FormControl'
 
 
 const Navigationbar = props => {
+    console.log(props.user)
 
     var User = props.user
     let pages = [
@@ -35,12 +36,11 @@ const Navigationbar = props => {
                  <Nav className="mr-auto">
                  <Nav.Link href="#home">Inicio</Nav.Link>
                  <NavDropdown title="Reservaciones" id="basic-nav-dropdown">
-                     <NavDropdown.Item href="#new-reservation">Nueva Reservación</NavDropdown.Item>
                      <NavDropdown.Item href="#my-reservations">Mis Reservaciones</NavDropdown.Item>
                      {/* <NavDropdown.Divider />
                      <NavDropdown.Item href="#action/3.4">Cancelar Reservación</NavDropdown.Item> */}
                  </NavDropdown>
-                 <NavDropdown title="Usuario" id="basic-nav-dropdown">
+                 <NavDropdown title="Configuracion" id="basic-nav-dropdown">
                      <NavDropdown.Item href="#settings">Configuraciones</NavDropdown.Item>
                  </NavDropdown>
                  </Nav>
