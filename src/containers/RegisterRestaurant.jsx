@@ -129,93 +129,96 @@ const RegisterRestaurant = props => {
     // const allInputs = { imgUrl: '' }
     // const [imageAsFile, setImageAsFile] = useState("");
     // const [imageAsUrl, setImageAsUrl] = useState(allInputs);
-    const handleFireBaseUpload = (imageAsFile) => {
+    const handleFireBaseUpload = async (imageAsFile) => {
     //   console.log('start of upload')
       // async magic goes here...
       if(imageAsFile === '') {
         console.error(`not an image, the image file is a ${typeof(imageAsFile)}`)
       }
-      const uploadTask = firebase.storage().ref(`/images/${imageAsFile.name}`).put(imageAsFile)
-      uploadTask.on('state_changed', 
-      (snapShot) => {
-        // console.log({ SNAPSHOT: snapShot});
-      }, (err) => {
-        //catches the errors
-        console.log(err)
-      })
-      return firebase.storage().ref('images').child(imageAsFile.name).getDownloadURL()
+      const uploadTask = await firebase.storage().ref(`/images/${imageAsFile.name}`).put(imageAsFile)
+      if (uploadTask.state === 'success'){
+        return firebase.storage().ref('images').child(imageAsFile.name).getDownloadURL();
+      }
+      // uploadTask.on('state_changed', 
+      // (snapShot) => {
+      //   // console.log({ SNAPSHOT: snapShot});
+      // }, (err) => {
+      //   //catches the errors
+      //   console.log(err)
+      // },() => {
+      //   return firebase.storage().ref('images').child(imageAsFile.name).getDownloadURL()
+
+      // })
+
       }
 
     //   .then(fireBaseUrl => {
     //     console.log(fireBaseUrl)
     //     return fireBaseUrl
     // })
-      const getImagesUrls =() => {
-       return Promise.all([handleFireBaseUpload(layoutImageFile), handleFireBaseUpload(profileImageFile)]).then(values => {
-         return values;
-       })
+      const getImagesUrls =  () => {
+       return  Promise.all([handleFireBaseUpload(layoutImageFile), handleFireBaseUpload(profileImageFile)]);
         //Promise.all(handleFireBaseUpload(layoutImageFile), handleFireBaseUpload(profileImageFile))
       }
     
 
-    const handleSubmit =() => {
-      const restaurantImages = getImagesUrls().then(values => values)
-       
-        // firebase.auth().createUserWithEmailAndPassword(email, password)
-        //     .then((result) => {
-        //         const uid = result.user.uid
-        //         firebase.database().ref(`restaurants/`).push({
-        //             direction,
-        //             phone,
-        //             name: restaurantName,
-        //             host: uid,
-        //             rating: {
-        //                 counter: 0,
-        //                 totalrating: 0
-        //             },
-        //             stars: 0,
-        //             profileurl: restaurantImages[0],
-        //             tables,
-        //             layouturl: restaurantImages[1]
-        //         })
-        //             .then(value => {
-        //               console.log('SE CREO')
-        //                 firebase.database().ref(`users/${uid}`).set({
-        //                     name,
-        //                     lastname,
-        //                     role: "host"
-        //                 })
-        //                 console.log(value)
-        //             })
-        //             .catch(err => {
-        //                 console.log(err)
-        //             });
-        //         result.user.sendEmailVerification()
-        //             .then(() => {
-        //                 sweetalert("Registro Exitoso!", "Se ha registrado exitosamente!", "success")
-        //                     .then(() => {
-        //                         history.push("/login")
-        //                     })
-        //             })
-        //             .catch((e) => {
-        //                 console.log(e)
-        //             })
+    const handleSubmit = async () => {
+      const restaurantImages = await getImagesUrls()
+        firebase.auth().createUserWithEmailAndPassword(email, password)
+            .then((result) => {
+                const uid = result.user.uid
+                firebase.database().ref(`restaurants/`).push({
+                    direction,
+                    phone,
+                    name: restaurantName,
+                    host: uid,
+                    rating: {
+                        counter: 0,
+                        totalrating: 0
+                    },
+                    stars: 0,
+                    profileurl: restaurantImages[0],
+                    tables,
+                    layouturl: restaurantImages[1]
+                })
+                    .then(value => {
+                      console.log('SE CREO')
+                        firebase.database().ref(`users/${uid}`).set({
+                            name,
+                            lastname,
+                            role: "host"
+                        })
+                        console.log(value)
+                    })
+                    .catch(err => {
+                        console.log(err)
+                    });
+                result.user.sendEmailVerification()
+                    .then(() => {
+                        sweetalert("Registro Exitoso!", "Se ha registrado exitosamente!", "success")
+                            .then(() => {
+                                history.push("/login")
+                            })
+                    })
+                    .catch((e) => {
+                        console.log(e)
+                    })
 
-        //     })
-        //     .catch((e) => {
-        //       console.log('FALLO LA CREACION')
+            })
+            .catch((e) => {
+              console.log('FALLO LA CREACION')
 
-        //         console.error(e)
-        //         if (e.code === "auth/email-already-in-use") {
-        //             sweetalert("Oops!", e.message, "error");
-        //         }
-        //         if (e.code === "auth/invalid-email") {
-        //             sweetalert("Hey!", e.message, "error");
-        //         }
-        //         if (e.code === "auth/weak-password") {
-        //             sweetalert("C'mon!", e.message, "warning");
-        //         }
-        //     });
+                console.error(e)
+                if (e.code === "auth/email-already-in-use") {
+                    sweetalert("Oops!", e.message, "error");
+                }
+                if (e.code === "auth/invalid-email") {
+                    sweetalert("Hey!", e.message, "error");
+                }
+                if (e.code === "auth/weak-password") {
+                    sweetalert("C'mon!", e.message, "warning");
+                }
+            });
     }
 
     
