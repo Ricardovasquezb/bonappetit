@@ -138,56 +138,29 @@ const RegisterRestaurant = props => {
       const uploadTask = firebase.storage().ref(`/images/${imageAsFile.name}`).put(imageAsFile)
       uploadTask.on('state_changed', 
       (snapShot) => {
-        // console.log(snapShot)
+        // console.log({ SNAPSHOT: snapShot});
       }, (err) => {
         //catches the errors
         console.log(err)
-      }, () => {
-        // gets the functions from storage refences the image storage in firebase by the children
-        // gets the download url then sets the image from firebase as the value for the imgUrl key:
-       return firebase.storage().ref('images').child(imageAsFile.name).getDownloadURL()
       })
+      return firebase.storage().ref('images').child(imageAsFile.name).getDownloadURL()
       }
 
     //   .then(fireBaseUrl => {
     //     console.log(fireBaseUrl)
     //     return fireBaseUrl
     // })
-      const waitingUrls=() => {
-        //   const url1 = handleFireBaseUpload(layoutImageFile)
-        //   const url2 = handleFireBaseUpload(profileImageFile)
-       
-          
-        Promise.all([handleFireBaseUpload(layoutImageFile), handleFireBaseUpload(profileImageFile)]).then(function(values){
-            console.log(values)
-        })
-
-
+      const getImagesUrls =() => {
+       return Promise.all([handleFireBaseUpload(layoutImageFile), handleFireBaseUpload(profileImageFile)]).then(values => {
+         return values;
+       })
         //Promise.all(handleFireBaseUpload(layoutImageFile), handleFireBaseUpload(profileImageFile))
       }
     
 
     const handleSubmit =() => {
-        // console.log([name,lastname,direction,phone,restaurantName,
-        //                 "uid",
-        //                 {
-        //                     counter: 0,
-        //                     totalrating: 0
-        //                 },
-        //                 0,
-        //                 layoutImageFile,
-        //                 tables,
-        //                 profileImageFile])
-       waitingUrls()
-        // waitingUrls()
-        // .then(result =>{
-        //     console.log(result)
-
-        // })
-        
+      const restaurantImages = getImagesUrls().then(values => values)
        
-
-
         // firebase.auth().createUserWithEmailAndPassword(email, password)
         //     .then((result) => {
         //         const uid = result.user.uid
@@ -201,11 +174,12 @@ const RegisterRestaurant = props => {
         //                 totalrating: 0
         //             },
         //             stars: 0,
-        //             profileurl: imgUrl[0],
+        //             profileurl: restaurantImages[0],
         //             tables,
-        //             layouturl: layoutUrl[0]
+        //             layouturl: restaurantImages[1]
         //         })
         //             .then(value => {
+        //               console.log('SE CREO')
         //                 firebase.database().ref(`users/${uid}`).set({
         //                     name,
         //                     lastname,
@@ -229,6 +203,8 @@ const RegisterRestaurant = props => {
 
         //     })
         //     .catch((e) => {
+        //       console.log('FALLO LA CREACION')
+
         //         console.error(e)
         //         if (e.code === "auth/email-already-in-use") {
         //             sweetalert("Oops!", e.message, "error");
