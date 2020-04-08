@@ -28,7 +28,6 @@ const Login = props => {
         setPassword(e.target.value);
     }
 
-    localStorage.clear();
    
    return(
        <Consumer>

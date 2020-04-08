@@ -6,7 +6,7 @@ import { v4 as uuidv4 } from 'uuid';
 import Form from 'react-bootstrap/Form'
 import Col from 'react-bootstrap/Col'
 import '../assets/css/register.css'
-
+import Lodash from 'lodash';
 
 //Components
 import Button from '../components/normalButton'
@@ -34,36 +34,47 @@ const imgUrl = ["https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.casadecam
 
 const tables = [
     {
+      name: 'tabla1',
         capacity: 4,
         floor: 1,
         number: 1
     },
     {
+      name: 'tabla2',
+
         capacity: 6,
         floor: 1,
         number: 2
     },
     {
+      name: 'tabla3',
+
         capacity: 2,
         floor: 1,
         number: 3
     },
     {
+      name: 'tabla4',
         capacity: 8,
         floor: 1,
         number: 4
     },
     {
+      name: 'tabla5',
+
         capacity: 4,
         floor: 1,
         number: 5
     },
     {
+      name: 'tabla6',
+
         capacity: 3,
         floor: 1,
         number: 6
     },
     {
+      name: 'tabla7',
         capacity: 4,
         floor: 1,
         number: 7
@@ -75,6 +86,12 @@ shuffle(imgUrl)
 shuffle(layoutUrl)
 
 
+const mapToKey = (lists) => {
+ return lists.reduce((accVal, curVal) => {
+    const name = Lodash.get(curVal, ['name'], 'name');
+    return {...accVal, [name]: curVal};
+  },{})
+}
 
 
 const RegisterRestaurant = props => {
@@ -161,7 +178,6 @@ const RegisterRestaurant = props => {
         //Promise.all(handleFireBaseUpload(layoutImageFile), handleFireBaseUpload(profileImageFile))
       }
     
-
     const handleSubmit = async () => {
       const restaurantImages = await getImagesUrls()
         firebase.auth().createUserWithEmailAndPassword(email, password)
