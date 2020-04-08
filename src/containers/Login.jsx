@@ -78,7 +78,8 @@ const Login = props => {
                                 }else{
                                     firebase.read(user.uid)
                                     .then(function (snapshot) {
-                                        console.log(snapshot,snapshot.val(),user)
+                                        localStorage.setItem("role", snapshot.val().role)
+                                        console.log(snapshot.val().role)
                                     })
                                     .catch(function (error) {
                     
@@ -86,13 +87,13 @@ const Login = props => {
                                    
                     
                                     
-                                    if(!user.emailVerified){
-                                        sweetalert("Su correo no ha sido verificado", "Porfavor revisar su bandeja de  entrada","warning")
-                                        history.replace("/login")
-                                    }else{
+                                    // if(!user.emailVerified){
+                                    //     sweetalert("Su correo no ha sido verificado", "Porfavor revisar su bandeja de  entrada","warning")
+                                    //     history.replace("/login")
+                                    // }else{
 
                                         history.push("/home")
-                                    }
+                                    // }
                                 };
 
                             })

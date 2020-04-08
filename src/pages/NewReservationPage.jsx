@@ -28,7 +28,7 @@ const NewReservationsPage = ({ firebaseDatabase, firebaseAppAuth, userSession })
     const [restaurantName, setrestaurantName] = useState("empty");
 
     const getrestaurantName = ()=>{
-        firebaseDatabase.ref(`/restaurant/${restaurantId}/name`).once("value")
+        firebaseDatabase.ref(`/restaurants/${restaurantId}/name`).once("value")
         .then(snapShot=> {
              
             setrestaurantName(snapShot.val())
@@ -37,10 +37,9 @@ const NewReservationsPage = ({ firebaseDatabase, firebaseAppAuth, userSession })
             console.error(e)
         })
     }
-    getrestaurantName()
 
     const getTables = () => {
-        firebaseDatabase.ref(`/restaurant/${restaurantId}/tables`).once("value")
+        firebaseDatabase.ref(`/restaurants${restaurantId}/tables`).once("value")
             .then(snapShot => {
                 const val = snapShot.val()
                 const dataParsed = arrayFirebaseParser(val)
@@ -107,6 +106,8 @@ const NewReservationsPage = ({ firebaseDatabase, firebaseAppAuth, userSession })
     }
 
     useEffect(() => {
+        getrestaurantName()
+
         getTables()
     }, [])
 

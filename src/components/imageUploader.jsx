@@ -12,9 +12,9 @@ const ImageUploader = props => {
     const [imageAsFile, setImageAsFile] = useState("");
     const [imageAsUrl, setImageAsUrl] = useState(allInputs);
 
-    console.log(imageAsFile)
     const handleImageAsFile = (e) => {
         const image = e.target.files[0]
+        console.log(image)
         setImageAsFile(imageFile => (image))
     }
 

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 
 import Home from '../containers/Home'
 import HomeHost from '../containers/HomeHost'
@@ -10,42 +10,88 @@ import 'firebase/auth';
 
 
 
-const HomePage = ({ firebaseDatabase }) => {
-   
-    var User = {
-        type : 2,
-        name : 'Josias Ramon',
-        lastname : 'Carmona Amparo',
-        email: 'joracaam@gmail.com',
-        tel: '+1 (809) 154 3443',
-        address : 'Manzana i, No. 9, Res. Villas de Pantoja, Sto. Dgo. oeste',
-        city: 'Santo Domingo'
-    };
+const HomePage = props => {
+
+
+    const [loggedUser, setloggedUser] = useState(null);
+    const [dataReady, setdataReady] = useState(false);
+    const [restaurantData, setrestaurantData] = useState(null)
+
+    
+    // const gettingLoggedUserData = async () => {
+    //     const snapshot = await firebase.database().ref("/users/" + localStorage.getItem("user")).once("value")
+    //     return snapshot.val()
+
+    // }
+    const gettingRestaurantData = async () => {
+        
+        console.log(localStorage.getItem("role"))
+        if (localStorage.getItem("role") === "host") {
+            const snapshot =  await firebase.database().ref("/restaurants/").orderByChild("host").equalTo(localStorage.getItem("user")).once("value")
+            return snapshot.val()
+        }
+    }
+
+
+    useEffect(() => {
+       gettingRestaurantData()
+       .then(result=>{
+           console.log(result)
+
+       })
+    }, [])
+    // useEffect(() => {
+    //     gettingRestaurantData(loggedUser)
+    //     .then(snap => {
+    //         console.log(snap.val())
+    //         setrestaurantData(snap.val())
+    //         console.log(restaurantData)
+    //         setdataReady(true)
+    //     })
+    //     .catch((e)=>{
+
+    //     })
+    // },[])
 
    
 
-    if(User.type == 1)
-    { return(
-        <div>
-            <Navigationbar title={User.name}/>
-                <Home user={User}/>
-            <Footer/>
-        </div>
-    )}
 
-    else if(User.type == 2)
-    {
-        return(
+    if (!dataReady) {
+        return (
             <div>
-                <NavigationbarHost user={User}/>
-                    <HomeHost 
-                        user={User}
-                        firebaseDatabase={firebaseDatabase}
-                    />
-                <Footer/>
+                <Navigationbar title={"empty"} />
+
+                <Footer />
             </div>
         )
+    } else {
+        if (loggedUser.role === 'client') {
+            return (
+                <div>
+                    <Navigationbar title={loggedUser.name} />
+                    <Home user={loggedUser} />
+                    <Footer />
+                </div>
+            )
+        } else if (loggedUser.role === 'host') {
+            return (
+                <div>
+                    <NavigationbarHost user={loggedUser} />
+                    <HomeHost user={loggedUser} />
+                    <Footer />
+                </div>
+            )
+        } else if (loggedUser.role === 'admin') {
+            return (
+                <div>
+                    {/* <NavigationbarHost user={User}/>
+                        <HomeHost user={User}/>
+                    <Footer/> */}
+                </div>
+            )
+        }
     }
+
 }
 
 export default HomePage
