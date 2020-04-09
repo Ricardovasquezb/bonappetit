@@ -23,10 +23,13 @@ const NewReservationsPage = ({ firebaseDatabase, firebaseAppAuth, userSession })
 
 
     const [tableList, setTableList] = useState([]);
+    const [userInfo, setUserInfo] = useState([]);
 
     const [restaurantName, setrestaurantName] = useState("empty");
 
     const [layoutUrl,setlayoutUrl] = useState("empty")
+
+    
 
     const getrestaurantName = ()=>{
         firebaseDatabase.ref(`/restaurants/${restaurantId}/name`).once("value")
@@ -38,6 +41,16 @@ const NewReservationsPage = ({ firebaseDatabase, firebaseAppAuth, userSession })
             console.error(e)
         })
     }
+
+    const getuserData = (async()=>{
+
+        const uid = localStorage.getItem("user")
+
+            const Data = await firebaseDatabase.ref(`/users/${uid}`).once("value")
+            return Data.val()
+
+        
+    })
 
     const getrestaurantLayout = () => {
         firebaseDatabase.ref(`/restaurants/${restaurantId}/layouturl`).once("value")
@@ -72,11 +85,10 @@ const NewReservationsPage = ({ firebaseDatabase, firebaseAppAuth, userSession })
         const reservationId = `${date}.${table}.${schedule}.${restaurantId}`
         const verify = await verifyIfExist(reservationId)
         
-        console.log(verify)
 
         if (!verify) { 
             const toPush = {
-                user_uid: userSession,
+                user: {user_uid : userSession ,...userInfo},
                 restaurant_id: restaurantId,
                 schedule,
                 table,
@@ -123,6 +135,12 @@ const NewReservationsPage = ({ firebaseDatabase, firebaseAppAuth, userSession })
         getTables()
 
         getrestaurantLayout()
+
+        getuserData()
+        .then((snapshot)=>{
+            console.log(snapshot)
+            setUserInfo(snapshot)
+        })
     }, [])
 
     if (!restaurantId) return <Redirect to="/home" />

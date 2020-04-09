@@ -8,6 +8,7 @@ import { arrayFirebaseParser } from "../utils"
 const CardView = props => {
     const { push: toLocation } = useHistory()
     const [data, setData] = useState([]);
+    console.log(data)
 
     useEffect(() => {
         props.firebaseInstance.ref("/restaurants").once("value")
