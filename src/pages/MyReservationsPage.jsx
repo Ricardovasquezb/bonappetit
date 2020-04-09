@@ -32,14 +32,15 @@ const MyReservationsPage = ({ firebaseDatabase, firebaseAppAuth, userSession }) 
   const toggleModal = () => setIsModalOpen(!isModalOpen);
 
     const getUserReservations = async () => {
-      const myReservationsSnapShot = await firebaseDatabase.ref("/reservations/").orderByChild("user_uid").equalTo(userUid).once("value")
-      const reservations = arrayFirebaseParser(myReservationsSnapShot.val())
+      const myReservationsSnapShot = await firebaseDatabase.ref("/reservations").orderByChild("user_uid").equalTo(userUid).once("value");
+      const objReservations = myReservationsSnapShot.val();
       const restaurantLookup = Lodash.get(restaurantsNormalize, ['entities' ,'restaurants'], null);
-      if (restaurantLookup){
-        const myReservations = reservations.map(objReservations => {
+      if (restaurantLookup && !Lodash.isNil(objReservations)){
+        const myReservations = Object.keys(objReservations).map(strKey => {
           return {
-            ...objReservations,
-            restaurant: restaurantLookup[objReservations.restaurant_id]
+            ...objReservations[strKey],
+            uid: strKey,
+            restaurant: restaurantLookup[objReservations[strKey].restaurant_id]
           }
         });
         return setReservationsList(myReservations);

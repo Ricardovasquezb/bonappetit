@@ -4,6 +4,8 @@ import sweetalert from 'sweetalert'
 import * as firebase from 'firebase/app'
 import { v4 as uuidv4 } from 'uuid';
 import Form from 'react-bootstrap/Form'
+import Table from 'react-bootstrap/Table'
+import InputGroup from 'react-bootstrap/InputGroup'
 import Col from 'react-bootstrap/Col'
 import '../assets/css/register.css'
 import Lodash from 'lodash';
@@ -91,6 +93,92 @@ const mapToKey = (lists) => {
         const name = Lodash.get(curVal, ['name'], 'name');
         return { ...accVal, [name]: curVal };
     }, {})
+};
+
+// En otro file
+const RestaurantTableInput = ({onChange, value=[]}) => {
+  const [capacity, setCapacity] = useState(2);
+  const [tableName, setTableName] =useState('');
+  const [tables, setTables] = useState(value);
+
+  const handleOnTableNameChange = (val) => {
+    return setTableName(val.currentTarget.value);
+  };
+
+  const handleOnTableChange = (val)=>{
+    return setCapacity(val.currentTarget.value);
+  };
+
+  const handleOnAddClick = () => {
+    const objTableCreated = Lodash.find(tables, objTables => objTables.name === tableName);
+    console.log({ objTableCreated, tableName, capacity })
+    if (Lodash.isEmpty(objTableCreated)){
+      const objTable = {
+        capacity,
+        name: tableName,
+        floor: 1,
+      };
+
+      return setTables([...tables, objTable]);
+    }
+    return alert('Mesa ya creada')
+   
+  };
+
+  const handleOnDeleteTable = (objItem) => {
+    const newTables = Lodash.filter(tables, objTable => objTable.name !== objItem.name);
+    return setTables(newTables);
+  }
+
+
+  useEffect(()=>{
+    onChange(tables)
+  },[tables])
+
+  return (
+    <>
+    <Form.Row>
+      <Form.Group as={Col} controlId="formGridTableCapacity">
+        <Form.Label>Nombre de la mesa</Form.Label>
+          <Form.Control onChange={handleOnTableNameChange} />
+      </Form.Group>
+      <Form.Group as={Col} controlId="formGridTableName">
+          <Form.Label>Capacidad de la mesa</Form.Label>
+          <select class="form-control" id="exampleFormControlSelect1" onChange={handleOnTableChange}>
+            <option value={2}>2</option>
+            <option value={3}>3</option>
+            <option value={4}>4</option>
+            <option value={5}>5</option>
+            <option value={6}>6</option>
+          </select>
+      </Form.Group>
+        <Button variant="success" click={handleOnAddClick}>Añadir</Button>
+    </Form.Row>
+      <Table striped bordered hover variant="dark">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Table Name</th>
+            <th>Capacity</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {tables.map((objTable, index) => {
+            return (
+              <tr>
+                <td>{index + 1}</td>
+                <td>{objTable.name}</td>
+                <td>{objTable.capacity}</td>
+                <td> <Button variant="danger" click={() => handleOnDeleteTable(objTable)}>Danger</Button></td>
+              </tr>
+            )
+          })}
+         
+        </tbody>
+      </Table>
+    </>
+  )
 }
 
 
@@ -106,7 +194,9 @@ const RegisterRestaurant = props => {
     const [layoutImageFile, setLayoutImageFile] = useState("")
     const [profileImageFile, setProfileImageFile] = useState("")
     const [layoutImageUrl, setLayoutImageUrl] = useState("")
-    const [profileImageUrl, setProfileImageUrl] = useState("")
+    const [profileImageUrl, setProfileImageUrl] = useState("");
+    const [tables, setTables] = useState(1);
+
     const history = useHistory();
     const handleName = e => {
         setName(e.target.value);
@@ -178,8 +268,10 @@ const RegisterRestaurant = props => {
                     },
                     stars: 0,
                     profileurl: restaurantImages[1],
-                    tables,
-                    layouturl: restaurantImages[0]
+                    tables: mapToKey(tables),
+                    layouturl: restaurantImages[0],
+                    pending: true,
+                    approve: false,
                 })
                     .then(value => {
                         console.log('SE CREO')
@@ -219,6 +311,10 @@ const RegisterRestaurant = props => {
                     sweetalert("C'mon!", e.message, "warning");
                 }
             });
+    }
+
+    const handleOnTableChange = (tables) =>{
+      return setTables(tables)
     }
 
 
@@ -284,6 +380,10 @@ const RegisterRestaurant = props => {
                         <Form.Control onChange={handleDirection} />
                     </Form.Group>
                 </Form.Row>
+
+              
+
+          <RestaurantTableInput onChange={handleOnTableChange}/>
 
                 <Form.Row>
                     <Form.Group as={Col} id="formGridFile">
