@@ -1,10 +1,11 @@
 import React, { useEffect, useState, useMemo } from 'react';
 import '../assets/css/home-host.css';
+import Lodash from 'lodash';
 
 import DashboardBox from '../components/DashboardBox'
 import TableView from '../components/TableView'
 import Settings from '../containers/SettingsHost'
-import { arrayFirebaseParser, averageByKyStrict, dateParser, getFirstQuantity, uniqueItemsFromKey } from '../utils';
+import { arrayFirebaseParser, averageByKyStrict, dateParser, getFirstQuantity, uniqueItemsFromKey, getReservationTableData } from '../utils';
 import * as firebase from 'firebase/app'
 import 'firebase/auth';
 
@@ -17,15 +18,26 @@ const getTodayReservations = (reservations) => {
     return reservations.filter(reservation => {
         return reservation.date === dateParser(new Date())
     })
-}
+};
 const getThisMonthReservations = (reservations) => {
     return reservations.filter(reservation => reservation.date.substring(3) === dateParser(new Date()).substring(3) )
 }
 
+// const getReservationTableData = (listReservations) => {
+//   return listReservations.map(objReservation => ({
+//     img: "https://image.freepik.com/foto-gratis/personas-que-sonrie-alegre-hombres-guapos_1187-6057.jpg",
+//     Name: Lodash.get(objReservation, ['user', 'name'], ''),
+//     LastName: Lodash.get(objReservation, ['user', 'lastname'], ''),
+//     TableNumber: Lodash.get(objReservation, 'table', 0),
+//     hour: Lodash.get(objReservation, ['schedule'], ''),
+//     code: Lodash.get(objReservation, ['uid'], null),
+//   }))
+// }
+
 const HomeHost = ({ firebaseDatabase, user }) =>{
     const [reservations, setReservations] = useState([]);
 
-    console.log(user,Object.keys(user)[0])
+    console.log({USER: Object.keys(user)[0]})
 
     const TableTitle = [
         {
@@ -129,11 +141,13 @@ const HomeHost = ({ firebaseDatabase, user }) =>{
         }
     ]
 
+  
+
     return(
         <div className='home-host'>
             <h2>{user[Object.keys(user)[0]].name}</h2>            
-            <h3>Lista de reservas del dia</h3>
-            <TableView titles={TableTitle} values={TableValues}/>
+            <h3>Lista de reservas para hoy</h3>
+            <TableView titles={TableTitle} values={getReservationTableData(onlyToday)}/>
             <h3>Estadisticas</h3>
             <DashboardBox source = {DashBoxes}/>
         </div>

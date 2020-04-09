@@ -88,6 +88,7 @@ const NewReservationsPage = ({ firebaseDatabase, firebaseAppAuth, userSession })
 
         if (!verify) { 
             const toPush = {
+                user_uid: userSession,
                 user: {user_uid : userSession ,...userInfo},
                 restaurant_id: restaurantId,
                 schedule,

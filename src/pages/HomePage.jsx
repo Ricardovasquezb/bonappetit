@@ -73,44 +73,47 @@ const HomePage = props => {
         
     },[])
 
-    
-
-    if (!dataReady) {
+    const renderRBACHome = () => {
+      if (localStorage.getItem("role") === 'client') {
         return (
-            <div>
-                <Navigationbar title={"empty"} />
-
-                <Footer />
-            </div>
+          <div>
+            <Navigationbar title={userData.name} />
+            <Home user={userData} />
+            <Footer />
+          </div>
         )
-    } else {
-        if (localStorage.getItem("role") === 'client') {
-            return (
-                <div>
-                    <Navigationbar title={userData.name} />
-                    <Home user={userData} />
-                    <Footer />
-                </div>
-            )
-        } else if (localStorage.getItem("role") === 'host') {
-            return (
-                <div>
-                    <NavigationbarHost user={userData} />
-                    <HomeHost user={restData} />
-                    <Footer />
-                </div>
-            )
-        } else if (localStorage.getItem("role") === 'admin') {
-            return (
-                <div>
-                    {/* <NavigationbarHost user={User}/>
-                        <HomeHost user={User}/>
-                    <Footer/> */}
-                </div>
-            )
-        }
+      } else if (localStorage.getItem("role") === 'host') {
+        return (
+          <div>
+            <NavigationbarHost user={userData} />
+            <HomeHost user={restData} />
+            <Footer />
+          </div>
+        )
+      } else if (localStorage.getItem("role") === 'admin') {
+        return (
+          <div>
+            {/* <NavigationbarHost user={User}/>
+                      <HomeHost user={User}/>
+                  <Footer/> */}
+          </div>
+        )
+      }
     }
+      
+  console.log({ dataReady})
 
+  return (
+    <div>
+      {!dataReady ? (
+        <>
+        <Navigationbar title={"empty"} />
+        <Footer />
+        </>
+        ): renderRBACHome()
+        } 
+    </div>
+  )
 }
 
 export default HomePage

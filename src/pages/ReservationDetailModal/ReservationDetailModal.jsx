@@ -28,7 +28,7 @@ const ReservationDetailModal = ({ isOpen, reservationData, onClose}) => {
   };
 
   const deleteReservation = ()=>{
-    const restaurant_uid = reservationData.uid
+    const restaurant_uid = reservationData.uid;
 
     return firebase.database().ref(`reservations/${restaurant_uid}`).remove()
       .then(()=>{
