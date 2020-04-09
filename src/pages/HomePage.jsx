@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 
 import Home from '../containers/Home'
 import HomeHost from '../containers/HomeHost'
+import HomeAdmin from '../containers/HomeAdmin'
 import Navigationbar from "../containers/NavigationBar"
 import NavigationbarHost from "../containers/NavigationBarHost"
 import Footer from '../containers/Footer'
@@ -103,9 +104,9 @@ const HomePage = props => {
         } else if (localStorage.getItem("role") === 'admin') {
             return (
                 <div>
-                    {/* <NavigationbarHost user={User}/>
-                        <HomeHost user={User}/>
-                    <Footer/> */}
+                    <NavigationbarHost user={userData}/>
+                        <HomeAdmin />
+                    <Footer/>
                 </div>
             )
         }
