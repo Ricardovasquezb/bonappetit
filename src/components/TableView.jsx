@@ -1,9 +1,23 @@
 import React from 'react';
 import { Table } from 'reactstrap';
+import { Button } from "react-bootstrap"
+import * as firebase from 'firebase/app'
+import 'firebase/database'
 
 import '../assets/css/table-view.css';
 
 const TableView = props => {
+
+  const activeRes = (id) => {
+    return firebase.database().ref(`/reservations/${id}`).update({
+      active: true
+    })
+  }
+
+  const handlerActiveRes = (id) => async () => {
+    await activeRes(id)
+    props.activeEvent()
+  }
 
   var Data = [];
   var Titles = [];
@@ -42,6 +56,16 @@ const TableView = props => {
                   <td>{item.TableNumber}</td>
                   <td>{item.hour}</td>
                   <td>{item.code}</td>
+                  <td className="button-td" >
+                    {
+                      !item.active ?
+                        <Button onClick={handlerActiveRes(item.code)}>
+                          Activar reserva
+                        </Button>       
+                      :
+                        "Activa"
+                    }
+                  </td>
                 </tr>
               ))
             }

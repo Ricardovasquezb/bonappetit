@@ -41,6 +41,9 @@ const  TABLE_HEADER = [
   },
   {
     'title': 'Código'
+  },
+  {
+    'title': ''
   }
 ];
 
@@ -49,6 +52,7 @@ const AllReservations = props =>{
     const [dateSelected, setDate] = useState(null);
     const [restId, setRestId] = useState(null);
     const [reservations, setReservations] = useState([]);
+    const [tableDate, setTableData] = useState([])
 
     const handleDate = e => {
       return setDate(e);
@@ -73,6 +77,10 @@ const AllReservations = props =>{
        return setReservations(arrayFirebaseParser(values));
       })
       .catch(objError=>console.log({ERROR: objError}));
+  }
+
+  const refreshData = () => {
+    loadReservations(restId)
   }
 
   const getReservations = () => {
@@ -101,7 +109,7 @@ const AllReservations = props =>{
           </Button>: null} 
             </div>
             
-        <TableView titles={TABLE_HEADER} values={getReservations()}/>
+        <TableView activeEvent={refreshData} titles={TABLE_HEADER} values={getReservations()}/>
         </div>
     );
 }

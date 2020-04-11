@@ -41,3 +41,11 @@
 .profile-name{
     margin-left: 10px;
 }
+.button-td {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.span-td {
+    font-size: 24px;
+}
