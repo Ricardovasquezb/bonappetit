@@ -18,7 +18,7 @@ const ReservationDetail = ({ reservationData, isOpen, onSubmit, onClose, onDelet
     const reservationSchedule = Lodash.get(reservationData, ['schedule'], null);
     const reservationDate = Lodash.get(reservationData, ['date'], null);
     const reservationTable = Lodash.get(reservationData, ['table'], null);
-    const restaurantImageUrl = Lodash.get(reservationData, ['restaurant', 'profileurl'], '');
+    const restaurantImageUrl = Lodash.get(reservationData, ['restaurant', 'layouturl'], '');
 
     return {
       restaurantName,
