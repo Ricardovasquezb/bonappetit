@@ -11,11 +11,13 @@ const MyReservations = ({ isLoading, reservationsList, onClick}) =>{
         <div className='my-reservations'>
             <h2>MIS RESERVACIONES</h2>
             <div className='cards'>
-          {Lodash.isEmpty(reservationsList) ? <p> no hay na</p> : <ReservationCard
+          {
+            Lodash.isEmpty(reservationsList) ? <p>Sin Elementos que mostrar</p> : <ReservationCard
             dataList={reservationsList}
             isLoading={isLoading}
             onClick={onClick}
-          />         } 
+          />
+          } 
             </div>
         </div>
     );

@@ -46,7 +46,7 @@ const ReservationDetail = ({ reservationData, isOpen, onSubmit, onClose, onDelet
             <Modal.Title>{values.restaurantName}</Modal.Title>
             <Modal.Body></Modal.Body>
 
-            
+            <Form.Label>Mesa:</Form.Label>
             <Field name="reservationTable" component="select" value={values.reservationTable} >
               {Object.keys(values.restaurantTables).map(tableKey => {
                 return <option value={tableKey}>Mesa {values.restaurantTables[tableKey].number}</option> //|| capacity: {values.restaurantTables[tableKey].capacity}  </option>
@@ -61,12 +61,12 @@ const ReservationDetail = ({ reservationData, isOpen, onSubmit, onClose, onDelet
             </Field>
             <Modal.Body></Modal.Body>
 
-            <Field
+              <Field
               name={'reservationDate'}
               render={({field: {name}}) => {
                 return (
                   <DateTimePicker
-                    label="Fecha de inicio"
+                    label="Fecha:"
                     minDate={0}
                     maxDate={4}
                     value={values.reservationDate}
@@ -75,10 +75,6 @@ const ReservationDetail = ({ reservationData, isOpen, onSubmit, onClose, onDelet
                 )
               }}
             />
-            
-
-           
-
           </Modal.Body>
 
           <Modal.Footer className="justify-content-between">

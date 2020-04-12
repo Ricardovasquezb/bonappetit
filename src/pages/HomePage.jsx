@@ -13,16 +13,8 @@ import { useHistory } from "react-router-dom"
 import { arrayFirebaseParser } from "../utils/index"
 
 
-
-
 const HomePage = props => {
 
-    if(localStorage.getItem("role")===null && localStorage.getItem("user")){
-        history.replace("/login")
-        console.log('no hay nadie')
-       
-
-    }
 
     const history = useHistory();
 
@@ -98,17 +90,18 @@ const HomePage = props => {
                   <Footer/> */}
           </div>
         )
+      } else {
+        history.push("/login")
       }
     }
       
-  console.log({ dataReady})
+  console.log({dataReady})
 
   return (
     <div>
       {!dataReady ? (
         <>
-        <Navigationbar title={"empty"} />
-        <Footer />
+        <div/>
         </>
         ): renderRBACHome()
         } 

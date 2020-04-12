@@ -35,35 +35,35 @@ const RegisterRestaurantV2 = props => {
                 layoutFile: null,
                 profileFile: null
             }}
-        // validationSchema={Yup.object().shape({
+            // validationSchema={Yup.object().shape({
 
-        //     name: Yup.string()
-        //         .max(40, 'Please enter no more than 40 characters')
-        //         .required('Please enter your  name'),
+            //     name: Yup.string()
+            //         .max(40, 'Please enter no more than 40 characters')
+            //         .required('Please enter your  name'),
 
-        //     lastname: Yup.string()
-        //         .max(40, 'Please enter no more than 40 characters')
-        //         .required('Please enter a last name'),
-        //     email: Yup.string()
-        //         .email('Email is invalid')
-        //         .required('Email is required'),
+            //     lastname: Yup.string()
+            //         .max(40, 'Please enter no more than 40 characters')
+            //         .required('Please enter a last name'),
+            //     email: Yup.string()
+            //         .email('Email is invalid')
+            //         .required('Email is required'),
 
-        //     phone: Yup.string()
-        //         .matches(phoneRegExp, 'Phone number is not valid'),
+            //     phone: Yup.string()
+            //         .matches(phoneRegExp, 'Phone number is not valid'),
 
-        //     password: Yup.string()
-        //         .min(8, 'Password must be at least 8 characters')
-        //         .matches(passwordRegExp, 'invalid Password')
-        //         .required('Password is required'),
-        //     confirmPassword: Yup.string()
-        //         .oneOf([Yup.ref('password'), null], 'Passwords must match')
-        //         .required('Confirm Password is required')
-        // })}
+            //     password: Yup.string()
+            //         .min(8, 'Password must be at least 8 characters')
+            //         .matches(passwordRegExp, 'invalid Password')
+            //         .required('Password is required'),
+            //     confirmPassword: Yup.string()
+            //         .oneOf([Yup.ref('password'), null], 'Passwords must match')
+            //         .required('Confirm Password is required')
+            // })}
 
-        // onSubmit={fields => {
-        //     console.log(fields)
-        //     alert('SUCCESS!! :-)\n\n' + JSON.stringify(fields))
-        // }}
+            // onSubmit={fields => {
+            //     console.log(fields)
+            //     alert('SUCCESS!! :-)\n\n' + JSON.stringify(fields))
+            // }}
 
         >
 
