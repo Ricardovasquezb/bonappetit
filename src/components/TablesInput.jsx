@@ -4,34 +4,25 @@ import Button from '../components/normalButton'
 import Lodash from 'lodash';
 import Form from 'react-bootstrap/Form'
 import Col from 'react-bootstrap/Col'
+import Alert from 'react-bootstrap/Alert'
 
 
-const TablesInput = ({ onChange, value = [] }) => {
-  const [capacity, setCapacity] = useState(2);
-  const [tableName, setTableName] = useState('');
+const TablesInput = ({ onChange, value = [], hasError, helperText }) => {
+  const [capacity, setCapacity] = useState(null);
   const [tables, setTables] = useState(value);
-
-  const handleOnTableNameChange = (val) => {
-    return setTableName(val.currentTarget.value);
-  };
 
   const handleOnTableChange = (val) => {
     return setCapacity(val.currentTarget.value);
   };
 
   const handleOnAddClick = () => {
-    const objTableCreated = Lodash.find(tables, objTables => objTables.name === tableName);
-    console.log({ objTableCreated, tableName, capacity })
-    if (Lodash.isEmpty(objTableCreated)) {
       const objTable = {
+        name: tables.length,
         capacity,
-        name: tableName,
         floor: 1,
       };
 
       return setTables([...tables, objTable]);
-    }
-    return alert('Mesa ya creada')
 
   };
 
@@ -45,16 +36,18 @@ const TablesInput = ({ onChange, value = [] }) => {
     onChange(tables)
   }, [tables])
 
+  const isValid = !Lodash.isEmpty(capacity);
   return (
     <>
       <Form.Row>
-        <Form.Group as={Col} controlId="formGridTableCapacity">
+        {/* <Form.Group as={Col} controlId="formGridTableCapacity">
           <Form.Label>Nombre de la mesa</Form.Label>
           <Form.Control onChange={handleOnTableNameChange} />
-        </Form.Group>
+        </Form.Group> */}
         <Form.Group as={Col} controlId="formGridTableName">
           <Form.Label>Capacidad de la mesa</Form.Label>
           <select class="form-control" id="exampleFormControlSelect1" onChange={handleOnTableChange}>
+            <option value={null} disabled selected>Select your option</option>
             <option value={2}>2</option>
             <option value={3}>3</option>
             <option value={4}>4</option>
@@ -62,13 +55,13 @@ const TablesInput = ({ onChange, value = [] }) => {
             <option value={6}>6</option>
           </select>
         </Form.Group>
-        <Button variant="success" click={handleOnAddClick}>Añadir</Button>
+        <Button disabled={!isValid} variant="success" click={handleOnAddClick}>Añadir</Button>
       </Form.Row>
       <Table striped bordered hover variant="dark">
         <thead>
           <tr>
             <th>#</th>
-            <th>Table Name</th>
+            {/* <th>Table Name</th> */}
             <th>Capacity</th>
             <th>Action</th>
           </tr>
@@ -78,7 +71,7 @@ const TablesInput = ({ onChange, value = [] }) => {
             return (
               <tr>
                 <td>{index + 1}</td>
-                <td>{objTable.name}</td>
+                {/* <td>{objTable.name}</td> */}
                 <td>{objTable.capacity}</td>
                 <td> <Button variant="danger" click={() => handleOnDeleteTable(objTable)}>Borrar</Button></td>
               </tr>
@@ -86,7 +79,11 @@ const TablesInput = ({ onChange, value = [] }) => {
           })}
 
         </tbody>
+   
       </Table>
+      {hasError ? <Alert variant={'danger'}>
+        {helperText}
+      </Alert>:null}
     </>
   )
 }
