@@ -15,6 +15,7 @@ import MyReservations from "./pages/MyReservationsPage";
 import AboutUs from "./pages/AboutUsPage";
 import SettingsPage from "./pages/SettingsPage";
 import AllReservationsHostPage from "./pages/AllReservationsHostPage";
+import PageNotFound from "./pages/PageNotFound";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fab } from "@fortawesome/free-brands-svg-icons";
@@ -149,6 +150,9 @@ const App = () => {
               );
             }}
           />
+          <Route
+            component={PageNotFound}>
+          </Route>
         </Switch>
       </HashRouter>
     </Provider>

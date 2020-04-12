@@ -15,7 +15,6 @@ const getAllPendingReservations = async (restaurantId, firebaseDatabase) => {
 }
 
 
-
 const HomeAdmin = ({ firebaseDatabase, user }) =>{
     const [reservations, setReservations] = useState([]);
 

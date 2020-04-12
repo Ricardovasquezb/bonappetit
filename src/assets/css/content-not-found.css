@@ -1,0 +1,22 @@
+.content-not-found{
+    display: inline-flex;
+    height: 100%;
+    width: 100%;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+    justify-self: center;
+    text-align: center;
+}
+
+.content-not-found img{
+    align-content: center;
+    justify-items: center;
+    justify-self: center;
+}
+.content-not-found h2{
+    align-content: center;
+    text-align: center;
+    /* font-size: 60px; */
+}
