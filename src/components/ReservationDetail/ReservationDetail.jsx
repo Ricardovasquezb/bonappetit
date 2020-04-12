@@ -38,7 +38,7 @@ const ReservationDetail = ({ reservationData, isOpen, onSubmit, onClose, onDelet
     return (
       <Form noValidate onSubmit={handleSubmit}>
         <Modal show>
-          <Modal.Header closeButton>
+          <Modal.Header>
             <Card.Img variant="top" src={values.restaurantImageUrl} />
           </Modal.Header>
 

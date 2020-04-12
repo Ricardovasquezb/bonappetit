@@ -9,6 +9,8 @@ import InputGroup from 'react-bootstrap/InputGroup'
 import Col from 'react-bootstrap/Col'
 import '../assets/css/register.css'
 import Lodash from 'lodash';
+import validator from 'validator'
+import Formik from 'formik'
 
 //Components
 import Button from '../components/normalButton'
@@ -16,76 +18,9 @@ import TextInput from "../components/TextInput"
 import HCard from '../components/HCard'
 import Card from '../components/Card'
 import ImageUploader from '../components/imageUploader';
-
-function shuffle(array) {
-    array.sort(() => Math.random() - 0.5);
-}
-
-const layoutUrl = ["https://firebasestorage.googleapis.com/v0/b/project-bonappetit.appspot.com/o/layout.png?alt=media&token=61727348-35da-465c-a73d-d03219156d19",
-    "https://firebasestorage.googleapis.com/v0/b/project-bonappetit.appspot.com/o/layout2.png?alt=media&token=55e5df15-da25-441b-8a8d-c40f08a83105",]
+import TablesInput from '../components/TablesInput'
 
 
-const imgUrl = ["https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.casadecampo.com.do%2Fdining%2Frestaurants%2F&psig=AOvVaw2EZeDSHVgZk7pDGvx90xrb&ust=1586407099026000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCNCx5ZGB2OgCFQAAAAAdAAAAABAD",
-    "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.hardrockhotelpuntacana.com%2Frestaurants-and-delis.htm&psig=AOvVaw2EZeDSHVgZk7pDGvx90xrb&ust=1586407099026000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCNCx5ZGB2OgCFQAAAAAdAAAAABAN",
-    "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.timeout.com%2Fbarcelona%2Frestaurants%2Fa-restaurant&psig=AOvVaw2EZeDSHVgZk7pDGvx90xrb&ust=1586407099026000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCNCx5ZGB2OgCFQAAAAAdAAAAABAT",
-    "https://www.casadecampo.com.do/wp-content/uploads/2019/01/sbg-marina-exterior-e1561479606442.jpg",
-    "https://content.jdmagicbox.com/comp/visakhapatnam/x2/0891px891.x891.190325212248.u7x2/catalogue/the-oyster-continental-pedawaltair-visakhapatnam-restaurants-0afuqkvaam.jpg",
-    "https://www.thesonicsboom.com/wp-content/uploads/2019/11/new-restaurant-June-2.jpg",
-]
-
-
-const tables = [
-    {
-        name: 'tabla1',
-        capacity: 4,
-        floor: 1,
-        number: 1
-    },
-    {
-        name: 'tabla2',
-
-        capacity: 6,
-        floor: 1,
-        number: 2
-    },
-    {
-        name: 'tabla3',
-
-        capacity: 2,
-        floor: 1,
-        number: 3
-    },
-    {
-        name: 'tabla4',
-        capacity: 8,
-        floor: 1,
-        number: 4
-    },
-    {
-        name: 'tabla5',
-
-        capacity: 4,
-        floor: 1,
-        number: 5
-    },
-    {
-        name: 'tabla6',
-
-        capacity: 3,
-        floor: 1,
-        number: 6
-    },
-    {
-        name: 'tabla7',
-        capacity: 4,
-        floor: 1,
-        number: 7
-    },
-]
-
-shuffle(tables)
-shuffle(imgUrl)
-shuffle(layoutUrl)
 
 
 const mapToKey = (lists) => {
@@ -95,97 +30,13 @@ const mapToKey = (lists) => {
     }, {})
 };
 
-// En otro file
-const RestaurantTableInput = ({onChange, value=[]}) => {
-  const [capacity, setCapacity] = useState(2);
-  const [tableName, setTableName] =useState('');
-  const [tables, setTables] = useState(value);
-
-  const handleOnTableNameChange = (val) => {
-    return setTableName(val.currentTarget.value);
-  };
-
-  const handleOnTableChange = (val)=>{
-    return setCapacity(val.currentTarget.value);
-  };
-
-  const handleOnAddClick = () => {
-    const objTableCreated = Lodash.find(tables, objTables => objTables.name === tableName);
-    console.log({ objTableCreated, tableName, capacity })
-    if (Lodash.isEmpty(objTableCreated)){
-      const objTable = {
-        capacity,
-        name: tableName,
-        floor: 1,
-      };
-
-      return setTables([...tables, objTable]);
-    }
-    return alert('Mesa ya creada')
-   
-  };
-
-  const handleOnDeleteTable = (objItem) => {
-    const newTables = Lodash.filter(tables, objTable => objTable.name !== objItem.name);
-    return setTables(newTables);
-  }
-
-
-  useEffect(()=>{
-    onChange(tables)
-  },[tables])
-
-  return (
-    <>
-    <Form.Row>
-      <Form.Group as={Col} controlId="formGridTableCapacity">
-        <Form.Label>Nombre de la mesa</Form.Label>
-          <Form.Control onChange={handleOnTableNameChange} />
-      </Form.Group>
-      <Form.Group as={Col} controlId="formGridTableName">
-          <Form.Label>Capacidad de la mesa</Form.Label>
-          <select class="form-control" id="exampleFormControlSelect1" onChange={handleOnTableChange}>
-            <option value={2}>2</option>
-            <option value={3}>3</option>
-            <option value={4}>4</option>
-            <option value={5}>5</option>
-            <option value={6}>6</option>
-          </select>
-      </Form.Group>
-        <Button variant="success" click={handleOnAddClick}>Añadir</Button>
-    </Form.Row>
-      <Table striped bordered hover variant="dark">
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Table Name</th>
-            <th>Capacity</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          {tables.map((objTable, index) => {
-            return (
-              <tr>
-                <td>{index + 1}</td>
-                <td>{objTable.name}</td>
-                <td>{objTable.capacity}</td>
-                <td> <Button variant="danger" click={() => handleOnDeleteTable(objTable)}>Danger</Button></td>
-              </tr>
-            )
-          })}
-         
-        </tbody>
-      </Table>
-    </>
-  )
-}
 
 
 const RegisterRestaurant = props => {
     const [name, setName] = useState("");
     const [lastname, setLastname] = useState("");
     const [email, setEmail] = useState("");
+    const [emailValid, setEmailValid] = useState("");
     const [phone, setPhone] = useState("");
     const [password, setPassword] = useState("");
     const [repeatpass, setRepeatpass] = useState("");
@@ -193,9 +44,10 @@ const RegisterRestaurant = props => {
     const [direction, setDirection] = useState("");
     const [layoutImageFile, setLayoutImageFile] = useState("")
     const [profileImageFile, setProfileImageFile] = useState("")
-    const [layoutImageUrl, setLayoutImageUrl] = useState("")
-    const [profileImageUrl, setProfileImageUrl] = useState("");
+    const [layoutLabel, setLayoutLabel] = useState("Agrega el layout de su Restaurante")
+    const [profileLabel, setProfileLabel] = useState("Agrega la foto de perfil de su Restaurante")
     const [tables, setTables] = useState(1);
+    const [validForm,setValidForm] = useState(false)
 
     const history = useHistory();
     const handleName = e => {
@@ -205,6 +57,7 @@ const RegisterRestaurant = props => {
         setLastname(e.target.value);
     }
     const handleEmail = e => {
+        setEmailValid(validator.isEmail(e.target.value))
         setEmail(e.target.value);
     }
     const handlePhone = e => {
@@ -225,13 +78,17 @@ const RegisterRestaurant = props => {
     const handleLayoutImageFile = e => {
         const image = e.target.files[0]
         setLayoutImageFile(image);
+        setLayoutLabel(image.name)
     }
     const handleProfileImageFile = e => {
         const image = e.target.files[0]
         setProfileImageFile(image);
-    }
+        setProfileLabel(image.name)
 
-    console.log(layoutImageFile, profileImageFile)
+    }
+    const handleValidForm = e =>{
+
+    }
 
 
     const handleFireBaseUpload = async (imageAsFile) => {
@@ -241,80 +98,29 @@ const RegisterRestaurant = props => {
         }
         const uploadTask = await firebase.storage().ref(`/images/${imageAsFile.name}`).put(imageAsFile)
         if (uploadTask.state === 'success') {
+
             return firebase.storage().ref('images').child(imageAsFile.name).getDownloadURL();
         }
-
-
     }
-
 
     const getImagesUrls = () => {
         return Promise.all([handleFireBaseUpload(layoutImageFile), handleFireBaseUpload(profileImageFile)]);
     }
 
     const handleSubmit = async () => {
-        const restaurantImages = await getImagesUrls()
-        firebase.auth().createUserWithEmailAndPassword(email, password)
-            .then((result) => {
-                const uid = result.user.uid
-                firebase.database().ref(`restaurants/`).push({
-                    direction,
-                    phone,
-                    name: restaurantName,
-                    host: uid,
-                    rating: {
-                        counter: 0,
-                        totalrating: 0
-                    },
-                    stars: 0,
-                    profileurl: restaurantImages[1],
-                    tables: mapToKey(tables),
-                    layouturl: restaurantImages[0],
-                    pending: true,
-                    approve: false,
-                })
-                    .then(value => {
-                        console.log('SE CREO')
-                        firebase.database().ref(`users/${uid}`).set({
-                            name,
-                            lastname,
-                            role: "host"
-                        })
-                        console.log(value)
-                    })
-                    .catch(err => {
-                        console.log(err)
-                    });
-                result.user.sendEmailVerification()
-                    .then(() => {
-                        sweetalert("Registro Exitoso!", "Se ha registrado exitosamente!", "success")
-                            .then(() => {
-                                history.push("/login")
-                            })
-                    })
-                    .catch((e) => {
-                        console.log(e)
-                    })
 
-            })
-            .catch((e) => {
-                console.log('FALLO LA CREACION')
-
-                console.error(e)
-                if (e.code === "auth/email-already-in-use") {
-                    sweetalert("Oops!", e.message, "error");
-                }
-                if (e.code === "auth/invalid-email") {
-                    sweetalert("Hey!", e.message, "error");
-                }
-                if (e.code === "auth/weak-password") {
-                    sweetalert("C'mon!", e.message, "warning");
-                }
-            });
+        const validForm = await handleValidForm()
+        if(validForm){
+            setValidForm(true)
+           
+        }else{
+            
+        }
+        
     }
 
-    const handleOnTableChange = (tables) =>{
-      return setTables(tables)
+    const handleOnTableChange = (tables) => {
+        return setTables(tables)
     }
 
 
@@ -380,31 +186,33 @@ const RegisterRestaurant = props => {
                         <Form.Control onChange={handleDirection} />
                     </Form.Group>
                 </Form.Row>
+                <TablesInput onChange={handleOnTableChange} />
+                <Form.Row>
+                    <Form.Group as={Col}>
+                        <Form.Label>Layout del Restaurante</Form.Label>
+                    </Form.Group>
+                    <Form.Group as={Col}>
+                        <Form.Label>Perfil del Restaurante</Form.Label>
+                    </Form.Group>
 
-              
-
-          <RestaurantTableInput onChange={handleOnTableChange}/>
-
+                </Form.Row>
                 <Form.Row>
                     <Form.Group as={Col} id="formGridFile">
-                        <Form.Label>Layout del Restaurante</Form.Label>
                         <div className="LayoutUploader">
                             <input id="inputGroupFile01" type="file" multiple class="custom-file-input" onChange={handleLayoutImageFile} />
-                            <label class="custom-file-label" for="inputGroupFile01">Elija el archivo imagen</label>
+                            <label class="custom-file-label" for="inputGroupFile01">{layoutLabel}</label>
                         </div>
                     </Form.Group>
                     <Form.Group as={Col} id="formGridFile2">
-                        <Form.Label>Perfil del Restaurante</Form.Label>
                         <div className="ImageUploader">
                             <input id="inputGroupFile02" type="file" multiple class="custom-file-input" onChange={handleProfileImageFile} />
-                            <label class="custom-file-label" for="inputGroupFile02">Elija el archivo imagen</label>
+                            <label class="custom-file-label" for="inputGroupFile02">{profileLabel}</label>
                         </div>
                     </Form.Group>
 
                 </Form.Row>
 
-
-                <Button darkmode click={handleSubmit}>
+                <Button darkmode click={handleSubmit} variant="secundary" disabled={!validForm}>
                     Crear Cuenta</Button>
             </Form>
         </div>
