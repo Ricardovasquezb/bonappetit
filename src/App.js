@@ -98,13 +98,19 @@ const App = () => {
           <Route exact path="/forgot-password">
             <ForgotPassword />
           </Route>
-          <Route path="/new-reservation/:restaurantId">
-            <NewReservation
+          <PrivateRoute
+            exact
+            path="/new-reservation/:restaurantId"
+            component={() => {
+              return (
+                <NewReservation
               userSession={localStorage.getItem("user")}
               firebaseAppAuth={firebaseInstance.firebaseAppAuth}
               firebaseDatabase={firebaseInstance.firebaseDatabase}
             />
-          </Route>
+              );
+            }}
+          />
           <PrivateRoute
             exact
             path="/my-reservations"
@@ -119,37 +125,30 @@ const App = () => {
               );
             }}
           />
-          {/* <Route exact path="/my-reservations">
-            <MyReservations
-              isLoading={isLoading}
-              userSession={localStorage.getItem("user")}
-              firebaseAppAuth={firebaseInstance.firebaseAppAuth}
-              firebaseDatabase={firebaseInstance.firebaseDatabase}
-            />
-          </Route> */}
-          {/* <Route exact path="/my-reservations">
-            <MyReservations
-              isLoading={isLoading}
-              userSession={localStorage.getItem("user")}
-              firebaseAppAuth={firebaseInstance.firebaseAppAuth}
-              firebaseDatabase={firebaseInstance.firebaseDatabase}
-            />
-          </Route> */}
           <Route exact path="/all-reservations">
             <AllReservationsHostPage />
           </Route>
           <Route exact path="/about-us">
             <AboutUs />
           </Route>
-          <Route exact path="/reservation-detail">
-            <AboutUs />
-          </Route>
-          <Route exact path="/settings">
-            <SettingsPage />
-          </Route>
-          <Route exact path="/home">
-            <Home firebaseDatabase={firebaseInstance.firebaseDatabase} />
-          </Route>
+          <PrivateRoute
+            exact
+            path="/settings"
+            component={() => {
+              return (
+                <SettingsPage />
+                );
+            }}
+          />
+          <PrivateRoute
+            exact
+            path="/home"
+            component={() => {
+              return (
+                <Home firebaseDatabase={firebaseInstance.firebaseDatabase} />
+              );
+            }}
+          />
         </Switch>
       </HashRouter>
     </Provider>
