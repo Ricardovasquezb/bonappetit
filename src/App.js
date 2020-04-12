@@ -20,6 +20,7 @@ import MyReservations from './pages/MyReservationsPage';
 import AboutUs from './pages/AboutUsPage';
 import SettingsPage from './pages/SettingsPage';
 import AllReservationsHostPage from './pages/AllReservationsHostPage';
+import History from "./pages/History"
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
@@ -76,6 +77,9 @@ library.add(fab, faCheckSquare, faCoffee, faAngleUp,
                             firebaseAppAuth={firebaseInstance.firebaseAppAuth}
                             firebaseDatabase={firebaseInstance.firebaseDatabase}
                         />
+                    </Route>
+                    <Route exact path="/historial">
+                        <History />
                     </Route>
                     <Route exact path="/all-reservations">
                         <AllReservationsHostPage />
