@@ -1,6 +1,19 @@
 import * as firebase from 'firebase/app'
 import 'firebase/database'
+import Moment from 'moment';
 import { getReservationTableData } from './ReservationUtils';
+import { normalize, schema } from "normalizr";
+import Lodash from 'lodash';
+
+const normalizeRestaurantData = (restaurants) => {
+  const restaurantsSchema = new schema.Entity(
+    "restaurants",
+    {},
+    { idAttribute: "uid" }
+  );
+  const listRestaurants = new schema.Array(restaurantsSchema);
+  return normalize(restaurants, listRestaurants);
+};
 
 export const arrayFirebaseParser = (firebaseArray) => {
     const keys = Object.keys(firebaseArray)
@@ -50,34 +63,48 @@ export const uniqueItemsFromKey = (items, key) => {
     return uniqueValues
 }
 
+export const getAllRestaurant = () => {
+  return firebase.database()
+    .ref("/restaurants")
+    .once("value")
+    .then((snapShot) => {
+      const val = snapShot.val();
+      const dataParsed = arrayFirebaseParser(val);
+      const normalizedRestaurants = normalizeRestaurantData(dataParsed);
+      const listRestaurantsIds = Lodash.get(normalizedRestaurants, ['result'], []);
+      const restaurantLookup = Lodash.get(normalizedRestaurants, ['entities', 'restaurants'], {});
+
+      return {listRestaurantsIds, restaurantLookup}
+    })
+    .catch((e) => {
+      console.error(e);
+    });
+};
+
 export const searchExpireReservations = async (userId) => {
     try {
         const dataSnapShot = await firebase.database().ref("/reservations/").orderByChild("user_uid").equalTo(userId).once("value")
         const dataVal = dataSnapShot.val()
-        console.log(dataVal)
-        let dataValParsed = arrayFirebaseParser(dataVal).filter(item => item.active === false)
-        const allResturantId = uniqueItemsFromKey(dataValParsed, "restaurant_id")
-        const allRestaurants = []
-        
+        const allRestaurants = await getAllRestaurant();
+        const { restaurantLookup } = allRestaurants;
+        const oldReservations = Lodash.filter(arrayFirebaseParser(dataVal), (objReservation) => {
+        const reservationDate =Lodash.get(objReservation, ['date'], null);
+        const isPastReservation = !Moment(reservationDate, "D/M/YYYY").isSameOrAfter(
+          Moment(),
+          "D"
+        );
 
-        for (let restaurantId of allResturantId) {
-            const restaurantSnapShot = await firebase.database().ref("/restaurants/" + restaurantId).once("value")
-            const restaurantVal = restaurantSnapShot.val()
-            allRestaurants.push({...restaurantVal, restaurantId})
-        }
+         return !objReservation.active && isPastReservation;
+        });
 
-        dataValParsed = dataValParsed.map(reservation => {
-            const restaurant = allRestaurants.find(item => item.restaurantId === reservation.restaurant_id)
-            return {
-                ...reservation,
-                restaurantImg: restaurant.profileurl,
-                restaurantName: restaurant.name
-            }
-        })
-        
-        return dataValParsed            
+        return oldReservations.map(reservation => ({
+          ...reservation,
+          restaurantImg: restaurantLookup[reservation.restaurant_id].profileurl,
+          restaurantName: restaurantLookup[reservation.restaurant_id].name
+        }))
+                
     } catch(e) {
-        console.error(e)
+        console.log(e)
         return []
     }
 }

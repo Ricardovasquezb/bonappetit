@@ -10,7 +10,7 @@ import MyReservations from "../containers/MyReservations";
 import LayoutType2 from "../components/LayoutType2";
 import Navigationbar from "../containers/NavigationBar";
 import Footer from "../containers/Footer";
-import { arrayFirebaseParser } from "../utils/index";
+import { arrayFirebaseParser, getAllRestaurant } from "../utils/index";
 import Moment from "moment";
 
 import ReservationDetailModal from "./ReservationDetailModal";
@@ -31,7 +31,7 @@ const MyReservationsPage = ({
   userSession,
 }) => {
   const [reservationsList, setReservationsList] = useState([]);
-  const [restaurantsNormalize, setRestaurantsNormalize] = useState({});
+  const [restaurants, setRestaurantsNormalize] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedReservation, setSelectedReservation] = useState({});
@@ -41,18 +41,14 @@ const MyReservationsPage = ({
   const toggleModal = () => setIsModalOpen(!isModalOpen);
 
   const getUserReservations = async () => {
+        setIsLoading(true);
     const myReservationsSnapShot = await firebaseDatabase
       .ref("/reservations/")
       .orderByChild("user_uid")
       .equalTo(userUid)
       .once("value");
     const objReservations = myReservationsSnapShot.val();
-    const restaurantLookup = Lodash.get(
-      restaurantsNormalize,
-      ["entities", "restaurants"],
-      null
-    );
-    if (restaurantLookup && !Lodash.isNil(objReservations)) {
+    if (restaurants.restaurantLookup && !Lodash.isNil(objReservations)) {
       const myReservations = Object.keys(objReservations).filter((strKey) => {
         return Moment(objReservations[strKey].date, "D/M/YYYY").isSameOrAfter(
           Moment(),
@@ -65,10 +61,12 @@ const MyReservationsPage = ({
           ...objReservations[strReservationKey],
           uid: strReservationKey,
           restaurant:
-            restaurantLookup[objReservations[strReservationKey].restaurant_id],
+            restaurants.restaurantLookup[
+              objReservations[strReservationKey].restaurant_id
+            ],
         })
       );
-      console.log({ RESERV: myReservations, LIST: myReservationsFiltered });
+      setIsLoading(false);
 
       return setReservationsList(myReservationsFiltered);
     }
@@ -77,21 +75,11 @@ const MyReservationsPage = ({
   };
 
   const getAllRestaurantData = () => {
-    setIsLoading(true);
-    return firebaseDatabase
-      .ref("/restaurants")
-      .once("value")
-      .then((snapShot) => {
-        const val = snapShot.val();
-        const dataParsed = arrayFirebaseParser(val);
-        setIsLoading(false);
-
-        return setRestaurantsNormalize(normalizeRestaurantData(dataParsed));
+      return getAllRestaurant().then(value => {
+        return setRestaurantsNormalize(value)
+      }).catch(()=>{
+        setIsLoading(false)
       })
-      .catch((e) => {
-        console.error(e);
-        setIsLoading(false);
-      });
   };
 
   useEffect(() => {
@@ -100,7 +88,7 @@ const MyReservationsPage = ({
 
   useEffect(() => {
     getUserReservations();
-  }, [restaurantsNormalize]);
+  }, [restaurants]);
 
   const { push: toLocation } = useHistory();
   const toDetailsReservation = (reservationId) => () => {

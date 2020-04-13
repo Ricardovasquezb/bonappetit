@@ -1,25 +1,34 @@
-import React from 'react'
-import '../assets/css/my-reservations.css'
-import Lodash from 'lodash';
+import React from "react";
+import "../assets/css/my-reservations.css";
+import Lodash from "lodash";
 
-import ReservationCard from '../components/ReservationCard'
+import ReservationCard from "../components/ReservationCard";
 
+const MyReservations = ({ isLoading, reservationsList, onClick }) => {
+  const renderContent = () => {
+    if (isLoading) {
+      return <ReservationCard isLoading={isLoading} />;
+    }
 
-const MyReservations = ({ isLoading, reservationsList, onClick}) =>{
-    return(
+    if (Lodash.isEmpty(reservationsList)) {
+      return <h5>Aun no haz hecho ninguna reserva</h5>;
+    }
 
-        <div className='my-reservations'>
-            <h2>MIS RESERVACIONES</h2>
-            <div className='cards'>
-          {Lodash.isEmpty(reservationsList) ? <h5>Aun no haz hecho ninguna reserva</h5> : <ReservationCard
-            dataList={reservationsList}
-            isLoading={isLoading}
-            onClick={onClick}
-          />         } 
-            </div>
-        </div>
+    return (
+      <ReservationCard
+        dataList={reservationsList}
+        isLoading={isLoading}
+        onClick={onClick}
+      />
     );
-}
+  };
 
+  return (
+    <div className="my-reservations">
+      <h2>MIS RESERVACIONES</h2>
+      <div className="cards">{renderContent()}</div>
+    </div>
+  );
+};
 
 export default MyReservations;
