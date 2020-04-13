@@ -1,31 +1,52 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import * as firebase from 'firebase/app'
 import 'firebase/storage'
-import Form from 'react-bootstrap/Form'
-import Col from 'react-bootstrap/Col'
 import '../assets/css/register.css'
+import Lodash from 'lodash';
+import Alert from 'react-bootstrap/Alert'
+import {
+  StyledInlineErrorMessage,
+} from "../containers/styles";
 
 
-const ImageUploader = props => {
 
-    const allInputs = { imgUrl: '' }
-    const [imageAsFile, setImageAsFile] = useState("");
-    const [imageAsUrl, setImageAsUrl] = useState(allInputs);
+const ImageUploader = ({ onChange, value, hasError, helperText }) => {
+
+    const [imageAsFile, setImageAsFile] = useState(value);
 
     const handleImageAsFile = (e) => {
         const image = e.target.files[0]
-        console.log(image)
-        setImageAsFile(imageFile => (image))
+        setImageAsFile(image)
     }
-
+    useEffect(() => {
+        onChange(imageAsFile)
+      }, [imageAsFile])
 
     return (
-        <Form.Group as={Col} id="formGridFile">
-            <div className="ImageUploader">
-                <input id="inputGroupFile02" type="file" multiple class="custom-file-input" onChange={handleImageAsFile}/>
-                <label class="custom-file-label" for="inputGroupFile01">Elija el archivo imagen</label>
-            </div>
-        </Form.Group>
+        <>
+        <div>
+          <input
+            type="file"
+            multiple
+            class="custom-file-input"
+            onChange = {handleImageAsFile}
+          />
+          <label class="custom-file-label" for="inputGroupFile01">
+            {Lodash.get(
+              imageAsFile,
+              ["name"],
+              "Inserte una imagen"
+            )}
+          </label>
+        </div>
+        {
+  hasError && (
+    <StyledInlineErrorMessage>{helperText}</StyledInlineErrorMessage>
+  )}
+         {hasError ? <Alert variant={'danger'}>
+         {helperText}
+       </Alert>:null}
+       </>
     )
 }
 export default ImageUploader

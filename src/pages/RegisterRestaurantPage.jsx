@@ -1,7 +1,7 @@
 import React from 'react'
 import "../assets/css/register.css"
 import LayoutType2 from '../components/LayoutType2'
-import Register from '../containers/RegisterRestaurant'
+import Register from '../containers/RegisterRestaurantV2'
 import NLNavBar from "../containers/NonLoggedNavBar"
 import Footer from '../containers/Footer'
 

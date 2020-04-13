@@ -19,6 +19,7 @@ const ReservationDetail = ({ reservationData, isOpen, onSubmit, onClose, onDelet
     const reservationDate = Lodash.get(reservationData, ['date'], null);
     const reservationTable = Lodash.get(reservationData, ['table'], null);
     const restaurantImageUrl = Lodash.get(reservationData, ['restaurant', 'layouturl'], '');
+    console.log(restaurantTables)
 
     return {
       restaurantName,
@@ -31,37 +32,40 @@ const ReservationDetail = ({ reservationData, isOpen, onSubmit, onClose, onDelet
     };
   };
   
-  
 
   const renderForm = (objFormikProps) => {
     const { handleSubmit, setFieldValue, values} = objFormikProps;
     return (
       <Form noValidate onSubmit={handleSubmit}>
         <Modal show>
-          <Modal.Header closeButton>
-            <Card.Img variant="top" src={values.restaurantImageUrl} />
+          <Modal.Header>
+            <Card.Img variant="modal" src={values.restaurantImageUrl} height="100%"/>
           </Modal.Header>
 
           <Modal.Body>
             <Modal.Title>{values.restaurantName}</Modal.Title>
-            <Modal.Body></Modal.Body>
-
-            
+            <Modal.Body>
+            <Form.Label>Mesa:</Form.Label>
             <Field name="reservationTable" component="select" value={values.reservationTable} >
               {Object.keys(values.restaurantTables).map(tableKey => {
-                return <option value={tableKey}>Mesa {values.restaurantTables[tableKey].number}</option> //|| capacity: {values.restaurantTables[tableKey].capacity}  </option>
+                return <option value={tableKey}> #{values.restaurantTables[tableKey].name} para {values.restaurantTables[tableKey].capacity} personas</option>
               })}
             </Field>
-            <Modal.Body></Modal.Body>
+            </Modal.Body>
+
+            
+           
+            <Modal.Body>
             <Form.Label>Horario:</Form.Label>
             <Field name="reservationSchedule" component="select" value={values.reservationSchedule}>
               <option value="Mañana">Mañana</option>
               <option value="Tarde">Tarde</option>
               <option value="Noche">Noche</option>
             </Field>
-            <Modal.Body></Modal.Body>
-
-            <Field
+            </Modal.Body>
+            
+            <Modal.Body>
+              <Field
               name={'reservationDate'}
               render={({field: {name}}) => {
                 return (
@@ -74,7 +78,9 @@ const ReservationDetail = ({ reservationData, isOpen, onSubmit, onClose, onDelet
                   />
                 )
               }}
-            />
+            /></Modal.Body>
+
+            
             
 
            

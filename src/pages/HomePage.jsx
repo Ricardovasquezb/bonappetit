@@ -77,7 +77,7 @@ const HomePage = props => {
       if (localStorage.getItem("role") === 'client') {
         return (
           <div>
-            <Navigationbar title={userData.name} />
+            <Navigationbar user={userData} />
             <Home user={userData} />
             <Footer />
           </div>
