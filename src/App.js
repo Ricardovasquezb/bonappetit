@@ -16,6 +16,8 @@ import AboutUs from "./pages/AboutUsPage";
 import SettingsPage from "./pages/SettingsPage";
 import AllReservationsHostPage from "./pages/AllReservationsHostPage";
 import History from "./pages/History"
+import Navigationbar from "../src/containers/NavigationBar"
+import Footer from "../src/containers/Footer"
 
 
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -131,7 +133,11 @@ library.add(
             path="/history"
             component={() => {
               return (
+                <>
+                <Navigationbar/>
                 <History />
+                <Footer/>
+                </>
               );
             }}
           />

@@ -43,6 +43,7 @@ const Navigationbar = props => {
                  <Nav.Link href="#home">Inicio</Nav.Link>
                  <NavDropdown title="Reservaciones" id="basic-nav-dropdown">
                      <NavDropdown.Item href="#my-reservations">Mis Reservaciones</NavDropdown.Item>
+                     <NavDropdown.Item href="#history">Historial de Reservaciones</NavDropdown.Item>
                  </NavDropdown>          
                  </Nav>
                      <Nav>

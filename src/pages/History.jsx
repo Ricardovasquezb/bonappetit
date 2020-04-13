@@ -63,6 +63,9 @@ const History = props => {
         })
     }
     return (
+        <div className='my-reservations'>
+            <h2>Historial de Reservaciones</h2>
+            <div className='cards'></div>
         <Container >
             {
                 expireReservations.map((value, key) => <ReservationCard {...value} key={key} />)
@@ -81,6 +84,8 @@ const History = props => {
                 </Footer>
             </Modal>
         </Container>
+        </div>
+        
     )
 }
 
