@@ -148,7 +148,7 @@ const NewReservationsPage = ({ firebaseDatabase, firebaseAppAuth, userSession })
     if (!restaurantId) return <Redirect to="/home" />
     return (
         <div className="new-reservation">
-            <Navigationbar/>
+            <Navigationbar user = {userInfo}/>
             <h3 align="center">{restaurantName}</h3>
             <LayoutType1 
                 boxOne={ <Image src={layoutUrl}/> }

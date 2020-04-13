@@ -26,7 +26,7 @@ const History = props => {
     }
 
     const refreshData = (middleware = data => data) => {
-        searchExpireReservations("MrppNXFa5wfWPh7c28xAO2P6PaK2")
+        searchExpireReservations(localStorage.getItem("user"))
             .then(data => {
                 setExpireReservations(middleware(data))
             })
