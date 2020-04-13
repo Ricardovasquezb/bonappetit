@@ -48,7 +48,7 @@ const Navigationbar = props => {
                  </Nav>
                      <Nav>
                      <Image src={Lodash.get(User,["photoURL"],defaultImg)} width="40" height="40" roundedCircle/>
-                     <Nav.Link href="#settings">Perfil</Nav.Link>
+                     {/* <Nav.Link href="#settings">Perfil</Nav.Link> */}
 
                     <Button variant="outline-danger" href="#login" onClick={onExit}>Salir</Button>
                      </Nav>

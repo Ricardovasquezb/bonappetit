@@ -54,7 +54,8 @@ export const searchExpireReservations = async (userId) => {
     try {
         const dataSnapShot = await firebase.database().ref("/reservations/").orderByChild("user_uid").equalTo(userId).once("value")
         const dataVal = dataSnapShot.val()
-        let dataValParsed = arrayFirebaseParser(dataVal).filter(item => item.active === true)
+        console.log(dataVal)
+        let dataValParsed = arrayFirebaseParser(dataVal).filter(item => item.active === false)
         const allResturantId = uniqueItemsFromKey(dataValParsed, "restaurant_id")
         const allRestaurants = []
         

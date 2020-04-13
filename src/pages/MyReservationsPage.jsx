@@ -11,6 +11,8 @@ import LayoutType2 from '../components/LayoutType2';
 import Navigationbar from "../containers/NavigationBar"
 import Footer from "../containers/Footer"
 import { arrayFirebaseParser } from "../utils/index"
+import Moment from 'moment';
+
 
 import ReservationDetailModal from './ReservationDetailModal';
 
@@ -34,16 +36,26 @@ const MyReservationsPage = ({ firebaseDatabase, firebaseAppAuth, userSession }) 
     const getUserReservations = async () => {
       const myReservationsSnapShot = await firebaseDatabase.ref("/reservations/").orderByChild("user_uid").equalTo(userUid).once("value");
       const objReservations = myReservationsSnapShot.val();
-      console.log(objReservations,userUid)
+      console.log(objReservations, Object.keys(objReservations))
+      // const filteredObjReservations = Lodash.filter(objReservations, objReservation => Moment(objReservation.date).before(Moment()))
       const restaurantLookup = Lodash.get(restaurantsNormalize, ['entities' ,'restaurants'], null);
       if (restaurantLookup && !Lodash.isNil(objReservations)){
-        const myReservations = Object.keys(objReservations).map(strKey => {
-          return {
-            ...objReservations[strKey],
-            uid: strKey,
-            restaurant: restaurantLookup[objReservations[strKey].restaurant_id]
+        const myReservations = Object.keys(objReservations).map(strKey => {  
+          console.log(objReservations[strKey].date, Moment())
+          console.log(Moment(objReservations[strKey].date,"D/M/YYYY").isSameOrAfter(Moment(),'D'))
+          if(Moment(objReservations[strKey].date,"D/M/YYYY").isSameOrAfter(Moment(),'D')){
+            return {
+              ...objReservations[strKey],
+              uid: strKey,
+              restaurant: restaurantLookup[objReservations[strKey].restaurant_id]
+            }
           }
+
+             
+          
         });
+        // const filteredReservations = Lodash.filter(myReservations, objReservation => Moment(objReservation.date).isBefore(Moment()))
+        console.log(myReservations)
         return setReservationsList(myReservations);
       }
 

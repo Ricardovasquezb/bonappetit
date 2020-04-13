@@ -29,6 +29,7 @@ const History = props => {
         searchExpireReservations(localStorage.getItem("user"))
             .then(data => {
                 setExpireReservations(middleware(data))
+                console.log(expireReservations)
             })
             .catch(err => {
                 console.log(err)
