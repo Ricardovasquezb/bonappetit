@@ -4,7 +4,9 @@ import 'firebase/storage'
 import '../assets/css/register.css'
 import Lodash from 'lodash';
 import Alert from 'react-bootstrap/Alert'
-
+import {
+  StyledInlineErrorMessage,
+} from "../containers/styles";
 
 
 
@@ -37,6 +39,10 @@ const ImageUploader = ({ onChange, value, hasError, helperText }) => {
             )}
           </label>
         </div>
+        {
+  hasError && (
+    <StyledInlineErrorMessage>{helperText}</StyledInlineErrorMessage>
+  )}
          {hasError ? <Alert variant={'danger'}>
          {helperText}
        </Alert>:null}
