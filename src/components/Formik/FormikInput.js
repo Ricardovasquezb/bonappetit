@@ -4,9 +4,11 @@ import { Field, FastField } from 'formik';
 
 // Components
 import TableInput from '../TablesInput';
+import ImageUploader  from '../imageUploader'
 
 const objInputs = {
-  tablesInput: TableInput
+  tablesInput: TableInput,
+  imageUploader: ImageUploader
 };
 
 const FormikInput = props => {
