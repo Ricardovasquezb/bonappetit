@@ -61,7 +61,6 @@ const TablesInput = ({ onChange, value = [], hasError, helperText }) => {
         <thead>
           <tr>
             <th>#</th>
-            {/* <th>Table Name</th> */}
             <th>Capacity</th>
             <th>Action</th>
           </tr>
@@ -71,7 +70,6 @@ const TablesInput = ({ onChange, value = [], hasError, helperText }) => {
             return (
               <tr>
                 <td>{index + 1}</td>
-                {/* <td>{objTable.name}</td> */}
                 <td>{objTable.capacity}</td>
                 <td> <Button variant="danger" click={() => handleOnDeleteTable(objTable)}>Borrar</Button></td>
               </tr>

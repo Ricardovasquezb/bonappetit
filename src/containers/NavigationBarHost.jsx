@@ -15,6 +15,9 @@ const NavigationbarHost = props => {
     let pages = [
         {label: 'Inicio', link: '/'}
     ];
+    const onExit = ()=>{
+        localStorage.clear()
+    }
     return(
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" sticky="top">
             <Navbar.Brand href="#home">
@@ -34,9 +37,12 @@ const NavigationbarHost = props => {
                     <Nav.Link href="#home">Inicio</Nav.Link>
                     <Nav.Link href="#all-reservations">Reservaciones</Nav.Link>
                     {/* <Nav.Link href="#statistics">Estadisticas</Nav.Link> */}
-                    <Nav.Link href="#settings">Configuración</Nav.Link>
                 </Nav>
-                <Button variant="outline-danger" href="#login">Salir</Button>
+                <Nav>
+
+                 <Nav.Link href="#settings">Perfil</Nav.Link>
+                <Button variant="outline-danger" href="#login" onClick={onExit}>Salir</Button>
+                </Nav>
              </Navbar.Collapse>
         </Navbar>
     );

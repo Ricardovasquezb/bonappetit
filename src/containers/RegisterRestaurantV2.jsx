@@ -181,11 +181,11 @@ const RegisterRestaurantV2 = (props) => {
                     placeholder="Nombre"
                   />
                   {
-  errors.name && touched.name && (
-    <StyledInlineErrorMessage>{errors.name}</StyledInlineErrorMessage>
-  )}
+                    errors.name && touched.name && (
+                      <StyledInlineErrorMessage>{errors.name}</StyledInlineErrorMessage>
+                    )}
 
-                   {/* {errors.name !== null && touched.name ? <StyledInlineErrorMessage>
+                  {/* {errors.name !== null && touched.name ? <StyledInlineErrorMessage>
                      {getFieldError(errors, "name")}
                   </StyledInlineErrorMessage> : null} */}
                 </Form.Group>
@@ -200,10 +200,10 @@ const RegisterRestaurantV2 = (props) => {
                     name="lastname"
                     placeholder="Apellido"
                   />
-                 {
-  errors.lastname && touched.lastname && (
-    <StyledInlineErrorMessage>{errors.lastname}</StyledInlineErrorMessage>
-  )}
+                  {
+                    errors.lastname && touched.lastname && (
+                      <StyledInlineErrorMessage>{errors.lastname}</StyledInlineErrorMessage>
+                    )}
                 </Form.Group>
               </Form.Row>
 
@@ -219,9 +219,9 @@ const RegisterRestaurantV2 = (props) => {
                     placeholder="Correo Electronico"
                   />
                   {
-  errors.email && touched.email && (
-    <StyledInlineErrorMessage>{errors.email}</StyledInlineErrorMessage>
-  )}
+                    errors.email && touched.email && (
+                      <StyledInlineErrorMessage>{errors.email}</StyledInlineErrorMessage>
+                    )}
                 </Form.Group>
 
                 <Form.Group as={Col} controlId="formGridTel">
@@ -234,10 +234,10 @@ const RegisterRestaurantV2 = (props) => {
                     name="phone"
                     placeholder="Telefono"
                   />
-                   {
-  errors.phone && touched.phone && (
-    <StyledInlineErrorMessage>{errors.phone}</StyledInlineErrorMessage>
-  )}
+                  {
+                    errors.phone && touched.phone && (
+                      <StyledInlineErrorMessage>{errors.phone}</StyledInlineErrorMessage>
+                    )}
                 </Form.Group>
               </Form.Row>
 
@@ -253,9 +253,9 @@ const RegisterRestaurantV2 = (props) => {
                     placeholder="Contraseña"
                   />
                   {
-  errors.password && touched.password && (
-    <StyledInlineErrorMessage>{errors.password}</StyledInlineErrorMessage>
-  )}
+                    errors.password && touched.password && (
+                      <StyledInlineErrorMessage>{errors.password}</StyledInlineErrorMessage>
+                    )}
                 </Form.Group>
 
                 <Form.Group as={Col} controlId="formGridRepPassword">
@@ -269,9 +269,9 @@ const RegisterRestaurantV2 = (props) => {
                     placeholder="Rep.Contraseña"
                   />
                   {
-  errors.repeatPassword && touched.repeatPassword && (
-    <StyledInlineErrorMessage>{errors.repeatPassword}</StyledInlineErrorMessage>
-  )}
+                    errors.repeatPassword && touched.repeatPassword && (
+                      <StyledInlineErrorMessage>{errors.repeatPassword}</StyledInlineErrorMessage>
+                    )}
                 </Form.Group>
               </Form.Row>
 
@@ -289,9 +289,9 @@ const RegisterRestaurantV2 = (props) => {
                     placeholder="Nombre del Restaurante"
                   />
                   {
-  errors.restaurantName && touched.restaurantName && (
-    <StyledInlineErrorMessage>{errors.restaurantName}</StyledInlineErrorMessage>
-  )}
+                    errors.restaurantName && touched.restaurantName && (
+                      <StyledInlineErrorMessage>{errors.restaurantName}</StyledInlineErrorMessage>
+                    )}
                 </Form.Group>
               </Form.Row>
 
@@ -307,9 +307,9 @@ const RegisterRestaurantV2 = (props) => {
                     placeholder="Direccion"
                   />
                   {
-  errors.direction && touched.direction && (
-    <StyledInlineErrorMessage>{errors.direction}</StyledInlineErrorMessage>
-  )}
+                    errors.direction && touched.direction && (
+                      <StyledInlineErrorMessage>{errors.direction}</StyledInlineErrorMessage>
+                    )}
                 </Form.Group>
               </Form.Row>
               <FormikInput type={"tablesInput"} name={"tables"} />

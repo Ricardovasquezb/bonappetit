@@ -17,6 +17,7 @@ import { dateParser } from '../utils'
 const Consumer = firebaseContext.Consumer
 
 const MyReservations = props => {
+    console.log(props.listData)
     const [schedule, setSchedule] = useState("")
     const [table, setTable] = useState("");
     const [date, setDate] = useState(new Date());
@@ -54,8 +55,9 @@ const MyReservations = props => {
         { value: 'Noche', label: 'Noche' },
     ];
     const mesas = props.listData.map((item, key) => ({
+        
         value: item.uid,
-        label: `Mesa ${key + 1}`
+        label: `Mesa ${key + 1} para un maximo de ${item.capacity} personas`
     }));
     const disabled = (schedule && table) ? false : true
 
