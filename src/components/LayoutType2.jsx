@@ -6,6 +6,7 @@ const LayoutType2 = props => {
         <div className= 'layout-type-2'>
             <div className='box-2'>
                 {props.Box}
+                {props.children}
             </div>
         </div>
     )

@@ -5,6 +5,8 @@ import Layout from "../components/LayoutType1"
 import CalificationInput from "../components/CalificationInput"
 import * as firebase from 'firebase/app'
 import 'firebase/database'
+import LayoutType2 from "../components/LayoutType2";
+
 
 import { searchExpireReservations } from "../utils"
 
@@ -63,31 +65,38 @@ const History = props => {
             reservationId: ""
         })
     }
-    return (
-        <div className='my-reservations'>
-            <h2>Historial de Reservaciones</h2>
-            <div className='cards'></div>
-        <Container >
-            {
-                expireReservations.map((value, key) => <ReservationCard {...value} key={key} />)
-            }
-            <Modal show={modalData.isOpen}>
-                <Header>
-                    <Title>Coloca tu calificación</Title>
-                </Header>
-                <Body>
-                    <CalificationInput calificationEvent={(val) => setCalification(val)} maxScore={5} />
-                </Body>
-                <Footer>
-                    <Button onClick={handleSetCalification}>
-                        Listo
-                    </Button>
-                </Footer>
-            </Modal>
-        </Container>
+    const renderReservationsCards = () => {
+      return expireReservations.map((value, key) => (
+        <div style={{marginLeft: 10, marginRight: 10}}>
+          <ReservationCard {...value} key={key} />
         </div>
-        
-    )
+      ));
+    }
+    return (
+      <div className="my-reservations">
+        <h2>Historial de Reservaciones</h2>
+        <div className="cards"></div>
+        <Container>
+          <LayoutType2>
+            {renderReservationsCards()}
+          </LayoutType2>
+          <Modal show={modalData.isOpen}>
+            <Header>
+              <Title>Coloca tu calificación</Title>
+            </Header>
+            <Body>
+              <CalificationInput
+                calificationEvent={(val) => setCalification(val)}
+                maxScore={5}
+              />
+            </Body>
+            <Footer>
+              <Button onClick={handleSetCalification}>Listo</Button>
+            </Footer>
+          </Modal>
+        </Container>
+      </div>
+    );
 }
 
 export default History
