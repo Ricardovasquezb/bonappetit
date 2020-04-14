@@ -19,7 +19,6 @@ const getAllPendingReservations = async (restaurantId, firebaseDatabase) => {
 const HomeAdmin = ({ firebaseDatabase, user }) =>{
     const [reservations, setReservations] = useState([]);
 
-    console.log(user,Object.keys(user)[0])
 
     const TableTitle = [
         {
@@ -50,7 +49,6 @@ const HomeAdmin = ({ firebaseDatabase, user }) =>{
                 setReservations(results)
             })
             .catch(err => {
-                console.log(err)
             })
             
 

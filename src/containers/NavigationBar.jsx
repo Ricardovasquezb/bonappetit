@@ -19,7 +19,6 @@ const defaultImg = "https://weareunlimited.org.uk/wp-content/uploads/2017/11/def
 const Navigationbar = props => {
 
     var User = props.user
-    console.log(User)
     
     let pages = [
         {label: 'Inicio', link: '/'}

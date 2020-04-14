@@ -70,7 +70,6 @@ const Login = props => {
                                 const uid = result.user.uid
                                 localStorage.setItem("user",uid)
                                 var user = firebase.appAuth().currentUser;
-                                console.log(user)
                                 // if(user.emailVerified){
                                     if(user== null){
                                         sweetalert("Debes registrarte para hacer login con estas credenciales.","","error")
@@ -79,7 +78,6 @@ const Login = props => {
                                         firebase.read(user.uid)
                                         .then(function (snapshot) {
                                             localStorage.setItem("role", snapshot.val().role)
-                                            console.log(snapshot.val().role)
                                             history.push("/home")
                                         })
                                         .catch(function (error) {
@@ -97,7 +95,6 @@ const Login = props => {
 
                             })
                             .catch((e)=>{
-                                console.log(e);
                                 sweetalert(e.code,e.message,"error")
         
                             })

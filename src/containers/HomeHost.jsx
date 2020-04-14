@@ -37,7 +37,6 @@ const getThisMonthReservations = (reservations) => {
 const HomeHost = ({ firebaseDatabase, user }) =>{
     const [reservations, setReservations] = useState([]);
 
-    console.log({USER: Object.keys(user)[0]})
 
     const TableTitle = [
         {
@@ -94,7 +93,6 @@ const HomeHost = ({ firebaseDatabase, user }) =>{
                 setReservations(results)
             })
             .catch(err => {
-                console.log(err)
             })
             
 

@@ -17,7 +17,6 @@ import { dateParser } from '../utils'
 const Consumer = firebaseContext.Consumer
 
 const MyReservations = props => {
-    console.log(props.listData)
     const [schedule, setSchedule] = useState("")
     const [table, setTable] = useState("");
     const [date, setDate] = useState(new Date());

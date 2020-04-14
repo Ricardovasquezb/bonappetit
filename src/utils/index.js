@@ -17,7 +17,6 @@ const normalizeRestaurantData = (restaurants) => {
 
 export const arrayFirebaseParser = (firebaseArray) => {
     const keys = Object.keys(firebaseArray)
-  // console.log({ keys, firebaseArray})
     let result = []
 
     for (let key of keys) {
@@ -104,7 +103,6 @@ export const searchExpireReservations = async (userId) => {
         }))
                 
     } catch(e) {
-        console.log(e)
         return []
     }
 }

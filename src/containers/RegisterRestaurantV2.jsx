@@ -91,8 +91,6 @@ const RegisterRestaurantV2 = (props) => {
       }}
       validationSchema={RegisterSchema}
       onSubmit={async (fields) => {
-        { console.log({ Values: fields }) }
-
         const restaurantImages = await getImagesUrls(fields.restaurantName, fields.layoutFile, fields.profileFile)
 
         firebase.auth().createUserWithEmailAndPassword(fields.email, fields.password)
@@ -116,16 +114,13 @@ const RegisterRestaurantV2 = (props) => {
               approved: false,
             })
               .then(value => {
-                console.log('SE CREO')
                 firebase.database().ref(`users/${uid}`).set({
                   name: fields.name,
                   lastname: fields.lastname,
                   role: "host"
                 })
-                console.log(value)
               })
               .catch(err => {
-                console.log(err)
               });
             result.user.sendEmailVerification()
               .then(() => {
@@ -135,7 +130,6 @@ const RegisterRestaurantV2 = (props) => {
                   })
               })
               .catch((e) => {
-                console.log(e)
               })
 
           })

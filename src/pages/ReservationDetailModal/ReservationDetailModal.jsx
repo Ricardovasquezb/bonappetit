@@ -18,7 +18,6 @@ const ReservationDetailModal = ({ isOpen, reservationData, onClose}) => {
       reservationId: `${moment(objReservationData.reservationDate,'D-M-YYYY').format('D/M/YYYY')}.${objReservationData.reservationTable}.${objReservationData.reservationSchedule}.${reservationData.restaurant_id}`
 
     }
-    console.log(objReservationData,reservationData.restaurant_id)
 
     
     

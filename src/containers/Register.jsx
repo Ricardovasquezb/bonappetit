@@ -80,12 +80,8 @@ const Register = (props) => {
             }}
             validationSchema={RegisterSchema}
             onSubmit={(fields) => {
-                console.log(fields)
-
-
                 firebase.auth().createUserWithEmailAndPassword(fields.email, fields.password)
                     .then(async (result) => {
-                        console.log(result, result.user.uid)
                         const user = firebase.auth().currentUser;
                         const imgUrl = (fields.profileFile !== null ? await getImagesUrls(result.user.uid, fields.profileFile) : [defaultImg])
                         firebase.database().ref(`users/${result.user.uid}`).set({
@@ -103,7 +99,6 @@ const Register = (props) => {
                                 })
                             })
                             .catch(err => {
-                                console.log(err)
                             });
 
                         user.sendEmailVerification()

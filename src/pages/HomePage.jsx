@@ -19,7 +19,6 @@ const HomePage = props => {
 
     if(localStorage.getItem("role")===null && localStorage.getItem("user")){
         history.replace("/login")
-        console.log('no hay nadie')
        
 
     }
@@ -68,7 +67,6 @@ const HomePage = props => {
         })
        
         .catch((e)=>{
-            console.log(e)
         })
         
     },[])
@@ -101,8 +99,6 @@ const HomePage = props => {
       }
     }
       
-  console.log({ dataReady})
-
   return (
     <div>
       {!dataReady ? (

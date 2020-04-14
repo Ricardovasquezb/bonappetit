@@ -110,7 +110,6 @@ const NewReservationsPage = ({ firebaseDatabase, firebaseAppAuth, userSession })
         }
     }
     const doneHandler = (data) => {
-        console.log(data)
         createReservation(data)
             .then(() => {
                 sweetalert("Tu reservacion ha sido exitosamente registrada", {
@@ -124,10 +123,7 @@ const NewReservationsPage = ({ firebaseDatabase, firebaseAppAuth, userSession })
                     sweetalert("Esta mesa ya esta ocupada", {
                         icon: "error",
                       })
-                } else {
-                    console.log(e)
-                    console.log(localStorage.getItem('user'))
-                }
+                } 
             })
     }
 
@@ -140,7 +136,6 @@ const NewReservationsPage = ({ firebaseDatabase, firebaseAppAuth, userSession })
 
         getuserData()
         .then((snapshot)=>{
-            console.log(snapshot)
             setUserInfo(snapshot)
         })
     }, [])

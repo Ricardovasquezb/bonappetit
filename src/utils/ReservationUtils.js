@@ -1,7 +1,6 @@
 import Lodash from 'lodash';
 
 const getReservationTableData = (listReservations) => {
-  console.log(listReservations)
   return listReservations.map(objReservation => ({
     img: "https://image.freepik.com/foto-gratis/personas-que-sonrie-alegre-hombres-guapos_1187-6057.jpg",
     Name: Lodash.get(objReservation, ['user', 'name'], ''),

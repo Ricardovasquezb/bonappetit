@@ -43,7 +43,6 @@ const ForgotPassword = props => {
             }}
             validationSchema={RegisterSchema}
             onSubmit={(fields) => {
-                console.log(fields)
                 sweetalert({
                     title: "¿Enviar correo de reseteo de contraseña?",
                     text: "Se te enviara un correo con un link que te permitira resetear tu contraseña",

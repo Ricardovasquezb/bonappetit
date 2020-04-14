@@ -19,7 +19,6 @@ const ReservationDetail = ({ reservationData, isOpen, onSubmit, onClose, onDelet
     const reservationDate = Lodash.get(reservationData, ['date'], null);
     const reservationTable = Lodash.get(reservationData, ['table'], null);
     const restaurantImageUrl = Lodash.get(reservationData, ['restaurant', 'layouturl'], '');
-    console.log(restaurantTables)
 
     return {
       restaurantName,
