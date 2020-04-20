@@ -12,6 +12,7 @@ import 'firebase/auth';
 const getAllReservations = async (restaurantId, firebaseDatabase) => {
     const ref = firebaseDatabase.ref("/reservations/")
     const snapShot =  await ref.orderByChild("restaurant_id").equalTo(restaurantId).once("value")
+    console.log(snapShot.val())
     return snapShot.val()
 }
 const getTodayReservations = (reservations) => {
@@ -23,16 +24,7 @@ const getThisMonthReservations = (reservations) => {
     return reservations.filter(reservation => reservation.date.substring(3) === dateParser(new Date()).substring(3) )
 }
 
-// const getReservationTableData = (listReservations) => {
-//   return listReservations.map(objReservation => ({
-//     img: "https://image.freepik.com/foto-gratis/personas-que-sonrie-alegre-hombres-guapos_1187-6057.jpg",
-//     Name: Lodash.get(objReservation, ['user', 'name'], ''),
-//     LastName: Lodash.get(objReservation, ['user', 'lastname'], ''),
-//     TableNumber: Lodash.get(objReservation, 'table', 0),
-//     hour: Lodash.get(objReservation, ['schedule'], ''),
-//     code: Lodash.get(objReservation, ['uid'], null),
-//   }))
-// }
+
 
 const HomeHost = ({ firebaseDatabase, user }) =>{
     const [reservations, setReservations] = useState([]);
@@ -53,38 +45,12 @@ const HomeHost = ({ firebaseDatabase, user }) =>{
         },
         {
             'title': 'Código'
-        }
-    ];
-    const TableValues = [
-        {
-            'img': 'https://image.freepik.com/foto-gratis/personas-que-sonrie-alegre-hombres-guapos_1187-6057.jpg',
-            'Name' : 'Josias R.',
-            'LastName' : 'Carmona',
-            'TableNumber' : '4',
-            'hour': 'Tarde',
-            'code': '124 743 284'
         },
         {
-            'img': 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQZN5i6aLO9vG4-gvTMO3xdEv99TY28cWYySlkFBqSAGVu4LV66&usqp=CAU',
-            'Name' : 'Ricardo',
-            'LastName' : 'Vasquez',
-            'TableNumber' : '2',
-            'hour': 'Tarde',
-            'code': '934 382 145'
-        },
-        {
-            'img': 'https://lgfstatic.com/2015/conversions/virtudes-de-una-persona-large.jpg',
-            'Name' : 'Edisson',
-            'LastName' : 'Mata',
-            'TableNumber' : '2',
-            'hour': 'Noche',
-            'code': '320 634 123'
+            'title': ''
         }
     ];
 
-    const restaurantDataTest = {
-        restaurant_id: "prueba1"
-    }
     
     useEffect(() => {
         getAllReservations(Object.keys(user)[0], firebase.database())
@@ -97,7 +63,21 @@ const HomeHost = ({ firebaseDatabase, user }) =>{
             
 
     }, [])
+
+    // useEffect(() => {
+    //     loadReservations(Object.keys(user)[0])
+    //   }, [Object.keys(user)[0]])
     
+      const refreshData = () => {
+        loadReservations(Object.keys(user)[0])
+      }
+      const loadReservations = (restId) => {
+        getAllReservations(restId, firebase.database())
+          .then(values => {
+           return setReservations(arrayFirebaseParser(values));
+          })
+          .catch(objError=>console.log({ERROR: objError}));
+      }
     const toMemoRaiting = () => averageByKyStrict(reservations, "punctuation")
     const toMemoOnlyToday = () => getTodayReservations(reservations)
     const toMemoOnlyThisMonth = () => getThisMonthReservations(reservations)
@@ -145,7 +125,7 @@ const HomeHost = ({ firebaseDatabase, user }) =>{
         <div className='home-host'>
             <h2>{user[Object.keys(user)[0]].name}</h2>            
             <h3>Lista de reservas para hoy</h3>
-            <TableView titles={TableTitle} values={getReservationTableData(onlyToday)}/>
+            <TableView activeEvent={refreshData} titles={TableTitle} values={getReservationTableData(onlyToday)}/>
             <h3>Estadisticas</h3>
             <DashboardBox source = {DashBoxes}/>
         </div>

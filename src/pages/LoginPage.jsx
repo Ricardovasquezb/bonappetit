@@ -21,12 +21,12 @@ const LoginPage = () => {
         {
             'src': 'http://www.singlecolorimage.com/get/ff85a9/1420x400',
             'label': '¿En la oficina?',
-            'description': '!Puedes hacerlo rápido!'
+            'description': '¡Puedes hacerlo rápido!'
         },
         {
             'src': 'http://www.singlecolorimage.com/get/6ea1d2/1420x400',
             'label': '¿Cansad@?',
-            'description': '!Siquiera tiene que pararte!'
+            'description': '¡Siquiera tiene que pararte!'
         }
     ];
     

@@ -11,12 +11,14 @@ import * as firebase from 'firebase/app'
 import 'firebase/database'
 
 const ReservationDetail = ({ reservationData, isOpen, onSubmit, onClose, onDelete}) => {
+  console.log(reservationData)
   const getInitialValues = () => {
     const restaurantName = Lodash.get(reservationData, ['restaurant', 'name'], null);
     const restaurantTables = Lodash.get(reservationData, ['restaurant', 'tables'], {});
     const restaurantDirection = Lodash.get(reservationData, ['restaurant', 'direction'], null);
     const reservationSchedule = Lodash.get(reservationData, ['schedule'], null);
     const reservationDate = Lodash.get(reservationData, ['date'], null);
+    const reservationUid = Lodash.get(reservationData, ['uid'], null);
     const reservationTable = Lodash.get(reservationData, ['table'], null);
     const restaurantImageUrl = Lodash.get(reservationData, ['restaurant', 'layouturl'], '');
 
@@ -28,6 +30,7 @@ const ReservationDetail = ({ reservationData, isOpen, onSubmit, onClose, onDelet
       reservationDate: Moment(reservationDate,'DD-MM-YYYY').toDate(),
       restaurantImageUrl,
       reservationTable,
+      reservationUid
     };
   };
   
@@ -43,11 +46,12 @@ const ReservationDetail = ({ reservationData, isOpen, onSubmit, onClose, onDelet
 
           <Modal.Body>
             <Modal.Title>{values.restaurantName}</Modal.Title>
+            <Modal.Body>Codigo de Reserva: <b>{values.reservationUid}</b></Modal.Body>
             <Modal.Body>
             <Form.Label>Mesa:</Form.Label>
             <Field name="reservationTable" component="select" value={values.reservationTable} >
               {Object.keys(values.restaurantTables).map(tableKey => {
-                return <option value={tableKey}> #{values.restaurantTables[tableKey].name} para {values.restaurantTables[tableKey].capacity} personas</option>
+                return <option value={tableKey}> #{values.restaurantTables[tableKey].name+1} para {values.restaurantTables[tableKey].capacity} personas</option>
               })}
             </Field>
             </Modal.Body>

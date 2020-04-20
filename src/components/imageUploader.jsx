@@ -29,6 +29,7 @@ const ImageUploader = ({ onChange, value, hasError, helperText }) => {
             type="file"
             multiple
             class="custom-file-input"
+            accept= "image/*"
             onChange = {handleImageAsFile}
           />
           <label class="custom-file-label" for="inputGroupFile01">

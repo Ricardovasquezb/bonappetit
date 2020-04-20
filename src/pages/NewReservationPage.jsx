@@ -95,7 +95,8 @@ const NewReservationsPage = ({ firebaseDatabase, firebaseAppAuth, userSession })
                 table,
                 date,
                 reservationId,
-                active:false
+                active:false,
+                done:false,
             }
             return firebaseDatabase.ref("/reservations/").push(toPush)
              

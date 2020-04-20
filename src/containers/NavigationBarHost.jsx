@@ -40,7 +40,7 @@ const NavigationbarHost = props => {
                 </Nav>
                 <Nav>
 
-                 <Nav.Link href="#settings">Perfil</Nav.Link>
+                 {/* <Nav.Link href="#settings">Perfil</Nav.Link> */}
                 <Button variant="outline-danger" href="#login" onClick={onExit}>Salir</Button>
                 </Nav>
              </Navbar.Collapse>

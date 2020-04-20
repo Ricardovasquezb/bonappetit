@@ -86,7 +86,7 @@ const AboutUs = props => {
                     <p><strong>Bon APPetit</strong>, es una aplicación orientada a la automatización y eficientización  
                         del proceso de reservación en locales gastronómicos, a través de una <strong>plataforma web</strong>, 
                         que permite llevar a cabo el proceso de selección, reservación y seguimiento del mismo. 
-                        Estas reservaciones se realizan a través del usuario, mediante un perfil en la aplicación.</p>
+                        Estas reservaciones se realizan a través del correo, mediante un perfil en la aplicación.</p>
                 </div>}
             />
             <Slider source={DataSlider}/>

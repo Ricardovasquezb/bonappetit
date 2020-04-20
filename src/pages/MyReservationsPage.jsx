@@ -35,7 +35,17 @@ const MyReservationsPage = ({
   const [isLoading, setIsLoading] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedReservation, setSelectedReservation] = useState({});
+  const [userInfo, setUserInfo] = useState([]);
 
+  const getuserData = (async()=>{
+
+    const uid = localStorage.getItem("user")
+
+        const Data = await firebaseDatabase.ref(`/users/${uid}`).once("value")
+        return Data.val()
+
+    
+})
   const userUid = localStorage.getItem("user");
 
   const toggleModal = () => setIsModalOpen(!isModalOpen);
@@ -84,6 +94,11 @@ const MyReservationsPage = ({
 
   useEffect(() => {
     getAllRestaurantData();
+
+    getuserData()
+        .then((snapshot)=>{
+            setUserInfo(snapshot)
+        })
   }, []);
 
   useEffect(() => {
@@ -99,10 +114,10 @@ const MyReservationsPage = ({
     setSelectedReservation(objReservation);
     return toggleModal();
   };
-
+console.log(reservationsList)
   return (
     <div>
-      <Navigationbar />
+      <Navigationbar user = {userInfo}/>
 
       <LayoutType2
         Box={

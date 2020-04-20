@@ -49,7 +49,7 @@ const Login = props => {
                          <TextInput 
                             email
                             icon_mode='icon'
-                            label="Usuario"
+                            label="E-mail"
                             value={username}
                             icon='📧'
                             change={handleUsername}
@@ -84,7 +84,7 @@ const Login = props => {
                         
                                         })
                                     };
-                                // }else{
+                                //  }else{
                                 //     sweetalert("Correo no verificado","Porfavor revisa tu bandeja de entrada y verifica tu correo para acceder a la plataforma","error")
                                 //     .then(()=>{
                                 //         window.location.reload()
