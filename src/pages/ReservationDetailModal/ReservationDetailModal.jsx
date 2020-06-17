@@ -23,7 +23,7 @@ const ReservationDetailModal = ({ isOpen, reservationData, onClose}) => {
     
     return firebase.database().ref(`/reservations/${reservationData.uid}`).update(newData)
     .then(()=>{
-      // window.location.reload();
+      window.location.reload();
     });
   };
 
