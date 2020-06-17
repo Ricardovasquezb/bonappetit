@@ -19,7 +19,7 @@ const CarouselView = props => {
 
     return(
         <div className='carousel'> 
-            <Carousel activeIndex={index} onSelect={handleSelect} fade>
+            <Carousel activeIndex={index} onSelect={handleSelect} >
                 {Data.map((item) => (
                     <Carousel.Item className='carousel-item'>
                         <img
